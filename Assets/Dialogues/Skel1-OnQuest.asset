@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1283c9498d52d8843b109df08ab50222, type: 3}
+  m_Name: Skel1-OnQuest
+  m_EditorClassIdentifier: 
+  Notes: "Destination node settings: \n0-Infinite: Conversation node\n-1: Exit conversation\n-2:
+    Hide first option button"
+  npcName: Skeletito1
+  Nodes:
+  - NodeId: 0
+    Text: No te puedo hablar ahora, parece que estas ocupado
+    Options:
+    - Text: 
+      DestinationNode: -2
+      DestinationQuest: -1
+    - Text: Chau
+      DestinationNode: -1
+      DestinationQuest: -1
+  - NodeId: 1
+    Text: "No tenes lo que te ped\xED"
+    Options:
+    - Text: 
+      DestinationNode: -2
+      DestinationQuest: -1
+    - Text: Es verdad...
+      DestinationNode: -1
+      DestinationQuest: -1
+  - NodeId: 2
+    Text: No tenes suficientes manzanas...
+    Options:
+    - Text: 
+      DestinationNode: -2
+      DestinationQuest: -1
+    - Text: "Si, ten\xE9s raz\xF3n"
+      DestinationNode: -1
+      DestinationQuest: -1
+  - NodeId: 3
+    Text: Conseguiste mis manzanas! Gracias!
+    Options:
+    - Text: De nada vieja
+      DestinationNode: -1
+      DestinationQuest: -1
+    - Text: De toque
+      DestinationNode: -1
+      DestinationQuest: -1
