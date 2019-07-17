@@ -19,14 +19,14 @@ MonoBehaviour:
   - NodeId: 0
     Text: "Que hace amigo, \xBFtodo piola?"
     Options:
-    - Text: Se, necesitas algo
+    - Text: "Se, \xBFnecesitas algo?"
       DestinationNode: 1
       DestinationQuest: -1
     - Text: No jodais, chau
       DestinationNode: -1
       DestinationQuest: -1
   - NodeId: 1
-    Text: Me traerias unas manzana amigo?
+    Text: "\xBFMe traerias cuatro manzanas amigo?"
     Options:
     - Text: Si de una
       DestinationNode: -1

@@ -44,7 +44,9 @@ MonoBehaviour:
       DestinationNode: -1
       DestinationQuest: -1
   - NodeId: 3
-    Text: Conseguiste mis manzanas! Gracias!
+    Text: 'Conseguiste mis manzanas!
+
+      Gracias!'
     Options:
     - Text: De nada vieja
       DestinationNode: -1

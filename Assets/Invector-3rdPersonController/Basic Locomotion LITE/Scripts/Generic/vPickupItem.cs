@@ -13,6 +13,7 @@ public class vPickupItem : MonoBehaviour
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+        thisItem.itemPos = this.transform.position;
     }
 
     void Update(){

@@ -54,6 +54,12 @@ public class PlayerInventory : MonoBehaviour
         inventoryUI.GetComponent<InventoryUI>().DrawUI();
     }
 
+    public void removeAllItems(){
+        playerItems.Clear();
+        //Redibujar interfaz
+        inventoryUI.GetComponent<InventoryUI>().DrawUI();
+    }
+
     public int getInventoryListIndexByID(int id){
         //Buscamos el item
         for (int i = 0; i < playerItems.Count; i++)

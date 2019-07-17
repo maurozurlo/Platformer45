@@ -16,6 +16,10 @@ public class QuestManager : MonoBehaviour
     public int currentQuestID;
     public Quest currentQuest;
 
+    //SFX
+    public AudioClip missionCompleted;
+    public AudioClip missionFailed;
+
     
     private void Start() {
         
@@ -48,6 +52,9 @@ public class QuestManager : MonoBehaviour
         currentQuest = null;
         currentQuestID = -1;
         QuestUI.text = "Active quest: None";
+        //Avisar al pibe que ya está
+        this.GetComponent<GeneralMessageUI>().DisplayMessage("LA RE HICISTE AMEO",6,"top");
+        this.GetComponent<PlayerCharacter>().sfx.GetComponent<GeneralSFX>().playSound(missionCompleted);
     }
 
     public int checkQuestStatus(){
