@@ -10,7 +10,7 @@ public class vPickupItem : MonoBehaviour
     //public GameObject _particle;
 
 
-    void Start()
+    void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
         thisItem.itemPos = this.transform.position;

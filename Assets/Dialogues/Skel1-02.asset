@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1283c9498d52d8843b109df08ab50222, type: 3}
+  m_Name: Skel1-02
+  m_EditorClassIdentifier: 
+  Notes: "Destination node settings: \n0-Infinite: Conversation node\n-1: Exit conversation\n-2:
+    Hide first option button"
+  npcName: Skeletito1
+  Nodes:
+  - NodeId: 0
+    Text: Che graciela por lo de las manzana pero no te puedo ayudar mas ahora ameo
+    Options:
+    - Text: 
+      DestinationNode: -2
+      DestinationQuest: -1
+    - Text: Chau
+      DestinationNode: -1
+      DestinationQuest: -1

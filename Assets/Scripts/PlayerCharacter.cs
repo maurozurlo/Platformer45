@@ -105,6 +105,7 @@ public class PlayerCharacter : MonoBehaviour
 
 
         public void respawnPlayer(){
+            this.GetComponent<PlayerInventory>().removeAllItems();
             state = STATES.LOCKED;
             Unlock();
             Rigidbody rb = this.GetComponent<Rigidbody>();
@@ -124,7 +125,6 @@ public class PlayerCharacter : MonoBehaviour
             Lock();
             health = 0;
             this.state = STATES.DEAD;
-            this.GetComponent<PlayerInventory>().removeAllItems();
             this.GetComponent<GeneralMessageUI>().DisplayMessage("TE RE MORISTE PA \n APRETA \"R\" PARA VOLVER A JUGAR",0f,"bottom");
             gameControl.control.restartLevel();
         }

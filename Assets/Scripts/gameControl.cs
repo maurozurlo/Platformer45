@@ -6,6 +6,15 @@ public class gameControl : MonoBehaviour
 {
     public static gameControl control;
     public List<BasicItem> itemPersistance;
+    public struct CompletedQuest{
+        public int id;
+
+        public CompletedQuest(int newID){
+            id = newID;
+        }
+    }
+    public List<int> completedQuests;
+
     public GameObject[] itemPrefabs;
     
     void Awake()
@@ -20,11 +29,22 @@ public class gameControl : MonoBehaviour
         saveItemPositions();
     }
 
+
+    public void restartLevel()
+    {
+        destroyAllItems();
+        restoreItemPositions();
+    }
+
+
+    ///ITEMS
     void saveItemPositions()
     {
         foreach (var item in GameObject.FindGameObjectsWithTag("Item"))
         {
-            itemPersistance.Add(item.GetComponent<vPickupItem>().thisItem);
+            BasicItem itemToClone = item.GetComponent<vPickupItem>().thisItem;
+            BasicItem itemToSave = new BasicItem(itemToClone.label,itemToClone.id,itemToClone.amount,itemToClone.itemPos);
+            itemPersistance.Add(itemToSave);
         }
     }
 
@@ -37,13 +57,6 @@ public class gameControl : MonoBehaviour
         }
     }
 
-    public void restartLevel()
-    {
-        destroyAllItems();
-        restoreItemPositions();
-    }
-
-
     void destroyAllItems()
     {
         GameObject[] itemInstances = GameObject.FindGameObjectsWithTag("Item");
@@ -51,5 +64,22 @@ public class gameControl : MonoBehaviour
         {
             Destroy(itemInstances[i]);
         }
+    }
+
+    //Quests
+    public void AddCompletedQuest(int questID){
+        completedQuests.Add(questID);
+    }
+
+    public bool checkIfQuestIsCompleted(int questID){
+        if(completedQuests.Count > 0){
+         foreach (int item in completedQuests)
+            {
+                 if(item == questID)
+                 return true;
+             }
+         }
+        
+        return false;
     }
 }

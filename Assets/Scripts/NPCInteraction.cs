@@ -14,7 +14,7 @@ public class NPCInteraction : MonoBehaviour
     //Esto lo dejamos para cuando podamos cargar dialogos en XML
     public List<DialogueManager> thisCharsDialogues;
     //Quests que este NPC puede dar
-    public int[] QuestsThisNPCCanGive;
+    public int QuestThisNPCCanGive;
 
     void Start()
     {
@@ -44,16 +44,20 @@ public class NPCInteraction : MonoBehaviour
             //Aca chequear primero si el personaje tiene una Quest, sino
             if(player.GetComponent<QuestManager>().currentQuest != null){
                 //Tenemos una quest, chequear si es una de este NPC en particular
-                if(checkIfThisIsAQuestThisNPCCanGive(player.GetComponent<QuestManager>().currentQuestID))
+                if(QuestThisNPCCanGive == player.GetComponent<QuestManager>().currentQuestID)
                 {
                     //Cheuqear estado de la quest y responder en consecuencia
                     StartConversation(1,player.GetComponent<QuestManager>().checkQuestStatus());
                 }else{
+                    //Es una quest de este personaje, iniciar la conversacion 
                     StartConversation(1,0);
                 }
-                //Es una quest de este personaje, iniciar la conversacion 
             }else{
-                StartConversation(0,0);
+                if(gameControl.control.checkIfQuestIsCompleted(QuestThisNPCCanGive)){
+                    StartConversation(2,0);
+                }else{
+                    StartConversation(0,0);
+                }
             }
         }
     }
@@ -103,14 +107,5 @@ public class NPCInteraction : MonoBehaviour
         dialogueUI.SetActive(false);
         yield return new WaitForSeconds(waitTime);
         player.GetComponent<PlayerCharacter>().Unlock();
-    }
-
-    public bool checkIfThisIsAQuestThisNPCCanGive(int currentQuest){
-        foreach (int item in QuestsThisNPCCanGive)
-        {
-            if(item == currentQuest)
-            return true;
-        }
-        return false;
     }
 }

@@ -55,6 +55,8 @@ public class QuestManager : MonoBehaviour
         //Avisar al pibe que ya está
         this.GetComponent<GeneralMessageUI>().DisplayMessage("LA RE HICISTE AMEO",6,"top");
         this.GetComponent<PlayerCharacter>().sfx.GetComponent<GeneralSFX>().playSound(missionCompleted);
+        //Guardar que la quest se completo
+        gameControl.control.AddCompletedQuest(quest);
     }
 
     public int checkQuestStatus(){
