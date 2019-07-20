@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public List<BasicItem> playerItems;
     public UnityEngine.UI.Text inventoryUI;
 
     public void addItem(BasicItem thisItem)
     {
         bool add = false;
 
-        foreach (BasicItem item in playerItems)
+        foreach (BasicItem item in gameControl.control.inventory)
         {
             if (thisItem.id == item.id)
             {
@@ -22,7 +21,7 @@ public class PlayerInventory : MonoBehaviour
 
         if (!add)
         {
-            playerItems.Add(thisItem);
+            gameControl.control.inventory.Add(thisItem);
         }
         //Redibujar interfaz
         inventoryUI.GetComponent<InventoryUI>().DrawUI();
@@ -36,15 +35,15 @@ public class PlayerInventory : MonoBehaviour
         //Si encontramos el item a eliminar...
         if (idToRemove != -1)
         {
-            if (playerItems[idToRemove].amount >= amount)
+            if (gameControl.control.inventory[idToRemove].amount >= amount)
             {
                 //Si tenemos más de lo que vamos a eliminar, mantenemos el item, pero bajamos la cantidad
-                playerItems[idToRemove].amount -= amount;
+                gameControl.control.inventory[idToRemove].amount -= amount;
 
-                if (playerItems[idToRemove].amount == 0)
+                if (gameControl.control.inventory[idToRemove].amount == 0)
                 {
                     //Tambien remover item, si el amount quedo en 0
-                    playerItems.RemoveAt(idToRemove);
+                    gameControl.control.inventory.RemoveAt(idToRemove);
                 }
             }
         }
@@ -52,19 +51,21 @@ public class PlayerInventory : MonoBehaviour
 
         //Redibujar interfaz
         inventoryUI.GetComponent<InventoryUI>().DrawUI();
+        
     }
 
     public void removeAllItems(){
-        playerItems.Clear();
+        gameControl.control.inventory.Clear();
         //Redibujar interfaz
         inventoryUI.GetComponent<InventoryUI>().DrawUI();
+        
     }
 
     public int getInventoryListIndexByID(int id){
         //Buscamos el item
-        for (int i = 0; i < playerItems.Count; i++)
+        for (int i = 0; i < gameControl.control.inventory.Count; i++)
         {
-            if (playerItems[i].id == id)
+            if (gameControl.control.inventory[i].id == id)
                 return i;
         }
         //Si no se encontro, devuelve -1

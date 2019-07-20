@@ -5,7 +5,13 @@ using UnityEngine;
 public class gameControl : MonoBehaviour
 {
     public static gameControl control;
-    public List<BasicItem> itemPersistance;
+    public int amountOfLives = 2;
+    public int savePoint;
+    public int questQuantity = 10;
+    public int sceneIndex = 1;
+
+    public List<BasicItem> inventory;
+
     public struct CompletedQuest{
         public int id;
 
@@ -14,56 +20,12 @@ public class gameControl : MonoBehaviour
         }
     }
     public List<int> completedQuests;
-
-    public GameObject[] itemPrefabs;
     
     void Awake()
     {
         if (control == null)
             control = this;
         DontDestroyOnLoad(this.gameObject);
-    }
-
-    void Start()
-    {
-        saveItemPositions();
-    }
-
-
-    public void restartLevel()
-    {
-        destroyAllItems();
-        restoreItemPositions();
-    }
-
-
-    ///ITEMS
-    void saveItemPositions()
-    {
-        foreach (var item in GameObject.FindGameObjectsWithTag("Item"))
-        {
-            BasicItem itemToClone = item.GetComponent<vPickupItem>().thisItem;
-            BasicItem itemToSave = new BasicItem(itemToClone.label,itemToClone.id,itemToClone.amount,itemToClone.itemPos);
-            itemPersistance.Add(itemToSave);
-        }
-    }
-
-    void restoreItemPositions()
-    {
-        foreach (BasicItem item in itemPersistance)
-        {
-            GameObject _item = Instantiate(itemPrefabs[item.id], item.itemPos, Quaternion.identity) as GameObject;
-            _item.GetComponent<vPickupItem>().thisItem = item;
-        }
-    }
-
-    void destroyAllItems()
-    {
-        GameObject[] itemInstances = GameObject.FindGameObjectsWithTag("Item");
-        for (int i = 0; i < itemInstances.Length; i++)
-        {
-            Destroy(itemInstances[i]);
-        }
     }
 
     //Quests
@@ -81,5 +43,24 @@ public class gameControl : MonoBehaviour
          }
         
         return false;
+    }
+
+    //Save
+
+    public void Save(int slot){
+        SaveLoadManager.SavePlayer(control,slot);
+    }
+
+    public void Load(PlayerData data){
+        //Asignar cosas
+        this.amountOfLives = data.amountOfLives;
+        this.completedQuests = data.questsCompleted;
+        this.inventory = data.inventory;
+        this.savePoint = data.savePoint;
+    }
+
+    public string returnPercentageCompleted(int completedQuests){
+        float a = completedQuests * 100 / questQuantity;
+        return a + "%";
     }
 }

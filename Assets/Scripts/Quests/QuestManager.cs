@@ -69,7 +69,7 @@ public class QuestManager : MonoBehaviour
         //Cambiar esto...
         List<QuestItem> currentQuestItems = questDb[currentQuestID].itemHuntDB;
 
-            foreach (BasicItem item in player.GetComponent<PlayerInventory>().playerItems)
+            foreach (BasicItem item in gameControl.control.inventory)
             {
                 //Por ahora solo chequeamos el primer item de la BD de la Quest, dps habria que chequear todos
                 if(item.id == questDb[currentQuestID].itemHuntDB[0].itemId)

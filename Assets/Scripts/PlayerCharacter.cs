@@ -22,7 +22,6 @@ public class PlayerCharacter : MonoBehaviour
         // is the character a player ?
         public bool isPlayer = false;
 
-        GameObject spawnPoint;
         public GameObject sfx;
            // Start is called before the first frame update
         void Start()
@@ -31,9 +30,6 @@ public class PlayerCharacter : MonoBehaviour
             {
                 anim = this.GetComponent<Animator>();
             }
-            spawnPoint = GameObject.Find("spawnPoint");
-            if(spawnPoint == null)
-            Debug.LogError("Spawn Point not found");
         }
 
         public STATES GetMoveState()
@@ -96,9 +92,13 @@ public class PlayerCharacter : MonoBehaviour
         }
 
         void Update(){
-            if(Input.GetKeyDown(KeyCode.R))
-            if(state == STATES.DEAD){
+            if(Input.GetKeyDown(KeyCode.R)){
+            if(state == STATES.DEAD && gameControl.control.amountOfLives > 0){
+                gameControl.control.amountOfLives--;
                 respawnPlayer();
+            }else if(state == STATES.DEAD && gameControl.control.amountOfLives == 0){
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0,UnityEngine.SceneManagement.LoadSceneMode.Single);
+            }
             }
         }
 
@@ -112,8 +112,8 @@ public class PlayerCharacter : MonoBehaviour
             rb.useGravity = true;
             rb.WakeUp();
             this.GetComponent<AnimHandler>().resetCamera();
-            this.transform.position = spawnPoint.transform.position;
             this.GetComponent<GeneralMessageUI>().hideMessageImmediatly();
+            levelManager.control.spawnPlayerOnSavePoint(gameControl.control.savePoint);
         }
 
         public void beKilledInstantly(){
@@ -125,7 +125,12 @@ public class PlayerCharacter : MonoBehaviour
             Lock();
             health = 0;
             this.state = STATES.DEAD;
+            if(gameControl.control.amountOfLives > 0)
             this.GetComponent<GeneralMessageUI>().DisplayMessage("TE RE MORISTE PA \n APRETA \"R\" PARA VOLVER A JUGAR",0f,"bottom");
-            gameControl.control.restartLevel();
+            else if(gameControl.control.amountOfLives == 0)
+            {
+                this.GetComponent<GeneralMessageUI>().DisplayMessage("GAME OVER VIEJA, \n APRETA \"R\" PARA VOLVER AL MENU",0f,"bottom");
+            }
+            levelManager.control.restartLevel();
         }
 }

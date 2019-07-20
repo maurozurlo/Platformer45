@@ -15,7 +15,7 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     public void DrawUI()
     {
-        List<BasicItem> inventory = player.GetComponent<PlayerInventory>().playerItems;
+        List<BasicItem> inventory = gameControl.control.inventory;
         string itemsDetail = string.Empty;
         int totalItems = 0;
 

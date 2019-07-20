@@ -12,8 +12,26 @@ public class MenuUI : MonoBehaviour
     public Sprite[] soundImg;
     public Image soundUI;
     bool loadSave, options;
+    //SaveGames
+    [Header("SaveGames")]
+    public Image[] SGimgUI;
+    public Text[] SGtitleUI;
+    public Text[] SGdescUI;
+    public GameObject[] SGdelSaveUI;
+    //Modal
+    [Header("Modal")]
+    public GameObject modal;
+    public Text modalText;
+    public Button yesButton;
+    public Button noButton;
 
 
+    public void Awake(){
+        fillUpSaveSlots();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    
     public void LoadSave(){
         loadSave = !loadSave;
         loadGameCanvas.SetActive(loadSave);
@@ -40,6 +58,52 @@ public class MenuUI : MonoBehaviour
         soundUI.sprite = soundImg[0];
         else
         soundUI.sprite = soundImg[1];
+    }
+
+    public void fillUpSaveSlots(){
+        for (int i = 1; i <= 4; i++)
+        {
+            if(SaveLoadManager.checkIfSaveExists(i)){
+            PlayerData data = SaveLoadManager.LoadPlayer(i);
+            SGtitleUI[i-1].text =  "Lives: " + data.amountOfLives.ToString();
+            SGdescUI[i-1].text = "Percentage completed: " + gameControl.control.returnPercentageCompleted(data.questsCompleted.Count);
+            }
+            SGimgUI[i-1].GetComponent<Button>().interactable = SaveLoadManager.checkIfSaveExists(i);
+            SGdelSaveUI[i-1].GetComponent<Button>().interactable = SaveLoadManager.checkIfSaveExists(i);
+        }
+    }
+
+    public void LoadSaveGame(int slot){
+        PlayerData data = SaveLoadManager.LoadPlayer(slot);
+        gameControl.control.Load(data);
+        SceneManager.LoadScene(gameControl.control.sceneIndex);
+    }
+
+    public void openModal(int slot){
+        modal.SetActive(true);
+        string a = "¿Estas seguro de que queres eliminar la partida guardada en el espacio " + slot.ToString() + "?";
+        modalText.text = a;
+         Button btn = yesButton.GetComponent<Button>(); //or just drag-n-drop the button in the CustomButton field
+         btn.GetComponent<ModalButton>().slot = slot;
+         btn.onClick.AddListener(modalButton_onClick);  //subscribe to the onClick event
+    }
+
+
+
+     //Handle the onClick event
+     void modalButton_onClick()
+     {
+         DeleteSaveSlot(yesButton.GetComponent<ModalButton>().slot);
+         closeModal();
+     }
+
+    public void closeModal(){
+        modal.SetActive(false);
+        fillUpSaveSlots();
+    }
+
+    public void DeleteSaveSlot(int slot){
+        SaveLoadManager.DeleteSave(slot);
     }
     
 }
