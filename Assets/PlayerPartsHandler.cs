@@ -14,7 +14,7 @@ public class PlayerPartsHandler : MonoBehaviour
 
     private void Start() {
         headStartPos = skull.transform.localPosition;    
-        headStartRotation = skull.transform.rotation;
+        headStartRotation = skull.transform.localRotation;
     }
     // Update is called once per frame
     void Update()
@@ -50,7 +50,9 @@ public class PlayerPartsHandler : MonoBehaviour
         //desactivar roll head
         skull.GetComponent<rollHead>().enabled = false;
         //Desactivar camara
-        this.GetComponent<camSwitcher>().isActive = false;
+        camSwitcher _camSwitcher = this.GetComponent<camSwitcher>();
+        _camSwitcher.isActive = false;
+        _camSwitcher.ChangeCamera(_camSwitcher.skullCamera,_camSwitcher.mainCamera);
         //DesActivar SphereCollider
         skull.GetComponent<SphereCollider>().enabled = false;
         //DesActivar RB de la Head
@@ -60,7 +62,7 @@ public class PlayerPartsHandler : MonoBehaviour
         //Place head
         skull.transform.parent = headBone.transform;
         skull.transform.localPosition = headStartPos;
-        skull.transform.rotation = headStartRotation;
+        skull.transform.localRotation = headStartRotation;
         this.GetComponent<PlayerCharacter>().Unlock();
         isPlayerNotComplete = false;
     }
