@@ -41,6 +41,23 @@ namespace Invector.CharacterController
             CharacterInit();
         }
 
+        public void LockPlayer(bool newState)
+        {
+            cc.lockMovement = newState;
+            cc.enabled = !newState;
+        }
+
+        public void ShowHidePlayer(bool newState)
+        {
+            foreach(SkinnedMeshRenderer s in GetComponentsInChildren<SkinnedMeshRenderer>()) {
+                s.enabled = newState;
+            }
+            foreach (MeshRenderer s in GetComponentsInChildren<MeshRenderer>())
+            {
+                s.enabled = newState;
+            }
+        }
+
         protected virtual void CharacterInit()
         {
             cc = GetComponent<vThirdPersonController>();

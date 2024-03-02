@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Invector;
 
 public class NPCInteraction : MonoBehaviour
 {
@@ -11,10 +12,12 @@ public class NPCInteraction : MonoBehaviour
     public GameObject dialogueUI;
     GameObject cameraPivot;
     GameObject player;
+    PlayerCharacter playerCharacter;
     //Esto lo dejamos para cuando podamos cargar dialogos en XML
     public List<DialogueManager> thisCharsDialogues;
     //Quests que este NPC puede dar
     public int QuestThisNPCCanGive;
+    Invector.CharacterController.vThirdPersonInput playerControl;
 
     void Start()
     {
@@ -41,6 +44,8 @@ public class NPCInteraction : MonoBehaviour
         {
             //Start conversation
             player = other.gameObject;
+            playerControl = other.gameObject.GetComponent<Invector.CharacterController.vThirdPersonInput>();
+            playerCharacter = other.gameObject.GetComponent<PlayerCharacter>();
             //Aca chequear primero si el personaje tiene una Quest, sino
             if(player.GetComponent<QuestManager>().currentQuest != null){
                 //Tenemos una quest, chequear si es una de este NPC en particular
@@ -70,9 +75,9 @@ public class NPCInteraction : MonoBehaviour
         {
             //Move Player
             startPlayerPos = player.transform.position;
-            player.transform.position = new Vector3(player.transform.position.x,player.transform.position.y -10,player.transform.position.z);
+            playerControl.ShowHidePlayer(false);
+            playerCharacter.Lock();
             WaitForIdle();
-
             //Start UI
             dialogueUI.SetActive(true);
             //En realidad acá habria que setear el DM (Que vendria de cada NPC... pero por ahora no)
@@ -99,13 +104,11 @@ public class NPCInteraction : MonoBehaviour
         //Esperamos
         player.GetComponent<Animator>().SetTrigger("ReturnToNormal");
         //Movemos al player
-        player.transform.position = new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z - 5);
-        //Desbloqueamos al player
-        Rigidbody rb = player.GetComponent<Rigidbody>();
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        player.transform.position = new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z - 2);
+        playerControl.ShowHidePlayer(true);
         dialogueUI.SetActive(false);
         yield return new WaitForSeconds(waitTime);
-        player.GetComponent<PlayerCharacter>().Unlock();
+        //Desbloqueamos al player
+        playerCharacter.Unlock();
     }
 }
