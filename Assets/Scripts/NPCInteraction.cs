@@ -13,15 +13,11 @@ public class NPCInteraction : MonoBehaviour
     GameObject cameraPivot;
     GameObject player;
     PlayerCharacter playerCharacter;
-    //Esto lo dejamos para cuando podamos cargar dialogos en XML
-    public List<DialogueManager> thisCharsDialogues;
-    //Quests que este NPC puede dar
-    public int QuestThisNPCCanGive;
     Invector.CharacterController.vThirdPersonInput playerControl;
+    public MessageReader messageReader;
 
     void Start()
     {
-        //dialogueUI = GameObject.Find("DialogueUI");
         if (dialogueUI == null)
             Debug.LogError("Dialogue UI not found");
         foreach (Transform item in transform)
@@ -46,29 +42,13 @@ public class NPCInteraction : MonoBehaviour
             player = other.gameObject;
             playerControl = other.gameObject.GetComponent<Invector.CharacterController.vThirdPersonInput>();
             playerCharacter = other.gameObject.GetComponent<PlayerCharacter>();
-            //Aca chequear primero si el personaje tiene una Quest, sino
-            if(player.GetComponent<QuestManager>().currentQuest != null){
-                //Tenemos una quest, chequear si es una de este NPC en particular
-                if(QuestThisNPCCanGive == player.GetComponent<QuestManager>().currentQuestID)
-                {
-                    //Cheuqear estado de la quest y responder en consecuencia
-                    StartConversation(1,player.GetComponent<QuestManager>().checkQuestStatus());
-                }else{
-                    //Es una quest de este personaje, iniciar la conversacion 
-                    StartConversation(1,0);
-                }
-            }else{
-                if(gameControl.control.checkIfQuestIsCompleted(QuestThisNPCCanGive)){
-                    StartConversation(2,0);
-                }else{
-                    StartConversation(0,0);
-                }
-            }
+            // TODO: get message if not first time we bump into this character
+            StartConversation();
         }
     }
 
 
-    void StartConversation(int dialogueNumber, int nodeToStart)
+    void StartConversation()
     {
         //Ask if the player is locked
         if (!player.GetComponent<PlayerCharacter>().isLocked())
@@ -81,8 +61,9 @@ public class NPCInteraction : MonoBehaviour
             //Start UI
             dialogueUI.SetActive(true);
             //En realidad acá habria que setear el DM (Que vendria de cada NPC... pero por ahora no)
-            dialogueUI.GetComponent<DialogueUI>().dm = thisCharsDialogues[dialogueNumber];
-            dialogueUI.GetComponent<DialogueUI>().StartDialogue(this.gameObject,nodeToStart);
+            NpcDialogue npcDialogue = messageReader.GetDialogue();
+            dialogueUI.GetComponent<DialogueUI>().dialogue = npcDialogue;
+            dialogueUI.GetComponent<DialogueUI>().StartDialogue(this.gameObject,0);
             //Cursor
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -107,8 +88,9 @@ public class NPCInteraction : MonoBehaviour
         player.transform.position = new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z - 2);
         playerControl.ShowHidePlayer(true);
         dialogueUI.SetActive(false);
+        playerCharacter.Unlock();
         yield return new WaitForSeconds(waitTime);
         //Desbloqueamos al player
-        playerCharacter.Unlock();
+        
     }
 }

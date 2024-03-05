@@ -1,0 +1,113 @@
+{
+    "npcName": "El test",
+    "dialogue": [
+        {
+            "id": 0,
+            "onQuest": null,
+            "text": "Hola, cual es tu fruta preferida",
+            "options": [
+                {
+                    "text": "Las manzanas",
+                    "_action": "goToNode",
+                    "value": 1
+                },
+                {
+                    "text": "Las naranjas",
+                    "_action": "goToNode",
+                    "value": 2
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "onQuest": null,
+            "text": "Asi que te gustan las manzanas, traeme cuatro por favor",
+            "options": [
+                {
+                    "text": "Perfecto",
+                    "_action": "startQuest",
+                    "value": 0
+                },
+                {
+                    "text": "No quiero",
+                    "_action": "endChat",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "onQuest": null,
+            "text": "Te gustan las naranjas, traeme una por favor",
+            "options": [
+                {
+                    "text": "Perfecto",
+                    "_action": "startQuest",
+                    "value": 2
+                },
+                {
+                    "text": "No quiero",
+                    "_action": "endChat",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "onQuest": 1,
+            "questCompleted": false,
+            "text": "Tenes mis manzanas!",
+            "options": [
+                {
+                    "text": "Aca estan",
+                    "_action": "goToNode",
+                    "value": 4
+                },
+                {
+                    "text": "No todavia",
+                    "_action": "endChat",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "onQuest": 1,
+            "questCompleted": false,
+            "text": "No parece que las tengas",
+            "options": [
+                {
+                    "text": "Voy a buscarlas",
+                    "_action": "endChat",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "onQuest": 1,
+            "questCompleted": true,
+            "text": "Gracias por las manzanas",
+            "options": [
+                {
+                    "text": "De nada",
+                    "_action": "rewardAndEndChat",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "onQuest": 1,
+            "questCompleted": true,
+            "text": "No puedo hacer nada mas por vos",
+            "options": [
+                {
+                    "text": "OK",
+                    "_action": "endChat",
+                    "value": null
+                }
+            ]
+        }
+    ]
+}

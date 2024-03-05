@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class OptionUI : MonoBehaviour
 {
-    public int goToNode;
-    public int goToQuest = -1;
+    public int value;
+    public ActionType action;
 }
