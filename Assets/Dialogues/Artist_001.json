@@ -1,184 +1,243 @@
 {
-    "npcName": "Test NPC",
-    "quests": [
-        0,
-        2
-    ],
-    "dialogue": [
+  "npcName": "Test NPC",
+  "quests": [
+    0,
+    2
+  ],
+  "dialogue": [
+    {
+      "id": "common_intro",
+      "nodes": [
         {
-            "id": "common_intro",
-            "nodes": [
-                {
-                    "id": 0,
-                    "text": "Hola, cual es tu fruta preferida",
-                    "options": [
-                        {
-                            "text": "Las manzanas",
-                            "_action": "goToNode",
-                            "value": 1
-                        },
-                        {
-                            "text": "Las naranjas",
-                            "_action": "goToNode",
-                            "value": 2
-                        }
-                    ]
-                },
-                {
-                    "id": 1,
-                    "text": "Asi que te gustan las manzanas, traeme cuatro por favor",
-                    "options": [
-                        {
-                            "text": "Perfecto",
-                            "_action": "startQuest",
-                            "value": 0
-                        },
-                        {
-                            "text": "No quiero",
-                            "_action": "endChat",
-                            "value": null
-                        }
-                    ]
-                },
-                {
-                    "id": 2,
-                    "text": "Te gustan las naranjas, traeme una por favor",
-                    "options": [
-                        {
-                            "text": "Perfecto",
-                            "_action": "startQuest",
-                            "value": 2
-                        },
-                        {
-                            "text": "No quiero",
-                            "_action": "endChat",
-                            "value": null
-                        }
-                    ]
-                }
-            ]
+          "id": 0,
+          "text": "Hola, cual es tu fruta preferida",
+          "options": [
+            {
+              "text": "Las manzanas",
+              "_action": "goToNode",
+              "value": 1
+            },
+            {
+              "text": "Las naranjas",
+              "_action": "goToNode",
+              "value": 2
+            }
+          ]
         },
         {
-            "id": "quest_0_ongoing",
-            "nodes": [
-                {
-                    "id": 0,
-                    "text": "No parece que tengas las manzanas que te pedi",
-                    "options": [
-                        {
-                            "text": "No todavia",
-                            "_action": "endChat",
-                            "value": null
-                        }
-                    ]
-                }
-            ]
+          "id": 1,
+          "text": "Asi que te gustan las manzanas, traeme cuatro por favor",
+          "options": [
+            {
+              "text": "Perfecto",
+              "_action": "startQuest",
+              "value": 0
+            },
+            {
+              "text": "No quiero",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
         },
         {
-            "id": "quest_0_completed_some",
-            "nodes": [
-                {
-                    "id": 0,
-                    "text": "Gracias por las manzanas, podes ayudarme con otra cosa?",
-                    "options": [
-                        {
-                            "text": "Si",
-                            "_action": "goToNode",
-                            "value": 1
-                        },
-                        {
-                            "text": "No puedo",
-                            "_action": "endChat",
-                            "value": null
-                        }
-                    ]
-                },
-                {
-                    "id": 1,
-                    "text": "Podes traerme una naranja?",
-                    "options": [
-                        {
-                            "text": "Si",
-                            "_action": "startQuest",
-                            "value": 2
-                        },
-                        {
-                            "text": "No puedo",
-                            "_action": "endChat",
-                            "value": null
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "quest_2_ongoing",
-            "nodes": [
-                {
-                    "id": 0,
-                    "text": "No parece que tengas la naranja que te pedi",
-                    "options": [
-                        {
-                            "text": "No todavia",
-                            "_action": "endChat",
-                            "value": null
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "quest_2_completed_some",
-            "nodes": [
-                {
-                    "id": 0,
-                    "text": "Gracias por la naranja, podes ayudarme con otra cosa?",
-                    "options": [
-                        {
-                            "text": "Si",
-                            "_action": "goToNode",
-                            "value": 1
-                        },
-                        {
-                            "text": "No puedo",
-                            "_action": "endChat",
-                            "value": null
-                        }
-                    ]
-                },
-                {
-                    "id": 1,
-                    "text": "Podes traerme una manzana?",
-                    "options": [
-                        {
-                            "text": "Si",
-                            "_action": "startQuest",
-                            "value": 0
-                        },
-                        {
-                            "text": "No puedo",
-                            "_action": "endChat",
-                            "value": null
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "common_completed_all",
-            "nodes": [
-                {
-                    "id": 0,
-                    "text": "Gracias por completar todas mis tareas",
-                    "options": [
-                        {
-                            "text": "OK",
-                            "_action": "endChat",
-                            "value": null
-                        }
-                    ]
-                }
-            ]
+          "id": 2,
+          "text": "Te gustan las naranjas, traeme una por favor",
+          "options": [
+            {
+              "text": "Perfecto",
+              "_action": "startQuest",
+              "value": 2
+            },
+            {
+              "text": "No quiero",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "id": "quest_0_ongoing",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "No parece que tengas las manzanas que te pedi",
+          "options": [
+            {
+              "text": "No todavia",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quest_0_completed_some",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "Gracias por las manzanas, podes ayudarme con otra cosa?",
+          "options": [
+            {
+              "text": "Si",
+              "_action": "goToNode",
+              "value": 1
+            },
+            {
+              "text": "No puedo",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Podes traerme una naranja?",
+          "options": [
+            {
+              "text": "Si",
+              "_action": "startQuest",
+              "value": 2
+            },
+            {
+              "text": "No puedo",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quest_2_ongoing",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "No parece que tengas la naranja que te pedi",
+          "options": [
+            {
+              "text": "No todavia",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quest_2_completed_some",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "Gracias por la naranja, podes ayudarme con otra cosa?",
+          "options": [
+            {
+              "text": "Si",
+              "_action": "goToNode",
+              "value": 1
+            },
+            {
+              "text": "No puedo",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Podes traerme una manzana?",
+          "options": [
+            {
+              "text": "Si",
+              "_action": "startQuest",
+              "value": 0
+            },
+            {
+              "text": "No puedo",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "common_completed_all",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "Gracias por completar todas mis tareas",
+          "options": [
+            {
+              "text": "OK",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "common_completed_all_first",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "Bueno, gracias por las manzanas y las naranjas, este es un texto que se mostraria la primera vez que completes las tareas, pero no se va a volver a repetir. Salu3, Also, tambien sirve para probar el editor de dialogos",
+          "options": [
+            {
+              "text": "Perfecto, la seguimos?",
+              "_action": "goToNode",
+              "value": 1
+            },
+            {
+              "text": "Ok",
+              "_action": "endChat"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Si, dale, sigamosla un poco, me parece bien",
+          "options": [
+            {
+              "text": "Ya esta",
+              "_action": "endChat"
+            },
+            {
+              "text": "Quiero seguir",
+              "_action": "goToNode",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Y dale con seguirla, bueno. Eh... de que queres hablar? del clima?",
+          "options": [
+            {
+              "text": "Esta lindo el dia",
+              "_action": "goToNode"
+            },
+            {
+              "text": "No",
+              "_action": "endChat"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Si, la verdad que se vienen dias lindos",
+          "options": [
+            {
+              "text": "Perfecto",
+              "_action": "endChat"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
