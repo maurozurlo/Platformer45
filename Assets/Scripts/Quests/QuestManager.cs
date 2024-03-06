@@ -117,9 +117,7 @@ public class QuestManager : MonoBehaviour
             if (!IsQuestCompleted())
             {
                 // TODO: Add fallback if NPC doesn't have dialog for this quest
-                
                 string id = DialogueUI.GetDialogId(DialogueUI.DialogType.ongoing, _quest);
-                
                 return id;
             }
             // Complete Quest
@@ -128,26 +126,20 @@ public class QuestManager : MonoBehaviour
         // 2. Check if player has completed any of this NPC's quests
         List<int> completedQuests = gameControl.control.completedQuests;
         bool hasCompletedQuest = completedQuests.Any(quest => npcQuests.Contains(quest));
-
-        Debug.Log($"NPc quests:\n{string.Join("\n", npcQuests)}");
-        Debug.Log($"Completed quest:\n{string.Join("\n", completedQuests)}");
         // 3. Player hasn't completed any of this NPCs quests, return intro
         if (!hasCompletedQuest)
         {
-            Debug.Log("Got here 3");
             return DialogueUI.GetDialogId(DialogueUI.DialogType.intro);
         }
         int completedQuestCount = completedQuests.Count(quest => npcQuests.Contains(quest));
         // 4. All quests are completed
         if (completedQuestCount == npcQuests.Length)
         {
-            Debug.Log("Got here 4");
             return DialogueUI.GetDialogId(DialogueUI.DialogType.completed_all);
         }
         // 5. Some quests are completed, but not all
         if (completedQuestCount < npcQuests.Length)
         {
-            Debug.Log("Got here 5");
             return DialogueUI.GetDialogId(DialogueUI.DialogType.completed_some, _quest);
         }
         // 6. Why the fuck are we here

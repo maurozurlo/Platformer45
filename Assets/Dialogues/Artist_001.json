@@ -69,11 +69,6 @@
                             "text": "No todavia",
                             "_action": "endChat",
                             "value": null
-                        },
-                        {
-                            "text": "No todavia",
-                            "_action": "endChat",
-                            "value": null
                         }
                     ]
                 }
@@ -87,14 +82,14 @@
                     "text": "Gracias por las manzanas, podes ayudarme con otra cosa?",
                     "options": [
                         {
-                            "text": "No puedo",
-                            "_action": "endChat",
-                            "value": null
-                        },
-                        {
                             "text": "Si",
                             "_action": "goToNode",
                             "value": 1
+                        },
+                        {
+                            "text": "No puedo",
+                            "_action": "endChat",
+                            "value": null
                         }
                     ]
                 },
@@ -103,14 +98,14 @@
                     "text": "Podes traerme una naranja?",
                     "options": [
                         {
-                            "text": "No puedo",
-                            "_action": "endChat",
-                            "value": null
-                        },
-                        {
                             "text": "Si",
                             "_action": "startQuest",
                             "value": 2
+                        },
+                        {
+                            "text": "No puedo",
+                            "_action": "endChat",
+                            "value": null
                         }
                     ]
                 }
@@ -123,11 +118,6 @@
                     "id": 0,
                     "text": "No parece que tengas la naranja que te pedi",
                     "options": [
-                        {
-                            "text": "No todavia",
-                            "_action": "endChat",
-                            "value": null
-                        },
                         {
                             "text": "No todavia",
                             "_action": "endChat",
@@ -145,14 +135,14 @@
                     "text": "Gracias por la naranja, podes ayudarme con otra cosa?",
                     "options": [
                         {
-                            "text": "No puedo",
-                            "_action": "endChat",
-                            "value": null
-                        },
-                        {
                             "text": "Si",
                             "_action": "goToNode",
                             "value": 1
+                        },
+                        {
+                            "text": "No puedo",
+                            "_action": "endChat",
+                            "value": null
                         }
                     ]
                 },
@@ -161,14 +151,14 @@
                     "text": "Podes traerme una manzana?",
                     "options": [
                         {
-                            "text": "No puedo",
-                            "_action": "endChat",
-                            "value": null
-                        },
-                        {
                             "text": "Si",
                             "_action": "startQuest",
                             "value": 0
+                        },
+                        {
+                            "text": "No puedo",
+                            "_action": "endChat",
+                            "value": null
                         }
                     ]
                 }
@@ -179,13 +169,8 @@
             "nodes": [
                 {
                     "id": 0,
-                    "text": "No puedo hacer nada mas por vos",
+                    "text": "Gracias por completar todas mis tareas",
                     "options": [
-                        {
-                            "text": "OK",
-                            "_action": "endChat",
-                            "value": null
-                        },
                         {
                             "text": "OK",
                             "_action": "endChat",

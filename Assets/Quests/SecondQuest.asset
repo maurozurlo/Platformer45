@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9caa4bee40e3e549a406519704ddd78, type: 3}
   m_Name: SecondQuest
   m_EditorClassIdentifier: 
-  QuestID: -1
-  QuestName: Default Quest
-  isCompleted: 0
-  itemHuntDB: []
+  QuestID: 2
+  QuestName: Encontrar naranja
+  isCompleted: 1
+  itemHuntDB:
+  - itemId: 1
+    amount: 1
   QuestType: 0

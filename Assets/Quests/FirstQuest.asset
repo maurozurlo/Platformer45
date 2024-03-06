@@ -15,8 +15,7 @@ MonoBehaviour:
   QuestID: 0
   QuestName: Find 4 apples
   isCompleted: 0
-  isActive: 0
   itemHuntDB:
   - itemId: 0
-    amount: 4
+    amount: 1
   QuestType: 0

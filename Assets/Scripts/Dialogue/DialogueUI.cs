@@ -9,8 +9,7 @@ public class DialogueUI : MonoBehaviour
 	public Camera npcCamera;
 	public Text npcName;
 	public Text npcText;
-	public Button option1;
-	public Button option2;
+	
 	//Current Dialogue
 	public NpcDialogue npcDialogue;
 	public Node[] dialogueNodes;
@@ -19,6 +18,11 @@ public class DialogueUI : MonoBehaviour
 	public GameObject player;
 	// Singleton
 	public static DialogueUI control;
+
+	// Options
+	public GameObject optionContainer;
+	public GameObject optionPrefab;
+	public GameObject[] options;
 
 
 	private void Awake()
@@ -82,11 +86,17 @@ public class DialogueUI : MonoBehaviour
 		npcName.text = npcDialogue.npcName;
 		Node node = GetNode(mainNode);
 		npcText.text = node.text;
-		// TODO: make this a foreach instead...
-		// option buttons should get created on the fly
-		SetupOption(option1, node.options[0]);
-		SetupOption(option2, node.options[1]);
 
+		// Remove all children
+		foreach (Transform child in optionContainer.transform)
+		{
+			Destroy(child.gameObject);
+		}
+		// Create options
+		foreach (Option option in node.options) {
+			GameObject op = Instantiate(optionPrefab, optionContainer.transform);
+			SetupOption(op.GetComponent<Button>(), option);
+		}
 	}
 
 	bool checkIfNodeExists(int mainNode)
