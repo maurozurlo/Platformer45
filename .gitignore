@@ -34,3 +34,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+Assets/tools/dialogue_creator/node_modules/**
