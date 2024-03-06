@@ -7,32 +7,34 @@ using System;
 public class MessageReader : MonoBehaviour
 {
 	public string filePath;
-	public Message[] messages;
-	NpcDialogue dialogue;
+	NpcDialogue npcDialogue;
 
 	private void Start()
 	{
 		string jsonText = File.ReadAllText(filePath);
-		NpcDialogue npcDialogue = JsonUtility.FromJson<NpcDialogue>(jsonText);
-		dialogue = npcDialogue;
-		messages = npcDialogue.dialogue;
+		NpcDialogue parsedNPCDialogue = JsonUtility.FromJson<NpcDialogue>(jsonText);
+		npcDialogue = parsedNPCDialogue;
 
-		foreach (Message message in messages)
+		foreach (Dialogue dialogueItem in npcDialogue.dialogue)
 		{
-			foreach (Option option in message.options)
+			foreach (Node node in dialogueItem.nodes)
 			{
-				Enum.TryParse(option._action, out ActionType parsedAction);
-				option.action = parsedAction;
+				foreach (Option option in node.options)
+				{
+					Enum.TryParse(option._action, out ActionType parsedAction);
+					option.action = parsedAction;
+				}
 			}
 		}
+		
 	}
 
 	public NpcDialogue GetDialogue()
 	{
-		if (dialogue == null)
+		if (npcDialogue == null)
 		{
 			Debug.LogError("No dialogue found");
 		}
-		return dialogue;
+		return npcDialogue;
 	}
 }

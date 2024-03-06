@@ -5,14 +5,21 @@
 public class NpcDialogue
 {
     public string npcName;
-    public Message[] dialogue;
+    public int[] quests;
+    public Dialogue[] dialogue;
 }
 
 [System.Serializable]
-public class Message
+public class Dialogue
+{
+    public string id;
+    public Node[] nodes;
+}
+
+[System.Serializable]
+public class Node
 {
     public int id;
-    public int? onQuest;
     public string text;
     public Option[] options;
     public bool questCompleted;

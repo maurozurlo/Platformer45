@@ -15,7 +15,7 @@ public class NPCInteraction : MonoBehaviour
     PlayerCharacter playerCharacter;
     Invector.CharacterController.vThirdPersonInput playerControl;
     public MessageReader messageReader;
-
+    
     void Start()
     {
         if (dialogueUI == null)
@@ -60,10 +60,9 @@ public class NPCInteraction : MonoBehaviour
             WaitForIdle();
             //Start UI
             dialogueUI.SetActive(true);
-            //En realidad acá habria que setear el DM (Que vendria de cada NPC... pero por ahora no)
             NpcDialogue npcDialogue = messageReader.GetDialogue();
-            dialogueUI.GetComponent<DialogueUI>().dialogue = npcDialogue;
-            dialogueUI.GetComponent<DialogueUI>().StartDialogue(this.gameObject,0);
+            dialogueUI.GetComponent<DialogueUI>().npcDialogue = npcDialogue;            
+            dialogueUI.GetComponent<DialogueUI>().StartDialogue(this.gameObject);
             //Cursor
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

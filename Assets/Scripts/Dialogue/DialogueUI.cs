@@ -12,12 +12,26 @@ public class DialogueUI : MonoBehaviour
 	public Button option1;
 	public Button option2;
 	//Current Dialogue
-	public NpcDialogue dialogue;
+	public NpcDialogue npcDialogue;
+	public Node[] dialogueNodes;
 	//GameObjects
 	public GameObject NPC;
 	public GameObject player;
+	// Singleton
+	public static DialogueUI control;
 
 
+	private void Awake()
+	{
+		if (!control)
+		{
+			control = this;
+		}
+		else
+		{
+			DestroyImmediate(this);
+		}
+	}
 	private void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -27,7 +41,7 @@ public class DialogueUI : MonoBehaviour
 
 
 
-	public void StartDialogue(GameObject npc, int nodeToStart)
+	public void StartDialogue(GameObject npc)
 	{
 		NPC = npc;
 		//Primero seteamos la camera
@@ -37,10 +51,23 @@ public class DialogueUI : MonoBehaviour
 		Quaternion qt = Quaternion.Euler(v3);
 		npcCamera.transform.rotation = qt;
 
-		if (dialogue != null)
+		// Conseguimos el id del dialogue a mostrar
+		string dialogToStart = QuestManager.control.GetDialogueId(npcDialogue.quests);
+		dialogueNodes = GetNodesForDialog(dialogToStart);
+		if (dialogueNodes != null)
 		{
-			DrawUI(nodeToStart);
+			DrawUI(0);
 		}
+	}
+
+	Node[] GetNodesForDialog(string dialogToStart)
+	{
+		foreach (Dialogue dialogueItem in npcDialogue.dialogue)
+		{
+			if (dialogueItem.id == dialogToStart) return dialogueItem.nodes;
+		}
+		Debug.LogError($"Dialog id {dialogToStart} not found");
+		return null;
 	}
 
 
@@ -52,8 +79,8 @@ public class DialogueUI : MonoBehaviour
 			return;
 		}
 
-		npcName.text = dialogue.npcName;
-		Message node = GetNode(mainNode);
+		npcName.text = npcDialogue.npcName;
+		Node node = GetNode(mainNode);
 		npcText.text = node.text;
 		// TODO: make this a foreach instead...
 		// option buttons should get created on the fly
@@ -61,7 +88,6 @@ public class DialogueUI : MonoBehaviour
 		SetupOption(option2, node.options[1]);
 
 	}
-
 
 	bool checkIfNodeExists(int mainNode)
 	{
@@ -73,19 +99,9 @@ public class DialogueUI : MonoBehaviour
 			return false;
 	}
 
-	public Message FirstMessage(int? currentQuest, bool questCompleted)
+	public Node GetNode(int nodeId)
 	{
-		foreach (Message m in dialogue.dialogue)
-		{
-			if (m.onQuest == currentQuest && m.questCompleted == questCompleted) return m;
-		}
-		Debug.LogError("Node not found");
-		return null;
-	}
-
-	public Message GetNode(int nodeId)
-	{
-		foreach (Message m in dialogue.dialogue)
+		foreach (Node m in dialogueNodes)
 		{
 			if (m.id == nodeId) return m;
 		}
@@ -113,7 +129,7 @@ public class DialogueUI : MonoBehaviour
 				EndChat();
 				return;
 			case ActionType.startQuest:
-				player.GetComponent<QuestManager>().StartQuest(option.value);
+				QuestManager.control.StartQuest(option.value);
 				EndChat();
 				return;
 			default:
@@ -127,5 +143,30 @@ public class DialogueUI : MonoBehaviour
 		//Exit conversation
 		npcCamera.depth = -2;
 		NPC.GetComponent<NPCInteraction>().StartCoroutine("EndConversation");
+	}
+
+	public enum DialogType {
+		intro,
+		ongoing,
+		completed_some,
+		completed_all
+	}
+
+	public static string GetDialogId(DialogType type, int value = -1)
+	{
+		switch (type)
+		{
+			case DialogType.intro:
+				return "common_intro";
+			case DialogType.ongoing:
+				return $"quest_{value}_ongoing";
+			case DialogType.completed_some:
+				return $"quest_{value}_completed_some";
+			case DialogType.completed_all:
+				return "common_completed_all";
+			default:
+				Debug.LogError("Unsupported dialog type");
+				return "common_intro";
+		}
 	}
 }

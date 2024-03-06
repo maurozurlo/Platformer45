@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,15 +14,29 @@ public class QuestManager : MonoBehaviour
     public GameObject player;
 
     //currentQuest
-    public int currentQuestID;
+    public int currentQuestID = -1;
     public Quest currentQuest;
 
     //SFX
     public AudioClip missionCompleted;
     public AudioClip missionFailed;
 
-    
-    private void Start() {
+    // Singleton
+    public static QuestManager control;
+
+
+    private void Awake()
+    {
+        if (!control)
+        {
+            control = this;
+        }
+        else
+        {
+            DestroyImmediate(this);
+        }
+    }
+	private void Start() {
         
         player = GameObject.FindGameObjectWithTag("Player");
         if(player == null){
@@ -34,60 +49,122 @@ public class QuestManager : MonoBehaviour
         if(currentQuest == null){
             //Seteamos la quest
             currentQuestID = quest;
-            currentQuest = questDb[quest];
-            QuestUI.text = "Active quest: " + questDb[quest].QuestName;
+            foreach (Quest questItem in questDb)
+            {
+                if (questItem.QuestID == quest)
+                {
+                    currentQuest = questItem;
+                    QuestUI.text = "Active quest: " + questItem.QuestName;
+                }
+            }
+            
         }
     }
 
-    public void EndQuest(int quest){
+    public void EndQuest(){
         //Chequear si se necesitaban items
-        if(questDb[quest].QuestType == Quest.questType.itemHunt){
+        if(currentQuest.QuestType == Quest.questType.itemHunt){
             //Sacar items
-            foreach (QuestItem item in questDb[quest].itemHuntDB)
+            foreach (QuestItem item in currentQuest.itemHuntDB)
             {
                player.GetComponent<PlayerInventory>().removeItem(item.itemId,item.amount);
             }
         }
-        questDb[quest].isCompleted = true;
+        //questDb[currentQuestID].isCompleted = true;
+        gameControl.control.AddCompletedQuest(currentQuestID);
         currentQuest = null;
         currentQuestID = -1;
         QuestUI.text = "Active quest: None";
         //Avisar al pibe que ya está
-        this.GetComponent<GeneralMessageUI>().DisplayMessage("LA RE HICISTE AMEO",6,"top");
-        this.GetComponent<PlayerCharacter>().sfx.GetComponent<GeneralSFX>().playSound(missionCompleted);
+        //this.GetComponent<GeneralMessageUI>().DisplayMessage("LA RE HICISTE AMEO",6,"top");
+        //this.GetComponent<PlayerCharacter>().sfx.GetComponent<GeneralSFX>().playSound(missionCompleted);
         //Guardar que la quest se completo
-        gameControl.control.AddCompletedQuest(quest);
+        
     }
 
-    public int checkQuestStatus(){
-        //Status info
-        //1: Player doesn't have the item
-        //2: Player doesn't have required amount
-        //3: Player has everything, quest completed
+    
 
-        //Chequear si el usuario tiene los items que se necesitan
-        //Cambiar esto...
-        List<QuestItem> currentQuestItems = questDb[currentQuestID].itemHuntDB;
-
-            foreach (BasicItem item in gameControl.control.inventory)
+    public bool IsQuestCompleted(){
+        List<QuestItem> currentQuestItems = currentQuest.itemHuntDB;
+            foreach (QuestItem item in currentQuestItems)
             {
-                //Por ahora solo chequeamos el primer item de la BD de la Quest, dps habria que chequear todos
-                if(item.id == questDb[currentQuestID].itemHuntDB[0].itemId)
-                {
-                    //Chequear si tambien tiene la cantidad necesaria
-                    if (item.amount >= questDb[currentQuestID].itemHuntDB[0].amount)
-                    {
-                        //Quest completed
-                        EndQuest(currentQuestID);
-                        return 3;
-                    }else{
-                        //Player no tenia la cantidad necesaria
-                        return 2;
-                    }
-                }
+                BasicItem playerItem = ItemInPlayerInventory(item.itemId);
+                if (playerItem == null) return false; // Player doesn't have the item;
+                if (playerItem.amount < item.amount) return false; // Player doesn't have enough
             }
-            //Player no tenia el item
-            return 1;
+        return true;
+    }
+
+
+
+    BasicItem ItemInPlayerInventory(int id)
+    {
+        foreach (BasicItem item in gameControl.control.inventory)
+        {
+            if (item.id == id) return item;
+        }
+        return null;
+    }
+
+    public string GetDialogueId(int[] npcQuests)
+    {
+        int _quest = currentQuestID;
+        // 1. Check if player is currently on a quest
+        if (currentQuestID != -1)
+        {
+            // There's a quest in process
+            // Check Quest status
+            if (!IsQuestCompleted())
+            {
+                // TODO: Add fallback if NPC doesn't have dialog for this quest
+                
+                string id = DialogueUI.GetDialogId(DialogueUI.DialogType.ongoing, _quest);
+                
+                return id;
+            }
+            // Complete Quest
+            EndQuest();
+        }
+        // 2. Check if player has completed any of this NPC's quests
+        List<int> completedQuests = gameControl.control.completedQuests;
+        bool hasCompletedQuest = completedQuests.Any(quest => npcQuests.Contains(quest));
+
+        Debug.Log($"NPc quests:\n{string.Join("\n", npcQuests)}");
+        Debug.Log($"Completed quest:\n{string.Join("\n", completedQuests)}");
+        // 3. Player hasn't completed any of this NPCs quests, return intro
+        if (!hasCompletedQuest)
+        {
+            Debug.Log("Got here 3");
+            return DialogueUI.GetDialogId(DialogueUI.DialogType.intro);
+        }
+        int completedQuestCount = completedQuests.Count(quest => npcQuests.Contains(quest));
+        // 4. All quests are completed
+        if (completedQuestCount == npcQuests.Length)
+        {
+            Debug.Log("Got here 4");
+            return DialogueUI.GetDialogId(DialogueUI.DialogType.completed_all);
+        }
+        // 5. Some quests are completed, but not all
+        if (completedQuestCount < npcQuests.Length)
+        {
+            Debug.Log("Got here 5");
+            return DialogueUI.GetDialogId(DialogueUI.DialogType.completed_some, _quest);
+        }
+        // 6. Why the fuck are we here
+        Debug.LogError("Shouldnt have gotten here...");
+        return DialogueUI.GetDialogId(DialogueUI.DialogType.intro);
+    }
+
+    public class QuestCheck
+    {
+        public int id;
+        public QuestStatus status;
+    }
+
+    public enum QuestStatus {
+        ongoing,
+        completed,
+        notInQuest
     }
 
 }
