@@ -158,6 +158,7 @@ public class DialogueUI : MonoBehaviour
 	public enum DialogType {
 		common_intro,
 		common_completed_all,
+		common_completed_all_first,
 		common_ongoing,
 		value_ongoing,
 		value_completed_some,		
@@ -170,14 +171,15 @@ public class DialogueUI : MonoBehaviour
 			case DialogType.common_intro:
 				return "common_intro";
 			case DialogType.common_ongoing:
-				return $"common_quest_ongoing";
+				return "common_quest_ongoing";
 			case DialogType.common_completed_all:
 				return "common_completed_all";
+			case DialogType.common_completed_all_first:
+				return "common_completed_all_first";
 			case DialogType.value_ongoing:
 				return $"quest_{value}_ongoing";
 			case DialogType.value_completed_some:
 				return $"quest_{value}_completed_some";
-
 			default:
 				Debug.LogError("Unsupported dialog type");
 				return "common_intro";

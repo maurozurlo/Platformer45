@@ -109,6 +109,7 @@ public class QuestManager : MonoBehaviour
     public string GetDialogueId(int[] npcQuests)
     {
         int _quest = currentQuestID;
+        bool hasCompletedQuestNow = false;
         // 1. Check if player is currently on a quest
         if (currentQuestID != -1)
         {
@@ -122,12 +123,13 @@ public class QuestManager : MonoBehaviour
             }
             // Complete Quest
             EndQuest();
+            hasCompletedQuestNow = true;
         }
         // 2. Check if player has completed any of this NPC's quests
         List<int> completedQuests = gameControl.control.completedQuests;
-        bool hasCompletedQuest = completedQuests.Any(quest => npcQuests.Contains(quest));
+        bool hasCompletedQuestsPreviously = completedQuests.Any(quest => npcQuests.Contains(quest));
         // 3. Player hasn't completed any of this NPCs quests, return intro
-        if (!hasCompletedQuest)
+        if (!hasCompletedQuestsPreviously)
         {
             return DialogueUI.GetDialogId(DialogueUI.DialogType.common_intro);
         }
@@ -135,7 +137,9 @@ public class QuestManager : MonoBehaviour
         // 4. All quests are completed
         if (completedQuestCount == npcQuests.Length)
         {
-            return DialogueUI.GetDialogId(DialogueUI.DialogType.common_completed_all);
+            return hasCompletedQuestNow ? 
+                DialogueUI.GetDialogId(DialogueUI.DialogType.common_completed_all_first) 
+                : DialogueUI.GetDialogId(DialogueUI.DialogType.common_completed_all);
         }
         // 5. Some quests are completed, but not all
         if (completedQuestCount < npcQuests.Length)
