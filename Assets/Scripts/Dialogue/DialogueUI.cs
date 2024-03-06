@@ -156,27 +156,40 @@ public class DialogueUI : MonoBehaviour
 	}
 
 	public enum DialogType {
-		intro,
-		ongoing,
-		completed_some,
-		completed_all
+		common_intro,
+		common_completed_all,
+		common_ongoing,
+		value_ongoing,
+		value_completed_some,		
 	}
 
 	public static string GetDialogId(DialogType type, int value = -1)
 	{
 		switch (type)
 		{
-			case DialogType.intro:
+			case DialogType.common_intro:
 				return "common_intro";
-			case DialogType.ongoing:
-				return $"quest_{value}_ongoing";
-			case DialogType.completed_some:
-				return $"quest_{value}_completed_some";
-			case DialogType.completed_all:
+			case DialogType.common_ongoing:
+				return $"common_quest_ongoing";
+			case DialogType.common_completed_all:
 				return "common_completed_all";
+			case DialogType.value_ongoing:
+				return $"quest_{value}_ongoing";
+			case DialogType.value_completed_some:
+				return $"quest_{value}_completed_some";
+
 			default:
 				Debug.LogError("Unsupported dialog type");
 				return "common_intro";
 		}
+	}
+
+	public bool DialogExists(string id)
+	{
+		foreach (Dialogue dialogueItem in npcDialogue.dialogue)
+		{
+			if (dialogueItem.id == id) return true;
+		}
+		return false;
 	}
 }

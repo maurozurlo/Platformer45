@@ -2397,7 +2397,7 @@ MonoBehaviour:
   waitTime: 0.5
   cameraPos: {x: 39.357, y: 8, z: -14.1}
   dialogueUI: {fileID: 242899646}
-  messageReader: {fileID: 0}
+  messageReader: {fileID: 269731854}
 --- !u!65 &269731850
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2431,6 +2431,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1854383310}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &269731854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269731848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ab58459e3421742b60db26c5c4235c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filePath: E:/GameDev/Platformer45/Assets/Dialogues/Shop_001.json
 --- !u!1 &278942378
 GameObject:
   m_ObjectHideFlags: 0
@@ -17108,7 +17121,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f4400aaed51b3114ead91eb747ca8bc9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 64.2
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f4400aaed51b3114ead91eb747ca8bc9,
         type: 3}
@@ -17118,7 +17131,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f4400aaed51b3114ead91eb747ca8bc9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.5
+      value: -28.4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f4400aaed51b3114ead91eb747ca8bc9,
         type: 3}

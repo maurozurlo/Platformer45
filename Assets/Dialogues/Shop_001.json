@@ -1,0 +1,39 @@
+{
+    "npcName": "Shop NPC",
+    "quests": [
+        17
+    ],
+    "dialogue": [
+        {
+            "id": "common_intro",
+            "nodes": [
+                {
+                    "id": 0,
+                    "text": "Hola, soy otro npc para probar esto",
+                    "options": [
+                        {
+                            "text": "Perfecto",
+                            "_action": "endChat"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "common_quest_ongoing",
+            "nodes": [
+                {
+                    "id": 0,
+                    "text": "Parece que estas ocupado en este momento",
+                    "options": [
+                        {
+                            "text": "Tenes razon",
+                            "_action": "endChat",
+                            "value": null
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

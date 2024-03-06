@@ -116,9 +116,9 @@ public class QuestManager : MonoBehaviour
             // Check Quest status
             if (!IsQuestCompleted())
             {
-                // TODO: Add fallback if NPC doesn't have dialog for this quest
-                string id = DialogueUI.GetDialogId(DialogueUI.DialogType.ongoing, _quest);
-                return id;
+                string ongoing_id = DialogueUI.GetDialogId(DialogueUI.DialogType.value_ongoing, _quest);
+                bool dialogExists = DialogueUI.control.DialogExists(ongoing_id);
+                return dialogExists ? ongoing_id : DialogueUI.GetDialogId(DialogueUI.DialogType.common_ongoing);
             }
             // Complete Quest
             EndQuest();
@@ -129,22 +129,22 @@ public class QuestManager : MonoBehaviour
         // 3. Player hasn't completed any of this NPCs quests, return intro
         if (!hasCompletedQuest)
         {
-            return DialogueUI.GetDialogId(DialogueUI.DialogType.intro);
+            return DialogueUI.GetDialogId(DialogueUI.DialogType.common_intro);
         }
         int completedQuestCount = completedQuests.Count(quest => npcQuests.Contains(quest));
         // 4. All quests are completed
         if (completedQuestCount == npcQuests.Length)
         {
-            return DialogueUI.GetDialogId(DialogueUI.DialogType.completed_all);
+            return DialogueUI.GetDialogId(DialogueUI.DialogType.common_completed_all);
         }
         // 5. Some quests are completed, but not all
         if (completedQuestCount < npcQuests.Length)
         {
-            return DialogueUI.GetDialogId(DialogueUI.DialogType.completed_some, _quest);
+            return DialogueUI.GetDialogId(DialogueUI.DialogType.value_completed_some, _quest);
         }
         // 6. Why the fuck are we here
         Debug.LogError("Shouldnt have gotten here...");
-        return DialogueUI.GetDialogId(DialogueUI.DialogType.intro);
+        return null;
     }
 
     public class QuestCheck
