@@ -9,15 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9caa4bee40e3e549a406519704ddd78, type: 3}
-  m_Name: FirstQuest
+  m_Script: {fileID: 11500000, guid: 5b8cf60f2b356764ea496a0b91620190, type: 3}
+  m_Name: Orange
   m_EditorClassIdentifier: 
-  QuestID: 0
-  QuestName: Find 4 apples
-  isCompleted: 0
-  itemHuntDB:
-  - itemId: 0
-    amount: 4
-  QuestType: 0
-  rewards:
-  - {fileID: 11400000, guid: 09d8b14ff37af804cb6bfc043e35a684, type: 2}
+  label: Orange
+  id: 1
+  amount: 1
+  itemPos: {x: 18.2, y: 7.808, z: -23.7}
+  hasBeenPickUp: 0

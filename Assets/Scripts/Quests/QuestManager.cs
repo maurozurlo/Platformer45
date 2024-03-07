@@ -70,16 +70,20 @@ public class QuestManager : MonoBehaviour
                player.GetComponent<PlayerInventory>().removeItem(item.itemId,item.amount);
             }
         }
-        //questDb[currentQuestID].isCompleted = true;
+        // Give player rewards
+        foreach (BasicItem item in currentQuest.rewards)
+        {
+            player.GetComponent<PlayerInventory>().AddItem(item);
+        }
         gameControl.control.AddCompletedQuest(currentQuestID);
         currentQuest = null;
         currentQuestID = -1;
         QuestUI.text = "Active quest: None";
-        //Avisar al pibe que ya está
-        //this.GetComponent<GeneralMessageUI>().DisplayMessage("LA RE HICISTE AMEO",6,"top");
-        //this.GetComponent<PlayerCharacter>().sfx.GetComponent<GeneralSFX>().playSound(missionCompleted);
-        //Guardar que la quest se completo
-        
+
+
+        // Completed quest message
+        player.GetComponent<GeneralMessageUI>().DisplayMessage("Quest completed",6,"top");
+        player.GetComponent<PlayerCharacter>().sfx.GetComponent<GeneralSFX>().playSound(missionCompleted);
     }
 
     
@@ -133,18 +137,19 @@ public class QuestManager : MonoBehaviour
         {
             return DialogueUI.GetDialogId(DialogueUI.DialogType.common_intro);
         }
-        int completedQuestCount = completedQuests.Count(quest => npcQuests.Contains(quest));
+        List<int> NPCsCompletedQuests = completedQuests.Intersect(npcQuests).ToList();
         // 4. All quests are completed
-        if (completedQuestCount == npcQuests.Length)
+        if (NPCsCompletedQuests.Count == npcQuests.Length)
         {
             return hasCompletedQuestNow ? 
                 DialogueUI.GetDialogId(DialogueUI.DialogType.common_completed_all_first) 
                 : DialogueUI.GetDialogId(DialogueUI.DialogType.common_completed_all);
         }
         // 5. Some quests are completed, but not all
-        if (completedQuestCount < npcQuests.Length)
+        if (NPCsCompletedQuests.Count < npcQuests.Length)
         {
-            return DialogueUI.GetDialogId(DialogueUI.DialogType.value_completed_some, _quest);
+            int lastId = NPCsCompletedQuests.Last();
+            return DialogueUI.GetDialogId(DialogueUI.DialogType.value_completed_some, lastId);
         }
         // 6. Why the fuck are we here
         Debug.LogError("Shouldnt have gotten here...");

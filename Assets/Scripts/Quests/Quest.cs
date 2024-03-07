@@ -15,4 +15,6 @@ public class Quest : ScriptableObject
     public List<QuestItem> itemHuntDB;
 
     public questType QuestType;
+
+    public List<BasicItem> rewards;
 }

@@ -6,22 +6,23 @@ public class PlayerInventory : MonoBehaviour
 {
     public UnityEngine.UI.Text inventoryUI;
 
-    public void addItem(BasicItem thisItem)
+    public void AddItem(BasicItem newItem)
     {
-        bool add = false;
+        bool alreadyHaveItem = false;
 
         foreach (BasicItem item in gameControl.control.inventory)
         {
-            if (thisItem.id == item.id)
+            if (item.id == newItem.id)
             {
-                item.amount += thisItem.amount;
-                add = true;
+                item.amount += newItem.amount;
+                alreadyHaveItem = true;
             }
         }
 
-        if (!add)
+        if (!alreadyHaveItem)
         {
-            gameControl.control.inventory.Add(thisItem);
+            BasicItem clone = Instantiate(newItem);
+            gameControl.control.inventory.Add(clone);
         }
         //Redibujar interfaz
         inventoryUI.GetComponent<InventoryUI>().DrawUI();

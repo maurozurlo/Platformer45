@@ -18,7 +18,7 @@ public class levelManager : MonoBehaviour
 
     void Start()
     {
-        saveItemPositions();
+        //saveItemPositions();
         spawnPlayerOnSavePoint(gameControl.control.savePoint);
     }
 
@@ -31,35 +31,40 @@ public class levelManager : MonoBehaviour
     ///ITEMS
     void saveItemPositions()
     {
-        foreach (var item in GameObject.FindGameObjectsWithTag("Item"))
+        Debug.LogError("NOT IMPLEMENTED");
+        /* foreach (var item in GameObject.FindGameObjectsWithTag("Item"))
         {
             BasicItem itemToClone = item.GetComponent<vPickupItem>().thisItem;
             BasicItem itemToSave = new BasicItem(itemToClone.label, itemToClone.id, itemToClone.amount, itemToClone.itemPos, false);
             itemPersistance.Add(itemToSave);
-        }
+        } */
     }
 
     void restoreItemPositions()
     {
+        Debug.LogError("NOT IMPLEMENTED");
+        /*
         foreach (BasicItem item in itemPersistance)
         {
             GameObject _item = Instantiate(itemPrefabs[item.id], item.itemPos, Quaternion.identity) as GameObject;
             _item.GetComponent<vPickupItem>().thisItem = item;
-        }
+        }*/
     }
 
     void destroyAllItems()
     {
+        Debug.LogError("NOT IMPLEMENTED");
+        /*
         GameObject[] itemInstances = GameObject.FindGameObjectsWithTag("Item");
         for (int i = 0; i < itemInstances.Length; i++)
         {
             Destroy(itemInstances[i]);
-        }
+        }*/
     }
 
     ///ITEMS
     void saveSavePointPositions()
-    {
+    {   
         foreach (var item in GameObject.FindGameObjectsWithTag("SavePoint"))
         {
             savePoints.Add(item.GetComponent<savePoint>());

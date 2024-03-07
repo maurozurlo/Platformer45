@@ -818,12 +818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioClip: {fileID: 8300000, guid: c0d1f8df5f33fb24f987d3a1b02169dc, type: 3}
-  thisItem:
-    label: Apple
-    id: 0
-    amount: 1
-    itemPos: {x: 0, y: 0, z: 0}
-    hasBeenPickUp: 0
+  thisItem: {fileID: 11400000, guid: b34afbf65d03c204284a373ba2927ec9, type: 2}
   speed: 40
 --- !u!135 &117942504
 SphereCollider:
@@ -1805,12 +1800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioClip: {fileID: 8300000, guid: c0d1f8df5f33fb24f987d3a1b02169dc, type: 3}
-  thisItem:
-    label: Apple
-    id: 0
-    amount: 1
-    itemPos: {x: 0, y: 0, z: 0}
-    hasBeenPickUp: 0
+  thisItem: {fileID: 11400000, guid: b34afbf65d03c204284a373ba2927ec9, type: 2}
   speed: 40
 --- !u!135 &215624963
 SphereCollider:
@@ -13921,22 +13911,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1305652249}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1292937865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292937864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a35c41bbcb9cf458fb307e82b519ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waitTime: 0.5
-  cameraPos: {x: 39.13, y: 8, z: -24.81}
-  dialogueUI: {fileID: 242899646}
-  messageReader: {fileID: 0}
 --- !u!65 &1292937866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18006,12 +17980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioClip: {fileID: 8300000, guid: c0d1f8df5f33fb24f987d3a1b02169dc, type: 3}
-  thisItem:
-    label: Apple
-    id: 0
-    amount: 1
-    itemPos: {x: 0, y: 0, z: 0}
-    hasBeenPickUp: 0
+  thisItem: {fileID: 11400000, guid: b34afbf65d03c204284a373ba2927ec9, type: 2}
   speed: 40
 --- !u!135 &2052423041
 SphereCollider:
@@ -18721,6 +18690,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2096194159149593949, guid: b13a3de020462b742bd5ae00f0ac18ac,
+        type: 3}
+      propertyPath: thisItem
+      value: 
+      objectReference: {fileID: 11400000, guid: fed4f3cfe1e25584780b2058bef110b8,
+        type: 2}
     - target: {fileID: 2096194159149593951, guid: b13a3de020462b742bd5ae00f0ac18ac,
         type: 3}
       propertyPath: m_Name
@@ -18942,6 +18917,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3905358240799103259, guid: 8a6572f04175e2943ba8d3756fd81812,
+        type: 3}
+      propertyPath: thisItem
+      value: 
+      objectReference: {fileID: 11400000, guid: b34afbf65d03c204284a373ba2927ec9,
+        type: 2}
     - target: {fileID: 3905358240799103269, guid: 8a6572f04175e2943ba8d3756fd81812,
         type: 3}
       propertyPath: m_Name

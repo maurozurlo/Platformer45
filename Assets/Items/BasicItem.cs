@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
-[System.Serializable]
-public class BasicItem
+[CreateAssetMenu(fileName = "New Item", menuName = "Item")]
+public class BasicItem:ScriptableObject
 {
     public string label;
     public int id;
