@@ -48,7 +48,7 @@ public class PlayerPartsHandler : MonoBehaviour
         //Lockear player
         this.GetComponent<PlayerCharacter>().Lock();
         //desactivar roll head
-        skull.GetComponent<rollHead>().enabled = false;
+        skull.GetComponent<RollHead>().enabled = false;
         //Desactivar camara
         camSwitcher _camSwitcher = this.GetComponent<camSwitcher>();
         _camSwitcher.isActive = false;
@@ -71,7 +71,7 @@ public class PlayerPartsHandler : MonoBehaviour
         yield return new WaitForSeconds(1);
         this.GetComponent<camSwitcher>().isActive = true;
         //Activar camSwitcher
-        skull.GetComponent<rollHead>().enabled = true;
+        skull.GetComponent<RollHead>().enabled = true;
         //Activar rollHead;
         this.GetComponent<PlayerCharacter>().Unlock();
         //Desbloquear player

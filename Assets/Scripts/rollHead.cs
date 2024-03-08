@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rollHead : MonoBehaviour
+public class RollHead : MonoBehaviour
 {
     public float speed;
     public float maxSpeed = 40f;
@@ -27,9 +27,4 @@ public class rollHead : MonoBehaviour
              rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
          }
     }
-
-     void OnGUI()
-     {
-         GUI.Label(new Rect(20, 20, 200, 200), "rigidbody velocity: " + GetComponent<Rigidbody>().velocity);
-     }
 }
