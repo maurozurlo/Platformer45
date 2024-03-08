@@ -7,7 +7,6 @@ public class NPCInteraction : MonoBehaviour
 {
     public float waitTime = 1f;
     public Vector3 cameraPos;
-    Vector3 startPlayerPos;
     //GameObjects
     public GameObject dialogueUI;
     GameObject cameraPivot;
@@ -34,7 +33,7 @@ public class NPCInteraction : MonoBehaviour
     }
 
 
-    void OnTriggerEnter(Collider other)
+	void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -54,7 +53,7 @@ public class NPCInteraction : MonoBehaviour
         if (!player.GetComponent<PlayerCharacter>().isLocked())
         {
             //Move Player
-            startPlayerPos = player.transform.position;
+            player.transform.position = transform.position + (transform.forward * 3.5f);
             playerControl.ShowHidePlayer(false);
             playerCharacter.Lock();
             WaitForIdle();
@@ -84,7 +83,7 @@ public class NPCInteraction : MonoBehaviour
         //Esperamos
         player.GetComponent<Animator>().SetTrigger("ReturnToNormal");
         //Movemos al player
-        player.transform.position = new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z - 2);
+        
         playerControl.ShowHidePlayer(true);
         dialogueUI.SetActive(false);
         playerCharacter.Unlock();
