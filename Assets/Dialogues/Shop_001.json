@@ -1,7 +1,8 @@
 {
     "npcName": "Shop NPC",
     "quests": [
-        17
+        0,
+        200
     ],
     "dialogue": [
         {
@@ -13,6 +14,21 @@
                     "options": [
                         {
                             "text": "Perfecto",
+                            "_action": "endChat"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "quest_0_completed_some",
+            "nodes": [
+                {
+                    "id": 0,
+                    "text": "Bueno, completaste la mision de las manzanas del otro npc, asi que este texto deberia mostrarse",
+                    "options": [
+                        {
+                            "text": "creo que si",
                             "_action": "endChat"
                         }
                     ]

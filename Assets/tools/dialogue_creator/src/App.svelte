@@ -19,7 +19,7 @@
     const nextNodeId = Math.max(...selectedDialogue.nodes.map((n) => n.id)) + 1;
 
     const newNode = {
-      id: nextNodeId,
+      id: isFinite(nextNodeId) ? nextNodeId : 0,
       text: "",
       options: [],
     };
