@@ -15,7 +15,7 @@ public class NPCInteraction : MonoBehaviour
     Invector.CharacterController.vThirdPersonInput playerControl;
     public MessageReader messageReader;
     
-    void Start()
+    void Awake()
     {
         if (dialogueUI == null)
             Debug.LogError("Dialogue UI not found");
@@ -37,13 +37,21 @@ public class NPCInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //Start conversation
-            player = other.gameObject;
-            playerControl = other.gameObject.GetComponent<Invector.CharacterController.vThirdPersonInput>();
-            playerCharacter = other.gameObject.GetComponent<PlayerCharacter>();
-            // TODO: get message if not first time we bump into this character
-            StartConversation();
+            StartConversationWrapper(player);
         }
+    }
+
+    public void StartConversationWrapper(GameObject other)
+    {
+        SetPlayer(other);
+        StartConversation();
+    }
+
+    void SetPlayer(GameObject playerGO)
+    {
+        player = playerGO;
+        playerControl = playerGO.GetComponent<Invector.CharacterController.vThirdPersonInput>();
+        playerCharacter = playerGO.GetComponent<PlayerCharacter>();
     }
 
 
@@ -61,7 +69,7 @@ public class NPCInteraction : MonoBehaviour
             dialogueUI.SetActive(true);
             NpcDialogue npcDialogue = messageReader.GetDialogue();
             dialogueUI.GetComponent<DialogueUI>().npcDialogue = npcDialogue;            
-            dialogueUI.GetComponent<DialogueUI>().StartDialogue(this.gameObject);
+            dialogueUI.GetComponent<DialogueUI>().StartDialogue(gameObject);
             //Cursor
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

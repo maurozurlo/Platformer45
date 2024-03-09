@@ -1,0 +1,301 @@
+{
+  "npcName": "Juez Esqueletal",
+  "quests": [
+    255
+  ],
+  "dialogue": [
+    {
+      "id": "common_intro",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "Hola Maki, bienvenido al último círculo del infierno. Desafortunadamente terminaste acá, pero podemos hacer un trato si te parece.",
+          "options": [
+            {
+              "text": "¿Por qué el último círculo del infierno?",
+              "_action": "goToNode",
+              "value": 1
+            },
+            {
+              "text": "Sí, de una a lo del trato",
+              "_action": "goToNode",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Porque fuiste muy malo, qué se yo. Yo no tomo estas decisiones. En los otros círculos hay cangrejos. En este no.",
+          "options": [
+            {
+              "text": "¿Pero son importantes los cangrejos? no sé qué hacer con esa información",
+              "_action": "goToNode",
+              "value": 3
+            },
+            {
+              "text": "Suficiente, contame del trato",
+              "_action": "goToNode",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "El trato consiste en que ayudes a otros esqueletos a demostrar su profesión. Si lo hacés te puedo pasar a un infierno más copado, con cangrejos.",
+          "options": [
+            {
+              "text": "¿Cómo hago?",
+              "_action": "goToNode",
+              "value": 6
+            },
+            {
+              "text": "Uhh, contame sobre los cangrejos",
+              "_action": "goToNode",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "O sea, los cangrejos son parte de la comida de muchos animales: Muchos otros animales comen cangrejos. Si no hubiera cangrejos, estos animales tendrían menos comida.",
+          "options": [
+            {
+              "text": "Más información sobre cangrejos por favor",
+              "_action": "goToNode",
+              "value": 4
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "text": "Los cangrejos también ayudan a limpiar el agua, construyen casas en la tierra y hacen agujeros en la arena. Esto crea hogares para otros animales pequeños. ",
+          "options": [
+            {
+              "text": "MÁS INFORMACIÓN SOBRE CANGREJOS Y SU IMPORTANCIA",
+              "_action": "goToNode",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "text": "Por último nos pueden decir si el agua está limpia o sucia: Algunos cangrejos solo pueden vivir en agua limpia. Si encontramos muchos cangrejos en un lugar, significa que el agua está sana.",
+          "options": [
+            {
+              "text": "Creo que ya tuve suficiente, ahora hablame del trato",
+              "_action": "goToNode",
+              "value": 7
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "text": "Busca un esqueleto por la calle y hablale, seguramente te va a decir qué necesita y cómo lo podes ayudar",
+          "options": [
+            {
+              "text": "Perfecto, gg",
+              "_action": "endChat"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "text": "El trato consiste en que ayudes a otros esqueletos a demostrar su profesión. Si lo hacés te puedo pasar a un infierno más copado, con cangrejos.",
+          "options": [
+            {
+              "text": "Basado en la información sobre cangrejos que obtuve, parece un buen trato",
+              "_action": "goToNode",
+              "value": 6
+            },
+            {
+              "text": "Basado en la información sobre cangrejos que obtuve, no parece un buen trato.",
+              "_action": "goToNode",
+              "value": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quest_0_ongoing",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "No parece que tengas las manzanas que te pedi",
+          "options": [
+            {
+              "text": "No todavia",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quest_0_completed_some",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "Gracias por las manzanas, podes ayudarme con otra cosa?",
+          "options": [
+            {
+              "text": "Si",
+              "_action": "goToNode",
+              "value": 1
+            },
+            {
+              "text": "No puedo",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Podes traerme una naranja?",
+          "options": [
+            {
+              "text": "Si",
+              "_action": "startQuest",
+              "value": 2
+            },
+            {
+              "text": "No puedo",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quest_2_ongoing",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "No parece que tengas la naranja que te pedi",
+          "options": [
+            {
+              "text": "No todavia",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quest_2_completed_some",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "Gracias por la naranja, podes ayudarme con otra cosa?",
+          "options": [
+            {
+              "text": "Si",
+              "_action": "goToNode",
+              "value": 1
+            },
+            {
+              "text": "No puedo",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Podes traerme una manzana?",
+          "options": [
+            {
+              "text": "Si",
+              "_action": "startQuest",
+              "value": 0
+            },
+            {
+              "text": "No puedo",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "common_completed_all",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "Gracias por completar todas mis tareas",
+          "options": [
+            {
+              "text": "OK",
+              "_action": "endChat",
+              "value": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "common_completed_all_first",
+      "nodes": [
+        {
+          "id": 0,
+          "text": "Bueno, gracias por las manzanas y las naranjas, este es un texto que se mostraria la primera vez que completes las tareas, pero no se va a volver a repetir. Salu3, Also, tambien sirve para probar el editor de dialogos",
+          "options": [
+            {
+              "text": "Perfecto, la seguimos?",
+              "_action": "goToNode",
+              "value": 1
+            },
+            {
+              "text": "Ok",
+              "_action": "endChat"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "text": "Si, dale, sigamosla un poco, me parece bien",
+          "options": [
+            {
+              "text": "Ya esta",
+              "_action": "endChat"
+            },
+            {
+              "text": "Quiero seguir",
+              "_action": "goToNode",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Y dale con seguirla, bueno. Eh... de que queres hablar? del clima?",
+          "options": [
+            {
+              "text": "Esta lindo el dia",
+              "_action": "goToNode"
+            },
+            {
+              "text": "No",
+              "_action": "endChat"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Si, la verdad que se vienen dias lindos",
+          "options": [
+            {
+              "text": "Perfecto",
+              "_action": "endChat"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

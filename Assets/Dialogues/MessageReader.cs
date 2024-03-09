@@ -9,7 +9,7 @@ public class MessageReader : MonoBehaviour
 	public string filePath;
 	NpcDialogue npcDialogue;
 
-	private void Start()
+	private void Awake()
 	{
 		string jsonText = File.ReadAllText(filePath);
 		NpcDialogue parsedNPCDialogue = JsonUtility.FromJson<NpcDialogue>(jsonText);

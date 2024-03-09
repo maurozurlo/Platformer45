@@ -25,7 +25,7 @@ public class PlayerCharacter : MonoBehaviour
 	public GameObject sfx;
 
 	// Start is called before the first frame update
-	void Start()
+	void Awake()
 	{
 		if (GetComponent<Animator>() != null)
 		{
