@@ -42,7 +42,7 @@ public class levelManager : MonoBehaviour
 
     void restoreItemPositions()
     {
-        Debug.LogError("NOT IMPLEMENTED");
+        //Debug.LogError("NOT IMPLEMENTED");
         /*
         foreach (BasicItem item in itemPersistance)
         {
@@ -53,7 +53,7 @@ public class levelManager : MonoBehaviour
 
     void destroyAllItems()
     {
-        Debug.LogError("NOT IMPLEMENTED");
+        //Debug.LogError("NOT IMPLEMENTED");
         /*
         GameObject[] itemInstances = GameObject.FindGameObjectsWithTag("Item");
         for (int i = 0; i < itemInstances.Length; i++)

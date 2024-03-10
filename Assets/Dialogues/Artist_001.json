@@ -37,7 +37,7 @@
         },
         {
           "id": 2,
-          "text": "Necesito un lienzo y un par de cosas más para demostrar mi profesión. Fui un gran artista.",
+          "text": "Necesito un lienzo y un par de cosas más para demostrar mi profesión. Fui un gran artista",
           "options": [
             {
               "text": "Te voy a ayudar",
@@ -56,7 +56,7 @@
           "text": "Ehm, no puedo moverme viejo, alguien se podría robar mi caja de cartón. Además no tengo plata",
           "options": [
             {
-              "text": "Pero podés intentar ir ahí y ver qué onda, esta re cerca",
+              "text": "Pero podés intentar ir ahí y ver qué onda, está re cerca",
               "_action": "goToNode",
               "value": 4
             },
@@ -69,10 +69,10 @@
         },
         {
           "id": 4,
-          "text": "No padre, nada de ver qué onda, ya te dije que no puedo dejar mi caja.",
+          "text": "No padre, nada de ver qué onda, ya te dije que no puedo dejar mi caja",
           "options": [
             {
-              "text": "Pero es una caja, no tiene nada de especial",
+              "text": "Pero es una caja, no tiene nada de especial. Además tenés un montón",
               "_action": "goToNode",
               "value": 5
             }
@@ -80,10 +80,10 @@
         },
         {
           "id": 5,
-          "text": "Para mí es especial, además no sabés si no tiene nada adentro... algo como... un cangrejo.",
+          "text": "Para mí esta es especial, además no sabés si no tiene nada adentro... algo como... un cangrejo.",
           "options": [
             {
-              "text": "Pero en este círculo del infierno no hay cangrejos... o quizás...",
+              "text": "Pero en este círculo del infierno no hay cangrejos ...no?",
               "_action": "goToNode",
               "value": 6
             }
@@ -94,7 +94,7 @@
           "text": "Hablamos demasiado, conseguime el lienzo y la seguimos.",
           "options": [
             {
-              "text": "Hecho",
+              "text": "Bueno, ta bien",
               "_action": "startQuest",
               "value": 0
             }

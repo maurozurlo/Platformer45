@@ -50,7 +50,6 @@ public class NPCInteraction : MonoBehaviour
     void SetPlayer(GameObject playerGO)
     {
         player = playerGO;
-        Debug.Log(playerGO);
         playerControl = playerGO.GetComponent<Invector.CharacterController.vThirdPersonInput>();
         playerCharacter = playerGO.GetComponent<PlayerCharacter>();
     }
