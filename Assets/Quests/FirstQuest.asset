@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: FirstQuest
   m_EditorClassIdentifier: 
   QuestID: 0
-  QuestName: Find 4 apples
+  QuestName: Encontrar un lienzo
   isCompleted: 0
   itemHuntDB:
-  - itemId: 0
-    amount: 4
+  - itemId: 3
+    amount: 1
   QuestType: 0
-  rewards:
-  - {fileID: 11400000, guid: 09d8b14ff37af804cb6bfc043e35a684, type: 2}
+  rewards: []

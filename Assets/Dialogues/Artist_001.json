@@ -1,8 +1,8 @@
 {
-  "npcName": "Test NPC",
+  "npcName": "Púbol",
   "quests": [
     0,
-    2
+    1
   ],
   "dialogue": [
     {
@@ -10,49 +10,93 @@
       "nodes": [
         {
           "id": 0,
-          "text": "Hola, cual es tu fruta preferida",
+          "text": "Hola, estoy en la lona bro",
           "options": [
             {
-              "text": "Las manzanas",
+              "text": "¿Qué te pasó?",
               "_action": "goToNode",
               "value": 1
             },
             {
-              "text": "Las naranjas",
-              "_action": "goToNode",
-              "value": 2
+              "text": "Mejor así",
+              "_action": "endChat",
+              "value": null
             }
           ]
         },
         {
           "id": 1,
-          "text": "Asi que te gustan las manzanas, traeme cuatro por favor",
+          "text": "Cuando me morí me juzgaron los demonios y terminé acá. Si pudiera probar mi profesión podría ir a un mejor lugar, uno con cangrejos.",
           "options": [
             {
-              "text": "Perfecto",
-              "_action": "startQuest",
-              "value": 0
-            },
-            {
-              "text": "No quiero",
-              "_action": "endChat",
-              "value": null
+              "text": "¿Cómo puedo ayudarte?",
+              "_action": "goToNode",
+              "value": 2
             }
           ]
         },
         {
           "id": 2,
-          "text": "Te gustan las naranjas, traeme una por favor",
+          "text": "Necesito un lienzo y un par de cosas más para demostrar mi profesión. Fui un gran artista.",
           "options": [
             {
-              "text": "Perfecto",
+              "text": "Te voy a ayudar",
               "_action": "startQuest",
-              "value": 2
+              "value": 0
             },
             {
-              "text": "No quiero",
-              "_action": "endChat",
-              "value": null
+              "text": "Hay una tienda artística acá al lado",
+              "_action": "goToNode",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Ehm, no puedo moverme viejo, alguien se podría robar mi caja de cartón. Además no tengo plata",
+          "options": [
+            {
+              "text": "Pero podés intentar ir ahí y ver qué onda, esta re cerca",
+              "_action": "goToNode",
+              "value": 4
+            },
+            {
+              "text": "Bueno, te ayudo",
+              "_action": "startQuest",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "text": "No padre, nada de ver qué onda, ya te dije que no puedo dejar mi caja.",
+          "options": [
+            {
+              "text": "Pero es una caja, no tiene nada de especial",
+              "_action": "goToNode",
+              "value": 5
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "text": "Para mí es especial, además no sabés si no tiene nada adentro... algo como... un cangrejo.",
+          "options": [
+            {
+              "text": "Pero en este círculo del infierno no hay cangrejos... o quizás...",
+              "_action": "goToNode",
+              "value": 6
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "text": "Hablamos demasiado, conseguime el lienzo y la seguimos.",
+          "options": [
+            {
+              "text": "Hecho",
+              "_action": "startQuest",
+              "value": 0
             }
           ]
         }
@@ -63,7 +107,7 @@
       "nodes": [
         {
           "id": 0,
-          "text": "No parece que tengas las manzanas que te pedi",
+          "text": "No parece que tengas el lienzo que te pedí.",
           "options": [
             {
               "text": "No todavia",
@@ -79,84 +123,47 @@
       "nodes": [
         {
           "id": 0,
-          "text": "Gracias por las manzanas, podes ayudarme con otra cosa?",
+          "text": "Gracias por el lienzo! estoy muy feliz. Necesito ayuda con un par de cosas más y voy a poder probar mi profesión",
           "options": [
             {
-              "text": "Si",
+              "text": "Te ayudo",
               "_action": "goToNode",
               "value": 1
             },
             {
-              "text": "No puedo",
-              "_action": "endChat",
-              "value": null
+              "text": "Ehm, está bien supongo",
+              "_action": "goToNode",
+              "value": 1
             }
           ]
         },
         {
           "id": 1,
-          "text": "Podes traerme una naranja?",
+          "text": "Necesito un pincel para pintar sobre el lienzo, pero que no sea de marta Kolinsky, nada de pelo de hurón, comadreja o armiño",
           "options": [
             {
-              "text": "Si",
+              "text": "Entiendo el dilema ético sobre crueldad animal que implican esos pinceles",
               "_action": "startQuest",
-              "value": 2
+              "value": 1
             },
             {
-              "text": "No puedo",
-              "_action": "endChat",
-              "value": null
+              "text": "Esto se puso raro pero está bien",
+              "_action": "startQuest",
+              "value": 1
             }
           ]
         }
       ]
     },
     {
-      "id": "quest_2_ongoing",
+      "id": "quest_1_ongoing",
       "nodes": [
         {
           "id": 0,
-          "text": "No parece que tengas la naranja que te pedi",
+          "text": "No parece que tengas el pincel que te pedí.",
           "options": [
             {
               "text": "No todavia",
-              "_action": "endChat",
-              "value": null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "quest_2_completed_some",
-      "nodes": [
-        {
-          "id": 0,
-          "text": "Gracias por la naranja, podes ayudarme con otra cosa?",
-          "options": [
-            {
-              "text": "Si",
-              "_action": "goToNode",
-              "value": 1
-            },
-            {
-              "text": "No puedo",
-              "_action": "endChat",
-              "value": null
-            }
-          ]
-        },
-        {
-          "id": 1,
-          "text": "Podes traerme una manzana?",
-          "options": [
-            {
-              "text": "Si",
-              "_action": "startQuest",
-              "value": 0
-            },
-            {
-              "text": "No puedo",
               "_action": "endChat",
               "value": null
             }
@@ -185,54 +192,10 @@
       "nodes": [
         {
           "id": 0,
-          "text": "Bueno, gracias por las manzanas y las naranjas, este es un texto que se mostraria la primera vez que completes las tareas, pero no se va a volver a repetir. Salu3, Also, tambien sirve para probar el editor de dialogos",
+          "text": "Hasta acá llegamos con la demo, gracias por ayudarme.",
           "options": [
-            {
-              "text": "Perfecto, la seguimos?",
-              "_action": "goToNode",
-              "value": 1
-            },
             {
               "text": "Ok",
-              "_action": "endChat"
-            }
-          ]
-        },
-        {
-          "id": 1,
-          "text": "Si, dale, sigamosla un poco, me parece bien",
-          "options": [
-            {
-              "text": "Ya esta",
-              "_action": "endChat"
-            },
-            {
-              "text": "Quiero seguir",
-              "_action": "goToNode",
-              "value": 2
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "Y dale con seguirla, bueno. Eh... de que queres hablar? del clima?",
-          "options": [
-            {
-              "text": "Esta lindo el dia",
-              "_action": "goToNode"
-            },
-            {
-              "text": "No",
-              "_action": "endChat"
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "text": "Si, la verdad que se vienen dias lindos",
-          "options": [
-            {
-              "text": "Perfecto",
               "_action": "endChat"
             }
           ]

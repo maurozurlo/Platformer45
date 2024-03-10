@@ -1,8 +1,7 @@
 {
-    "npcName": "Shop NPC",
+    "npcName": "Vendedor de libreria artistica",
     "quests": [
-        0,
-        200
+        255
     ],
     "dialogue": [
         {
@@ -10,10 +9,96 @@
             "nodes": [
                 {
                     "id": 0,
-                    "text": "Hola, soy otro npc para probar esto",
+                    "text": "Bienvenido, ¿qué se le ofrece?",
                     "options": [
                         {
-                            "text": "Perfecto",
+                            "text": "Estoy mirando",
+                            "_action": "goToNode",
+                            "value": 1
+                        },
+                        {
+                            "text": "Nada por el momento",
+                            "_action": "endChat"
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "text": "¿Hay algo con lo que lo pueda ayudar?",
+                    "options": [
+                        {
+                            "text": "Es posible",
+                            "_action": "goToNode",
+                            "value": 2
+                        },
+                        {
+                            "text": "No realmente",
+                            "_action": "endChat"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "text": "¿Puede especificarme acerca de los atributos físicos y/o conceptuales de lo que está buscando?",
+                    "options": [
+                        {
+                            "text": "Podría... si quisiera",
+                            "_action": "goToNode",
+                            "value": 3
+                        },
+                        {
+                            "text": "No realmente",
+                            "_action": "endChat"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "text": "Entiendo... este algo que busca, ¿existe en el plano de la realidad?",
+                    "options": [
+                        {
+                            "text": "La existencia es relativa",
+                            "_action": "goToNode",
+                            "value": 4
+                        },
+                        {
+                            "text": "No realmente",
+                            "_action": "endChat"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "text": "Este algo que busca, ¿tiene que ver con cangrejos?",
+                    "options": [
+                        {
+                            "text": "Existe la posibilidad de que sí tenga que ver con cangrejos...",
+                            "_action": "goToNode",
+                            "value": 5
+                        },
+                        {
+                            "text": "No señor",
+                            "_action": "endChat"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "text": "Usted sabe que no hay cangrejos en este círculo del infierno... y no puedo ayudarlo si eso es lo que busca. A menos que... tenga mucho dinero.",
+                    "options": [
+                        {
+                            "text": "No tengo mucho dinero.",
+                            "_action": "goToNode",
+                            "value": 6
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "text": "En ese caso, le pido por favor que se retire de mi tienda, tengo cosas que hacer.",
+                    "options": [
+                        {
+                            "text": "Entiendo",
                             "_action": "endChat"
                         }
                     ]
@@ -25,10 +110,10 @@
             "nodes": [
                 {
                     "id": 0,
-                    "text": "Bueno, completaste la mision de las manzanas del otro npc, asi que este texto deberia mostrarse",
+                    "text": "Veo que lo pudo ayudar al otro esqueleto, es usted un buen esqueleto, para estar en el último círculo del infierno. Donde no hay cangrejos.",
                     "options": [
                         {
-                            "text": "creo que si",
+                            "text": "Claro",
                             "_action": "endChat"
                         }
                     ]
@@ -40,12 +125,86 @@
             "nodes": [
                 {
                     "id": 0,
-                    "text": "Parece que estas ocupado en este momento",
+                    "text": "Parece que está ocupado en este momento",
                     "options": [
                         {
-                            "text": "Tenes razon",
+                            "text": "Tiene razón.",
                             "_action": "endChat",
                             "value": null
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "quest_0_ongoing",
+            "nodes": [
+                {
+                    "id": 0,
+                    "text": "Bienvenido a mi tienda, ¿cómo puedo ayudarlo?",
+                    "options": [
+                        {
+                            "text": "Necesito un lienzo, ¿tiene lienzos? Un lienzo es la única ayuda que necesito.",
+                            "_action": "goToNode",
+                            "value": 1
+                        },
+                        {
+                            "text": "No puede ayudarme.",
+                            "_action": "endChat"
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "text": "Seguro mi mejor lienzo mide 160x160cm, tan solo 3500 democoins",
+                    "options": [
+                        {
+                            "text": "Eso es demasiado dinero",
+                            "_action": "goToNode",
+                            "value": 2
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "text": "Tengo uno más barato de 120x120cm! solo 3000 democoins.",
+                    "options": [
+                        {
+                            "text": "No me alcanza",
+                            "_action": "goToNode",
+                            "value": 3
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "text": "Hmm, tengo uno de 30x30cm, por 500 democoins.",
+                    "options": [
+                        {
+                            "text": "Ehh... no tengo tantas democoins",
+                            "_action": "goToNode",
+                            "value": 4
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "text": "Uff, tiempos de inflación, lo entiendo, no se preocupe. Tengo un lienzo nanoscópico, de 1x1nm, a solo 1 democoin.",
+                    "options": [
+                        {
+                            "text": "¿Qué es un democoin a todo esto?",
+                            "_action": "goToNode",
+                            "value": 5
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "text": "Bueno señor, parece no conocer el concepto de dinero. Le puedo sugerir que en ese caso busque unas ramas y robe una sábana para hacer su propio lienzo, no puedo ayudarlo si no entiende que los bienes y servicios se intercambian por bonos respaldados por el estado.",
+                    "options": [
+                        {
+                            "text": "Me parece una buena opción",
+                            "_action": "endChat"
                         }
                     ]
                 }
