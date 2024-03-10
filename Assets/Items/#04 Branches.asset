@@ -17,3 +17,5 @@ MonoBehaviour:
   amount: 1
   itemPos: {x: 46.19, y: 17.712, z: -148.66}
   hasBeenPickUp: 0
+  canBeCombinedWithItems: 05000000
+  canBeMadeFromItems: []

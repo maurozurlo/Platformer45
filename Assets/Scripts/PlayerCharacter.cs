@@ -117,7 +117,7 @@ public class PlayerCharacter : MonoBehaviour
 
 	public void respawnPlayer()
 	{
-		this.GetComponent<PlayerInventory>().removeAllItems();
+		this.GetComponent<PlayerInventory>().RemoveAllItems();
 		state = STATES.LOCKED;
 		Unlock();
 		Rigidbody rb = this.GetComponent<Rigidbody>();

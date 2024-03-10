@@ -13,24 +13,25 @@ public class InventoryUI : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void DrawUI()
+    public void DrawUI(bool itemsCanBeMerged)
     {
         List<BasicItem> inventory = gameControl.control.inventory;
         string itemsDetail = string.Empty;
         int totalItems = 0;
 
         foreach(BasicItem item in inventory){
-            itemsDetail += " " + checkIfPlural(item.label, item.amount) + ": " + item.amount.ToString();
+            itemsDetail += " " + CheckIfPlural(item.label, item.amount) + ": " + item.amount.ToString();
             totalItems += item.amount;
         }
         if(itemsDetail != ""){
             itemsDetail = ", " + itemsDetail;
         }
 
-        myText.text = "Items: " + totalItems.ToString() + itemsDetail;
+
+        myText.text = "Items: " + totalItems.ToString() + itemsDetail + (itemsCanBeMerged ? ". Algunos objetos se pueden combinar apretando J" : "");
     }
 
-    string checkIfPlural(string label, int amount){
+    string CheckIfPlural(string label, int amount){
         if(amount >= 2)
             return label + "s";
         else

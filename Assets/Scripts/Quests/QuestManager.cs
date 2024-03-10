@@ -67,7 +67,7 @@ public class QuestManager : MonoBehaviour
             //Sacar items
             foreach (QuestItem item in currentQuest.itemHuntDB)
             {
-               player.GetComponent<PlayerInventory>().removeItem(item.itemId,item.amount);
+               player.GetComponent<PlayerInventory>().RemoveItem(item.itemId,item.amount);
             }
         }
         // Give player rewards

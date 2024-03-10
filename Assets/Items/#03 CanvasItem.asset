@@ -17,3 +17,9 @@ MonoBehaviour:
   amount: 1
   itemPos: {x: 0, y: 0, z: 0}
   hasBeenPickUp: 0
+  canBeCombinedWithItems: 
+  canBeMadeFromItems:
+  - itemId: 4
+    amount: 1
+  - itemId: 5
+    amount: 1

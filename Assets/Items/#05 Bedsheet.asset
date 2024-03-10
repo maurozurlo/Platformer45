@@ -15,5 +15,7 @@ MonoBehaviour:
   label: "S\xE1bana"
   id: 5
   amount: 1
-  itemPos: {x: 0, y: 0, z: 0}
+  itemPos: {x: 65.11, y: 18.035349, z: -140.83}
   hasBeenPickUp: 0
+  canBeCombinedWithItems: 04000000
+  canBeMadeFromItems: []
