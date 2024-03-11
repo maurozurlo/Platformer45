@@ -2244,7 +2244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ab58459e3421742b60db26c5c4235c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: E:/GameDev/Platformer45/Assets/Dialogues/Shop_001.json
+  filePath: Dialogue/Shop_001
 --- !u!1 &278942378
 GameObject:
   m_ObjectHideFlags: 0
@@ -3989,7 +3989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ab58459e3421742b60db26c5c4235c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: E:/GameDev/Platformer45/Assets/Dialogues/Artist_001.json
+  filePath: Dialogue/Artist_001
 --- !u!4 &563271119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: f4400aaed51b3114ead91eb747ca8bc9,
@@ -12795,7 +12795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ab58459e3421742b60db26c5c4235c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: E:/GameDev/Platformer45/Assets/Dialogues/Judge_001.json
+  filePath: Dialogue/Judge_001
 --- !u!114 &1292937871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14238,7 +14238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioClip: {fileID: 8300000, guid: 72166633b9a33df49b1c7dd46a212eb4, type: 3}
   thisItem: {fileID: 11400000, guid: 7b4f137315bd92143944d8d4e7e7d777, type: 2}
-  speed: 40
+  speed: 0
 --- !u!65 &1631607363
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -11,8 +11,8 @@ public class MessageReader : MonoBehaviour
 
 	private void Awake()
 	{
-		string jsonText = File.ReadAllText(filePath);
-		NpcDialogue parsedNPCDialogue = JsonUtility.FromJson<NpcDialogue>(jsonText);
+		TextAsset jsonText = Resources.Load<TextAsset>(filePath);
+		NpcDialogue parsedNPCDialogue = JsonUtility.FromJson<NpcDialogue>(jsonText.text);
 		npcDialogue = parsedNPCDialogue;
 
 		foreach (Dialogue dialogueItem in npcDialogue.dialogue)
