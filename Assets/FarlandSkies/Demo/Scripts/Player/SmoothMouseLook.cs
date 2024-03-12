@@ -33,7 +33,7 @@ public class SmoothMouseLook : MonoBehaviour
 
     void Update()
     {
-        if (!Input.GetButton("Look")) return;
+        //if (!Input.GetButton("Look")) return;
 
         if (axes == RotationAxes.MouseXAndY)
         {
