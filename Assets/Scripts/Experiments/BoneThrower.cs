@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 public class BoneThrower: MonoBehaviour
 {
 	[Header("Bone Prefab")]
@@ -14,20 +15,18 @@ public class BoneThrower: MonoBehaviour
 	public float throwForce = 10f;
 	public float maxForce = 20f;
 
-	bool isCharging;
+	public bool isCharging;
 	public float chargeTime = 0;
 
-	LineRenderer lr;
+	public bool isCooldownTime;
+
+	public LineRenderer lr;
 
 	Animator boneAnim;
 
-	Vector2 minThrowAnim = new Vector2(16, 17.9f);
-	Vector2 maxThrowAnim = new Vector2(23, 29.0f);
+	Vector2 throwAnim = new Vector2(20.2f, 29);
 
 	public float perc;
-
-
-
 
 	Camera mainCamera;
 
@@ -41,6 +40,8 @@ public class BoneThrower: MonoBehaviour
 
 	private void Update()
 	{
+		if (isCooldownTime) return;
+
 		if (Input.GetKeyDown(throwKey))
 		{
 			StartThrowing();
@@ -58,34 +59,34 @@ public class BoneThrower: MonoBehaviour
 	}
 
 	void StartThrowing() {
-		isCharging = true;
+		
 		chargeTime = 0;
+		perc = 0;
 		boneAnim.SetBool("charging", true);
-		boneAnim.speed = 0;
-
-		// Trajectory line
+		boneAnim.SetFloat("charge", 0);
+		isCharging = true;
 		lr.enabled = true;
 	}
 
 	void ChargeThrow()
 	{
-		chargeTime += Time.deltaTime * .2f;
+		chargeTime += Time.deltaTime * .5f;
 		float normalizedChargeTime = Mathf.Min(chargeTime * throwForce, maxForce);
-
-		perc = Mathf.Lerp(minThrowAnim.y, maxThrowAnim.y, Mathf.Min(chargeTime, 1)) * .01f;
-		boneAnim.Play("throw", -1, perc);
-		boneAnim.Update(0);
+		perc = Mathf.Lerp(throwAnim.y, throwAnim.y, Mathf.Min(chargeTime, 1)) * .01f;
+		boneAnim.SetFloat("charge", perc);
 		Vector3 grenadeVelocity = (mainCamera.transform.forward + throwDirection).normalized * normalizedChargeTime;
 		ShowTrajectory(throwPosition.position + throwPosition.forward, grenadeVelocity);
 	}
 
 	void ReleaseThrow()
 	{
-		ThrowGrenade(Mathf.Min(chargeTime * throwForce, maxForce));
-		boneAnim.SetBool("charging", false);
-		boneAnim.speed = 1;
-		lr.enabled = false;
+		isCooldownTime = true;
 		isCharging = false;
+		StartCoroutine(SmoothlyTransitionToOne(1));
+		ThrowGrenade(Mathf.Min(chargeTime * throwForce, maxForce));
+		lr.enabled = false;
+		StartCoroutine(Cooldown(3));
+
 	}
 
 	void ThrowGrenade(float force) {
@@ -110,5 +111,26 @@ public class BoneThrower: MonoBehaviour
 		}
 
 		lr.SetPositions(points);
+	}
+
+	IEnumerator SmoothlyTransitionToOne(float duration)
+	{
+		float startTime = Time.time;
+		float startValue = perc;
+
+		while (Time.time < startTime + duration)
+		{
+			perc = Mathf.Lerp(startValue, 1f, (Time.time - startTime) / duration);
+			boneAnim.SetFloat("charge", perc);
+			yield return null;
+		}
+		boneAnim.SetBool("charging", false);
+		boneAnim.SetFloat("charge", 1);
+	}
+
+	IEnumerator Cooldown(float duration)
+	{
+		yield return new WaitForSeconds(duration);
+		isCooldownTime = false;
 	}
 }
