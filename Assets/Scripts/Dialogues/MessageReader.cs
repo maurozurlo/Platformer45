@@ -37,4 +37,9 @@ public class MessageReader : MonoBehaviour
 		}
 		return npcDialogue;
 	}
+
+	public string GetJSONName()
+	{
+		return filePath.Split(new string[] { "Dialogue/"}, StringSplitOptions.None)[1];
+	}
 }

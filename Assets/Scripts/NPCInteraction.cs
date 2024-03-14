@@ -68,6 +68,7 @@ public class NPCInteraction : MonoBehaviour
             //Start UI
             dialogueUI.SetActive(true);
             NpcDialogue npcDialogue = messageReader.GetDialogue();
+            dialogueUI.GetComponent<DialogueUI>().npcDialogueFile = messageReader.GetJSONName();
             dialogueUI.GetComponent<DialogueUI>().npcDialogue = npcDialogue;            
             dialogueUI.GetComponent<DialogueUI>().StartDialogue(gameObject);
             //Cursor

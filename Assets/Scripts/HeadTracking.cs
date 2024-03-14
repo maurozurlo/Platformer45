@@ -10,12 +10,6 @@ public class HeadTracking : MonoBehaviour
 
     public Transform headTransform; // Reference to the head's transform
 
-    bool playerWithinRange;
-
-	private void Start()
-	{
-
-	}
 
     private void LateUpdate()
     {
@@ -24,7 +18,6 @@ public class HeadTracking : MonoBehaviour
 
         if (distanceToPlayer <= detectionRadius)
         {
-            playerWithinRange = true;
             // Calculate the direction from the head to the player
             Vector3 directionToPlayer = (playerTransform.position - headTransform.position).normalized;
 
@@ -36,10 +29,6 @@ public class HeadTracking : MonoBehaviour
 
             // Interpolate between the current head rotation and the desired clamped rotation
             headTransform.localRotation = Quaternion.Slerp(headTransform.localRotation, desiredRotation, rotationSpeed * Time.deltaTime);
-        }
-        else
-        {
-            playerWithinRange = false;
         }
     }
 

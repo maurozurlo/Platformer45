@@ -9,10 +9,12 @@ public class DialogueUI : MonoBehaviour
 	public Camera npcCamera;
 	public Text npcName;
 	public Text npcText;
-	
+
 	//Current Dialogue
+	public string npcDialogueFile;
 	public NpcDialogue npcDialogue;
 	public Node[] dialogueNodes;
+	public string currentDialogueType;
 	//GameObjects
 	public GameObject NPC;
 	public GameObject player;
@@ -57,6 +59,7 @@ public class DialogueUI : MonoBehaviour
 
 		// Conseguimos el id del dialogue a mostrar
 		string dialogToStart = QuestManager.control.GetDialogueId(npcDialogue.quests);
+		currentDialogueType = dialogToStart;
 		dialogueNodes = GetNodesForDialog(dialogToStart);
 		if (dialogueNodes != null)
 		{
@@ -83,9 +86,12 @@ public class DialogueUI : MonoBehaviour
 			return;
 		}
 
-		npcName.text = npcDialogue.npcName;
+		npcName.text = I18nManager.control.GetValue($"{npcDialogueFile}_npcName", npcDialogue.npcName);
 		Node node = GetNode(mainNode);
-		npcText.text = node.text;
+
+		string text = I18nManager.control.GetValue($"{npcDialogueFile}_dialogue_{currentDialogueType}_{node.id}_text", node.text);
+		npcText.text = text;
+		Debug.Log(text);
 
 		// Remove all children
 		foreach (Transform child in optionContainer.transform)
@@ -93,9 +99,13 @@ public class DialogueUI : MonoBehaviour
 			Destroy(child.gameObject);
 		}
 		// Create options
-		foreach (Option option in node.options) {
+		int i = 0;
+		foreach (Option option in node.options)
+		{
+			string optionText = I18nManager.control.GetValue($"{npcDialogueFile}_dialogue_{currentDialogueType}_{node.id}_options_{i}", option.text);
 			GameObject op = Instantiate(optionPrefab, optionContainer.transform);
-			SetupOption(op.GetComponent<Button>(), option);
+			SetupOption(op.GetComponent<Button>(), option, optionText);
+			i++;
 		}
 	}
 
@@ -119,11 +129,11 @@ public class DialogueUI : MonoBehaviour
 		return null;
 	}
 
-	public void SetupOption(Button option, Option values)
+	public void SetupOption(Button option, Option values, string text)
 	{
 
 		option.gameObject.SetActive(true);
-		option.GetComponentInChildren<Text>().text = values.text;
+		option.GetComponentInChildren<Text>().text = text;
 		option.GetComponent<OptionUI>().action = values.action;
 		option.GetComponent<OptionUI>().value = values.value;
 	}
@@ -155,13 +165,14 @@ public class DialogueUI : MonoBehaviour
 		NPC.GetComponent<NPCInteraction>().StartCoroutine("EndConversation");
 	}
 
-	public enum DialogType {
+	public enum DialogType
+	{
 		common_intro,
 		common_completed_all,
 		common_completed_all_first,
 		common_ongoing,
 		value_ongoing,
-		value_completed_some,		
+		value_completed_some,
 	}
 
 	public static string GetDialogId(DialogType type, int value = -1)
