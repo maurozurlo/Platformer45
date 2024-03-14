@@ -24,6 +24,7 @@ function findJSONFiles(dirPath) {
 function processJSONFile(filePath) {
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     const fileName = path.basename(filePath, '.json');
+    if (fileName === "ui") return parseUI(data)
     if (fileName === "quests") return parseQuests(data);
     if (fileName === "items") return parseItems(data);
 
@@ -58,6 +59,14 @@ function parseItems(data) {
     const rows = []
     for (const item of data) {
         rows.push(`item_${item.id}_item_name, ${item.itemName}`)
+    }
+    return rows
+}
+
+function parseUI(data) {
+    const rows = []
+    for (const [key, value] of Object.entries(data)) {
+        rows.push(`ui_${key}, ${value}`)
     }
     return rows
 }

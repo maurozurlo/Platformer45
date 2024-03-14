@@ -59,7 +59,7 @@ public class CSVReader : MonoBehaviour
         return string.Empty;
     }
 
-	public void Start()
+	public void Awake()
 	{
         ReadCSVs();
 	}

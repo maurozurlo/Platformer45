@@ -19,8 +19,9 @@ public class InventoryUI : MonoBehaviour
         string itemsDetail = string.Empty;
         int totalItems = 0;
 
-        foreach(BasicItem item in inventory){
-            string itemName = I18nManager.control.GetValue($"item_{item.id}_item_name", item.label);
+        I18nManager t = I18nManager.control;
+        foreach (BasicItem item in inventory){
+            string itemName = t.GetValue($"item_{item.id}_item_name", item.label);
             itemsDetail += " " + CheckIfPlural(itemName, item.amount) + ": " + item.amount.ToString();
             totalItems += item.amount;
         }
@@ -28,8 +29,9 @@ public class InventoryUI : MonoBehaviour
             itemsDetail = ", " + itemsDetail;
         }
 
-
-        myText.text = "Items: " + totalItems.ToString() + itemsDetail + (itemsCanBeMerged ? ". Algunos objetos se pueden combinar apretando J" : "");
+        string items = t.GetValue("ui_items", "Objetos: ");
+        string canMergeItems = (itemsCanBeMerged ? t.GetValue("ui_items_combination", "Algunos objetos se pueden combinar") : "");
+        myText.text = items + totalItems.ToString() + itemsDetail + canMergeItems;
     }
 
     string CheckIfPlural(string label, int amount){

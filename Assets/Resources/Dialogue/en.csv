@@ -93,9 +93,16 @@ item_1_item_name, Orange
 item_2_item_name, Magic Apple
 item_3_item_name, Canvas
 item_4_item_name, Branches
-item_5_item_name, Bedsheet
+item_5_item_name, Bedsheets
 item_6_item_name, Paintbrush
 item_7_item_name, Feather
 item_8_item_name, Fishing Rod
 quest_0_quest_name, Find a canvas
 quest_1_quest_name, Find a paintbrush
+ui_quest_ongoing, Active quest:
+ui_quest_none, No quests active
+ui_quest_completed, Quest Completed!
+ui_items_combination, Some items can be combined
+ui_tooltip_1, Some items can be combined pressing J
+ui_tooltip_2, You can detach your head pressing E and control it with numpad
+ui_items, Items:

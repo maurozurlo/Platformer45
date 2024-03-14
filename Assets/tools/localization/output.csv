@@ -1,101 +1,107 @@
 Artist_001_npcName, Púbol
-Artist_001_dialogue_common_intro_0_text, Hey bro, I'm really broke
-Artist_001_dialogue_common_intro_0_options_0, What happened to you?
-Artist_001_dialogue_common_intro_0_options_1, Better this way
-Artist_001_dialogue_common_intro_1_text, When I died, the demons judged me and I ended up here. If I could prove my profession, I could go to a better place, one with crabs.
-Artist_001_dialogue_common_intro_1_options_0, How can I help you?
-Artist_001_dialogue_common_intro_2_text, I need a canvas and a couple of things more to prove my profession. I was a great artist
-Artist_001_dialogue_common_intro_2_options_0, I'll help you
-Artist_001_dialogue_common_intro_2_options_1, There's an art store right next door
-Artist_001_dialogue_common_intro_3_text, Uhm, I can't move dude, someone could steal my cardboard box. Besides, I don't have any money
-Artist_001_dialogue_common_intro_3_options_0, But you could try going there and see what's up, it's really close
-Artist_001_dialogue_common_intro_3_options_1, Alright, I'll help you
-Artist_001_dialogue_common_intro_4_text, No dude, nothing to see what's up, I already told you I can't leave my box
-Artist_001_dialogue_common_intro_4_options_0, But it's just a box, it's not special. Besides, you have a bunch
-Artist_001_dialogue_common_intro_5_text, To me this one is special, besides you don't know if there's nothing inside... like... a crab.
-Artist_001_dialogue_common_intro_5_options_0, But in this circle of hell there are no crabs... right?
-Artist_001_dialogue_common_intro_6_text, We've talked too much, get me the canvas and we'll continue.
-Artist_001_dialogue_common_intro_6_options_0, Alright, got it
-Artist_001_dialogue_quest_0_ongoing_0_text, It doesn't seem like you have the canvas I asked for.
-Artist_001_dialogue_quest_0_ongoing_0_options_0, Not yet
-Artist_001_dialogue_quest_0_completed_some_0_text, Thanks for the canvas! I'm very happy. I need help with a couple more things and I'll be able to prove my profession
-Artist_001_dialogue_quest_0_completed_some_0_options_0, I'll help you
-Artist_001_dialogue_quest_0_completed_some_0_options_1, Uhm, alright I guess
-Artist_001_dialogue_quest_0_completed_some_1_text, I need a brush to paint on the canvas, but not one made of Kolinsky sable, no hair from weasels, ferrets or ermines
-Artist_001_dialogue_quest_0_completed_some_1_options_0, I understand the ethical dilemma about animal cruelty that those brushes imply
-Artist_001_dialogue_quest_0_completed_some_1_options_1, This got weird but alright
-Artist_001_dialogue_quest_1_ongoing_0_text, It doesn't seem like you have the brush I asked for.
-Artist_001_dialogue_quest_1_ongoing_0_options_0, Not yet
-Artist_001_dialogue_common_completed_all_0_text, Thanks for completing all my tasks
+Artist_001_dialogue_common_intro_0_text, Hola\, estoy en la lona bro
+Artist_001_dialogue_common_intro_0_options_0, ¿Qué te pasó?
+Artist_001_dialogue_common_intro_0_options_1, Mejor así
+Artist_001_dialogue_common_intro_1_text, Cuando me morí me juzgaron los demonios y terminé acá. Si pudiera probar mi profesión podría ir a un mejor lugar\, uno con cangrejos.
+Artist_001_dialogue_common_intro_1_options_0, ¿Cómo puedo ayudarte?
+Artist_001_dialogue_common_intro_2_text, Necesito un lienzo y un par de cosas más para demostrar mi profesión. Fui un gran artista
+Artist_001_dialogue_common_intro_2_options_0, Te voy a ayudar
+Artist_001_dialogue_common_intro_2_options_1, Hay una tienda artística acá al lado
+Artist_001_dialogue_common_intro_3_text, Ehm\, no puedo moverme viejo\, alguien se podría robar mi caja de cartón. Además no tengo plata
+Artist_001_dialogue_common_intro_3_options_0, Pero podés intentar ir ahí y ver qué onda\, está re cerca
+Artist_001_dialogue_common_intro_3_options_1, Bueno\, te ayudo
+Artist_001_dialogue_common_intro_4_text, No padre\, nada de ver qué onda\, ya te dije que no puedo dejar mi caja
+Artist_001_dialogue_common_intro_4_options_0, Pero es una caja\, no tiene nada de especial. Además tenés un montón
+Artist_001_dialogue_common_intro_5_text, Para mí esta es especial\, además no sabés si no tiene nada adentro... algo como... un cangrejo.
+Artist_001_dialogue_common_intro_5_options_0, Pero en este círculo del infierno no hay cangrejos ...no?
+Artist_001_dialogue_common_intro_6_text, Hablamos demasiado\, conseguime el lienzo y la seguimos.
+Artist_001_dialogue_common_intro_6_options_0, Bueno\, ta bien
+Artist_001_dialogue_quest_0_ongoing_0_text, No parece que tengas el lienzo que te pedí.
+Artist_001_dialogue_quest_0_ongoing_0_options_0, No todavia
+Artist_001_dialogue_quest_0_completed_some_0_text, Gracias por el lienzo! estoy muy feliz. Necesito ayuda con un par de cosas más y voy a poder probar mi profesión
+Artist_001_dialogue_quest_0_completed_some_0_options_0, Te ayudo
+Artist_001_dialogue_quest_0_completed_some_0_options_1, Ehm\, está bien supongo
+Artist_001_dialogue_quest_0_completed_some_1_text, Necesito un pincel para pintar sobre el lienzo\, pero que no sea de marta Kolinsky\, nada de pelo de hurón\, comadreja o armiño
+Artist_001_dialogue_quest_0_completed_some_1_options_0, Entiendo el dilema ético sobre crueldad animal que implican esos pinceles
+Artist_001_dialogue_quest_0_completed_some_1_options_1, Esto se puso raro pero está bien
+Artist_001_dialogue_quest_1_ongoing_0_text, No parece que tengas el pincel que te pedí.
+Artist_001_dialogue_quest_1_ongoing_0_options_0, No todavia
+Artist_001_dialogue_common_completed_all_0_text, Gracias por completar todas mis tareas
 Artist_001_dialogue_common_completed_all_0_options_0, OK
-Artist_001_dialogue_common_completed_all_first_0_text, This is as far as the demo goes, thanks for helping me.
+Artist_001_dialogue_common_completed_all_first_0_text, Hasta acá llegamos con la demo\, gracias por ayudarme.
 Artist_001_dialogue_common_completed_all_first_0_options_0, Ok
-Judge_001_npcName, Skeletal Judge
-Judge_001_dialogue_common_intro_0_text, Hello Maki, welcome to the last circle of hell. Unfortunately you ended up here, but we can make a deal if you want.
-Judge_001_dialogue_common_intro_0_options_0, Why the last circle of hell?
-Judge_001_dialogue_common_intro_0_options_1, Yes, tell me about the deal
-Judge_001_dialogue_common_intro_1_text, Because you were very bad, I don't know. I don't make these decisions. In the other circles there are crabs. Not in this one.
-Judge_001_dialogue_common_intro_1_options_0, But are crabs important? I don't know what to do with that information
-Judge_001_dialogue_common_intro_1_options_1, Enough, tell me about the deal
-Judge_001_dialogue_common_intro_2_text, The deal is that you help other skeletons prove their profession. If you do that, I can move you to a cooler hell, with crabs.
-Judge_001_dialogue_common_intro_2_options_0, How do I do that?
-Judge_001_dialogue_common_intro_2_options_1, Uhh, tell me about the crabs
-Judge_001_dialogue_common_intro_3_text, I mean, crabs are part of the food for many animals: Many other animals eat crabs. If there were no crabs, these animals would have less food.
-Judge_001_dialogue_common_intro_3_options_0, More information about crabs please
-Judge_001_dialogue_common_intro_4_text, Crabs also help clean the water, build houses in the ground and make holes in the sand. This creates homes for other small animals.
-Judge_001_dialogue_common_intro_4_options_0, MORE INFORMATION ABOUT CRABS AND THEIR IMPORTANCE
-Judge_001_dialogue_common_intro_5_text, Finally, they can tell us if the water is clean or dirty: Some crabs can only live in clean water. If we find many crabs in a place, it means the water is healthy.
-Judge_001_dialogue_common_intro_5_options_0, I think I've had enough, now tell me about the deal
-Judge_001_dialogue_common_intro_6_text, Look for a skeleton on the street and talk to them, they'll surely tell you what they need and how you can help them
-Judge_001_dialogue_common_intro_6_options_0, Perfect, gg
-Judge_001_dialogue_common_intro_7_text, The deal is that you help other skeletons prove their profession. If you do that, I can move you to a cooler hell, with crabs.
-Judge_001_dialogue_common_intro_7_options_0, Based on the information about crabs I got, it seems like a good deal
-Judge_001_dialogue_common_intro_7_options_1, Based on the information about crabs I got, it doesn't seem like a good deal.
-Shop_001_npcName, Art Bookstore Vendor
-Shop_001_dialogue_common_intro_0_text, Welcome, what can I do for you?
-Shop_001_dialogue_common_intro_0_options_0, I'm looking around
-Shop_001_dialogue_common_intro_0_options_1, Nothing for now
-Shop_001_dialogue_common_intro_1_text, Is there anything I can help you with?
-Shop_001_dialogue_common_intro_1_options_0, It's possible
-Shop_001_dialogue_common_intro_1_options_1, Not really
-Shop_001_dialogue_common_intro_2_text, Can you specify the physical and/or conceptual attributes of what you're looking for?
-Shop_001_dialogue_common_intro_2_options_0, I could... if I wanted to
-Shop_001_dialogue_common_intro_2_options_1, Not really
-Shop_001_dialogue_common_intro_3_text, I understand... this something you're looking for, does it exist in the plane of reality?
-Shop_001_dialogue_common_intro_3_options_0, Existence is relative
-Shop_001_dialogue_common_intro_3_options_1, Not really
-Shop_001_dialogue_common_intro_4_text, This something you're looking for, does it have to do with crabs?
-Shop_001_dialogue_common_intro_4_options_0, There's a possibility that it might have to do with crabs...
-Shop_001_dialogue_common_intro_4_options_1, No sir
-Shop_001_dialogue_common_intro_5_text, You know there are no crabs in this circle of hell... and I can't help you if that's what you're looking for. Unless... you have a lot of money.
-Shop_001_dialogue_common_intro_5_options_0, I don't have a lot of money.
-Shop_001_dialogue_common_intro_6_text, In that case, I ask that you please leave my store, I have things to do.
-Shop_001_dialogue_common_intro_6_options_0, I understand
-Shop_001_dialogue_quest_0_completed_some_0_text, I see you were able to help the other skeleton, you're a good skeleton, for being in the last circle of hell. Where there are no crabs.
-Shop_001_dialogue_quest_0_completed_some_0_options_0, Sure
-Shop_001_dialogue_common_quest_ongoing_0_text, It seems you're busy at the moment
-Shop_001_dialogue_common_quest_ongoing_0_options_0, You're right.
-Shop_001_dialogue_quest_0_ongoing_0_text, Welcome to my store, how can I help you?
-Shop_001_dialogue_quest_0_ongoing_0_options_0, I need a canvas, do you have canvases? A canvas is the only help I need.
-Shop_001_dialogue_quest_0_ongoing_0_options_1, You can't help me.
-Shop_001_dialogue_quest_0_ongoing_1_text, Sure my best canvas measures 160x160cm, only 3500 democoins
-Shop_001_dialogue_quest_0_ongoing_1_options_0, That's too much money
-Shop_001_dialogue_quest_0_ongoing_2_text, I have a cheaper one 120x120cm! only 3000 democoins.
-Shop_001_dialogue_quest_0_ongoing_2_options_0, I can't afford that
-Shop_001_dialogue_quest_0_ongoing_3_text, Hmm, I have one 30x30cm, for 500 democoins.
-Shop_001_dialogue_quest_0_ongoing_3_options_0, Ehh... I don't have that many democoins
-Shop_001_dialogue_quest_0_ongoing_4_text, Oof, times of inflation, I understand, don't worry. I have a nanoscopic canvas, 1x1nm, for only 0.1367 democoins.
-Shop_001_dialogue_quest_0_ongoing_4_options_0, Do I look as if I was made out of money?
-Shop_001_dialogue_quest_0_ongoing_5_text, Well sir, it seems you don't know the concept of money. I can suggest that in that case you look for some branches and steal a sheet to make your own canvas, I can't help you if you don't understand that goods and services are exchanged for state-backed bonds.
-Shop_001_dialogue_quest_0_ongoing_5_options_0, That seems like a good option
-item_0_item_name, Apple
-item_1_item_name, Orange
-item_2_item_name, Magic Apple
-item_3_item_name, Canvas
-item_4_item_name, Branches
-item_5_item_name, Bedsheet
-item_6_item_name, Paintbrush
-item_7_item_name, Feather
-item_8_item_name, Fishing Rod
+item_0_item_name, Manzana
+item_1_item_name, Naranja
+item_2_item_name, Manzana Mágica
+item_3_item_name, Lienzo
+item_4_item_name, Ramas
+item_5_item_name, Sábana
+item_6_item_name, Pincel
+item_7_item_name, Pluma
+item_8_item_name, Caña de pescar
+Judge_001_npcName, Juez Esqueletal
+Judge_001_dialogue_common_intro_0_text, Hola Maki\, bienvenido al último círculo del infierno. Desafortunadamente terminaste acá\, pero podemos hacer un trato si te parece.
+Judge_001_dialogue_common_intro_0_options_0, ¿Por qué el último círculo del infierno?
+Judge_001_dialogue_common_intro_0_options_1, Sí\, de una a lo del trato
+Judge_001_dialogue_common_intro_1_text, Porque fuiste muy malo\, qué se yo. Yo no tomo estas decisiones. En los otros círculos hay cangrejos. En este no.
+Judge_001_dialogue_common_intro_1_options_0, ¿Pero son importantes los cangrejos? no sé qué hacer con esa información
+Judge_001_dialogue_common_intro_1_options_1, Suficiente\, contame del trato
+Judge_001_dialogue_common_intro_2_text, El trato consiste en que ayudes a otros esqueletos a demostrar su profesión. Si lo hacés te puedo pasar a un infierno más copado\, con cangrejos.
+Judge_001_dialogue_common_intro_2_options_0, ¿Cómo hago?
+Judge_001_dialogue_common_intro_2_options_1, Uhh\, contame sobre los cangrejos
+Judge_001_dialogue_common_intro_3_text, O sea\, los cangrejos son parte de la comida de muchos animales: Muchos otros animales comen cangrejos. Si no hubiera cangrejos\, estos animales tendrían menos comida.
+Judge_001_dialogue_common_intro_3_options_0, Más información sobre cangrejos por favor
+Judge_001_dialogue_common_intro_4_text, Los cangrejos también ayudan a limpiar el agua\, construyen casas en la tierra y hacen agujeros en la arena. Esto crea hogares para otros animales pequeños. 
+Judge_001_dialogue_common_intro_4_options_0, MÁS INFORMACIÓN SOBRE CANGREJOS Y SU IMPORTANCIA
+Judge_001_dialogue_common_intro_5_text, Por último nos pueden decir si el agua está limpia o sucia: Algunos cangrejos solo pueden vivir en agua limpia. Si encontramos muchos cangrejos en un lugar\, significa que el agua está sana.
+Judge_001_dialogue_common_intro_5_options_0, Creo que ya tuve suficiente\, ahora hablame del trato
+Judge_001_dialogue_common_intro_6_text, Busca un esqueleto por la calle y hablale\, seguramente te va a decir qué necesita y cómo lo podes ayudar
+Judge_001_dialogue_common_intro_6_options_0, Perfecto\, gg
+Judge_001_dialogue_common_intro_7_text, El trato consiste en que ayudes a otros esqueletos a demostrar su profesión. Si lo hacés te puedo pasar a un infierno más copado\, con cangrejos.
+Judge_001_dialogue_common_intro_7_options_0, Basado en la información sobre cangrejos que obtuve\, parece un buen trato
+Judge_001_dialogue_common_intro_7_options_1, Basado en la información sobre cangrejos que obtuve\, no parece un buen trato.
 quest_0_quest_name, Find a canvas
 quest_1_quest_name, Find a paintbrush
+Shop_001_npcName, Vendedor de libreria artistica
+Shop_001_dialogue_common_intro_0_text, Bienvenido\, ¿qué se le ofrece?
+Shop_001_dialogue_common_intro_0_options_0, Estoy mirando
+Shop_001_dialogue_common_intro_0_options_1, Nada por el momento
+Shop_001_dialogue_common_intro_1_text, ¿Hay algo con lo que lo pueda ayudar?
+Shop_001_dialogue_common_intro_1_options_0, Es posible
+Shop_001_dialogue_common_intro_1_options_1, No realmente
+Shop_001_dialogue_common_intro_2_text, ¿Puede especificarme acerca de los atributos físicos y/o conceptuales de lo que está buscando?
+Shop_001_dialogue_common_intro_2_options_0, Podría... si quisiera
+Shop_001_dialogue_common_intro_2_options_1, No realmente
+Shop_001_dialogue_common_intro_3_text, Entiendo... este algo que busca\, ¿existe en el plano de la realidad?
+Shop_001_dialogue_common_intro_3_options_0, La existencia es relativa
+Shop_001_dialogue_common_intro_3_options_1, No realmente
+Shop_001_dialogue_common_intro_4_text, Este algo que busca\, ¿tiene que ver con cangrejos?
+Shop_001_dialogue_common_intro_4_options_0, Existe la posibilidad de que sí tenga que ver con cangrejos...
+Shop_001_dialogue_common_intro_4_options_1, No señor
+Shop_001_dialogue_common_intro_5_text, Usted sabe que no hay cangrejos en este círculo del infierno... y no puedo ayudarlo si eso es lo que busca. A menos que... tenga mucho dinero.
+Shop_001_dialogue_common_intro_5_options_0, No tengo mucho dinero.
+Shop_001_dialogue_common_intro_6_text, En ese caso\, le pido por favor que se retire de mi tienda\, tengo cosas que hacer.
+Shop_001_dialogue_common_intro_6_options_0, Entiendo
+Shop_001_dialogue_quest_0_completed_some_0_text, Veo que lo pudo ayudar al otro esqueleto\, es usted un buen esqueleto\, para estar en el último círculo del infierno. Donde no hay cangrejos.
+Shop_001_dialogue_quest_0_completed_some_0_options_0, Claro
+Shop_001_dialogue_common_quest_ongoing_0_text, Parece que está ocupado en este momento
+Shop_001_dialogue_common_quest_ongoing_0_options_0, Tiene razón.
+Shop_001_dialogue_quest_0_ongoing_0_text, Bienvenido a mi tienda\, ¿cómo puedo ayudarlo?
+Shop_001_dialogue_quest_0_ongoing_0_options_0, Necesito un lienzo\, ¿tiene lienzos? Un lienzo es la única ayuda que necesito.
+Shop_001_dialogue_quest_0_ongoing_0_options_1, No puede ayudarme.
+Shop_001_dialogue_quest_0_ongoing_1_text, Seguro mi mejor lienzo mide 160x160cm\, tan solo 3500 democoins
+Shop_001_dialogue_quest_0_ongoing_1_options_0, Eso es demasiado dinero
+Shop_001_dialogue_quest_0_ongoing_2_text, Tengo uno más barato de 120x120cm! solo 3000 democoins.
+Shop_001_dialogue_quest_0_ongoing_2_options_0, No me alcanza
+Shop_001_dialogue_quest_0_ongoing_3_text, Hmm\, tengo uno de 30x30cm\, por 500 democoins.
+Shop_001_dialogue_quest_0_ongoing_3_options_0, Ehh... no tengo tantas democoins
+Shop_001_dialogue_quest_0_ongoing_4_text, Uff\, tiempos de inflación\, lo entiendo\, no se preocupe. Tengo un lienzo nanoscópico\, de 1x1nm\, a solo 0.1367 democoins.
+Shop_001_dialogue_quest_0_ongoing_4_options_0, ¿Acaso parezco estar hecho de dinero?
+Shop_001_dialogue_quest_0_ongoing_5_text, Bueno señor\, parece no conocer el concepto de dinero. Le puedo sugerir que en ese caso busque unas ramas y robe una sábana para hacer su propio lienzo\, no puedo ayudarlo si no entiende que los bienes y servicios se intercambian por bonos respaldados por el estado.
+Shop_001_dialogue_quest_0_ongoing_5_options_0, Me parece una buena opción
+ui_quest_ongoing, Active quest:
+ui_quest_none, No quests active
+ui_quest_completed, Quest Completed!
+ui_items_combination, Some items can be combined
+ui_tooltip_1, Some items can be combined pressing the key J
+ui_tooltip_2, You can detach your head pressing the key E

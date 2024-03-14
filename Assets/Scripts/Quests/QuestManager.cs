@@ -24,6 +24,7 @@ public class QuestManager : MonoBehaviour
     // Singleton
     public static QuestManager control;
 
+    I18nManager t;
 
     private void Awake()
     {
@@ -42,6 +43,7 @@ public class QuestManager : MonoBehaviour
         if(player == null){
             Debug.LogError("Player couldn't be found");
         }
+        t = I18nManager.control;
     }
 
     public void StartQuest(int quest){
@@ -54,8 +56,9 @@ public class QuestManager : MonoBehaviour
                 if (questItem.QuestID == quest)
                 {
                     currentQuest = questItem;
-                    string text = I18nManager.control.GetValue($"quest_{questItem.QuestID}_quest_name", questItem.QuestName);
-                    QuestUI.text = "Active quest: " + text;
+                    string activeQuest = t.GetValue("ui_quest_ongoing", "Tarea:");
+                    string text = t.GetValue($"quest_{questItem.QuestID}_quest_name", questItem.QuestName);
+                    QuestUI.text = activeQuest + " " + text;
                 }
             }
             
@@ -79,11 +82,12 @@ public class QuestManager : MonoBehaviour
         gameControl.control.AddCompletedQuest(currentQuestID);
         currentQuest = null;
         currentQuestID = -1;
-        QuestUI.text = "Active quest: None";
+        QuestUI.text = t.GetValue("ui_quest_none", "No hay misiones activas");
 
 
         // Completed quest message
-        player.GetComponent<GeneralMessageUI>().DisplayMessage("Quest completed",6,"top");
+        string questCompleted = t.GetValue("ui_quest_completed", "Mision completada");
+        player.GetComponent<GeneralMessageUI>().DisplayMessage(questCompleted,6,"top");
         player.GetComponent<PlayerCharacter>().sfx.GetComponent<GeneralSFX>().playSound(missionCompleted);
     }
 
