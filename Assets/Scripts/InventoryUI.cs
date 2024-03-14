@@ -20,7 +20,8 @@ public class InventoryUI : MonoBehaviour
         int totalItems = 0;
 
         foreach(BasicItem item in inventory){
-            itemsDetail += " " + CheckIfPlural(item.label, item.amount) + ": " + item.amount.ToString();
+            string itemName = I18nManager.control.GetValue($"item_{item.id}_item_name", item.label);
+            itemsDetail += " " + CheckIfPlural(itemName, item.amount) + ": " + item.amount.ToString();
             totalItems += item.amount;
         }
         if(itemsDetail != ""){

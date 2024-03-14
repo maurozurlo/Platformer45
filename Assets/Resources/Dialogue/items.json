@@ -1,0 +1,38 @@
+[
+    {
+        "id": 0,
+        "itemName": "Manzana"
+    },
+    {
+        "id": 1,
+        "itemName": "Naranja"
+    },
+    {
+        "id": 2,
+        "itemName": "Manzana Mágica"
+    },
+    {
+        "id": 3,
+        "itemName": "Lienzo"
+    },
+    {
+        "id": 4,
+        "itemName": "Ramas"
+    },
+    {
+        "id": 5,
+        "itemName": "Sábana"
+    },
+    {
+        "id": 6,
+        "itemName": "Pincel"
+    },
+    {
+        "id": 7,
+        "itemName": "Pluma"
+    },
+    {
+        "id": 8,
+        "itemName": "Caña de pescar"
+    }
+]

@@ -54,7 +54,8 @@ public class QuestManager : MonoBehaviour
                 if (questItem.QuestID == quest)
                 {
                     currentQuest = questItem;
-                    QuestUI.text = "Active quest: " + questItem.QuestName;
+                    string text = I18nManager.control.GetValue($"quest_{questItem.QuestID}_quest_name", questItem.QuestName);
+                    QuestUI.text = "Active quest: " + text;
                 }
             }
             

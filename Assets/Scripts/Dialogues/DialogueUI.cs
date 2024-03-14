@@ -91,7 +91,6 @@ public class DialogueUI : MonoBehaviour
 
 		string text = I18nManager.control.GetValue($"{npcDialogueFile}_dialogue_{currentDialogueType}_{node.id}_text", node.text);
 		npcText.text = text;
-		Debug.Log(text);
 
 		// Remove all children
 		foreach (Transform child in optionContainer.transform)

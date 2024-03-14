@@ -189,10 +189,10 @@
                 },
                 {
                     "id": 4,
-                    "text": "Uff, tiempos de inflación, lo entiendo, no se preocupe. Tengo un lienzo nanoscópico, de 1x1nm, a solo 1 democoin.",
+                    "text": "Uff, tiempos de inflación, lo entiendo, no se preocupe. Tengo un lienzo nanoscópico, de 1x1nm, a solo 0.1367 democoins.",
                     "options": [
                         {
-                            "text": "¿Qué es un democoin a todo esto?",
+                            "text": "¿Acaso parezco estar hecho de dinero?",
                             "_action": "goToNode",
                             "value": 5
                         }

@@ -24,6 +24,9 @@ function findJSONFiles(dirPath) {
 function processJSONFile(filePath) {
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     const fileName = path.basename(filePath, '.json');
+    if (fileName === "quests") return parseQuests(data);
+    if (fileName === "items") return parseItems(data);
+
     const rows = [`${fileName}_npcName, ${data.npcName}`];
 
     for (const dialogueObj of data.dialogue) {
@@ -41,6 +44,22 @@ function processJSONFile(filePath) {
     }
 
     return rows;
+}
+
+function parseQuests(data) {
+    const rows = []
+    for (const quest of data) {
+        rows.push(`quest_${quest.id}_quest_name, ${quest.QuestName}`)
+    }
+    return rows
+}
+
+function parseItems(data) {
+    const rows = []
+    for (const item of data) {
+        rows.push(`item_${item.id}_item_name, ${item.itemName}`)
+    }
+    return rows
 }
 
 // Main function

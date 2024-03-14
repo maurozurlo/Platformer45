@@ -84,7 +84,18 @@ Shop_001_dialogue_quest_0_ongoing_2_text, I have a cheaper one 120x120cm! only 3
 Shop_001_dialogue_quest_0_ongoing_2_options_0, I can't afford that
 Shop_001_dialogue_quest_0_ongoing_3_text, Hmm, I have one 30x30cm, for 500 democoins.
 Shop_001_dialogue_quest_0_ongoing_3_options_0, Ehh... I don't have that many democoins
-Shop_001_dialogue_quest_0_ongoing_4_text, Oof, times of inflation, I understand, don't worry. I have a nanoscopic canvas, 1x1nm, for only 1 democoin.
-Shop_001_dialogue_quest_0_ongoing_4_options_0, What's a democoin by the way?
+Shop_001_dialogue_quest_0_ongoing_4_text, Oof, times of inflation, I understand, don't worry. I have a nanoscopic canvas, 1x1nm, for only 0.1367 democoins.
+Shop_001_dialogue_quest_0_ongoing_4_options_0, Do I look as if I was made out of money?
 Shop_001_dialogue_quest_0_ongoing_5_text, Well sir, it seems you don't know the concept of money. I can suggest that in that case you look for some branches and steal a sheet to make your own canvas, I can't help you if you don't understand that goods and services are exchanged for state-backed bonds.
 Shop_001_dialogue_quest_0_ongoing_5_options_0, That seems like a good option
+item_0_item_name, Apple
+item_1_item_name, Orange
+item_2_item_name, Magic Apple
+item_3_item_name, Canvas
+item_4_item_name, Branches
+item_5_item_name, Bedsheet
+item_6_item_name, Paintbrush
+item_7_item_name, Feather
+item_8_item_name, Fishing Rod
+quest_0_quest_name, Find a canvas
+quest_1_quest_name, Find a paintbrush
