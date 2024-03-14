@@ -44,6 +44,8 @@ public class QuestManager : MonoBehaviour
             Debug.LogError("Player couldn't be found");
         }
         t = I18nManager.control;
+
+        QuestUI.text = t.GetValue("ui_quest_none", "No hay misiones activas");
     }
 
     public void StartQuest(int quest){

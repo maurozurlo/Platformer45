@@ -20,13 +20,13 @@ public class I18nManager : MonoBehaviour
         if (!control)
         {
             control = this;
+            DontDestroyOnLoad(gameObject);
+            csvReader = GetComponent<CSVReader>();
         }
         else
         {
             DestroyImmediate(gameObject);
         }
-
-        csvReader = GetComponent<CSVReader>();
 	}
 
     public string GetValue(string id, string fallback)

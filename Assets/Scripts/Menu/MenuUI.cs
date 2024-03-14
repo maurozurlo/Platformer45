@@ -25,6 +25,8 @@ public class MenuUI : MonoBehaviour
     public Button yesButton;
     public Button noButton;
 
+    public Toggle[] toggles;
+
 
     public void Awake(){
         fillUpSaveSlots();
@@ -105,5 +107,38 @@ public class MenuUI : MonoBehaviour
     public void DeleteSaveSlot(int slot){
         SaveLoadManager.DeleteSave(slot);
     }
-    
+
+    public void ChangeLanguage(GameObject toggle)
+    {
+        I18nManager t = I18nManager.control;
+        I18nManager.Language language = GetLang(toggle.GetComponentInChildren<Text>().text);
+        DisableToggles();
+        toggle.GetComponent<Toggle>().isOn = true;
+        t.currentLanguage = language;
+    }
+
+    void DisableToggles()
+    {
+        foreach (Toggle toggle in toggles)
+        {
+            toggle.isOn = false;
+        }
+    }
+
+    I18nManager.Language GetLang(string v)
+    {
+		switch (v)
+		{
+			case "Español":
+				return I18nManager.Language.sp;
+			case "English":
+				return I18nManager.Language.en;
+			default:
+				break;
+		}
+
+		return I18nManager.Language.sp;
+	}
+
+
 }

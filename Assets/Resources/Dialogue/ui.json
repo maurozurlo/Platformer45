@@ -4,5 +4,16 @@
     "quest_completed": "Tarea completada!",
     "items_combination": "Algunos objetos se pueden combinar",
     "tooltip_1": "Algunos objetos se combinan presionando J",
-    "tooltip_2": "Podes separar tu cabeza utilizando E y controlarla con el pad numerico"
+    "tooltip_2": "Podes separar tu cabeza utilizando E y controlarla con el pad numerico",
+    "start_game": "Start",
+    "load_game": "Load",
+    "options": "Options",
+    "exit": "Exit",
+    "back_to_menu": "Back to menu",
+    "savegame": "Save",
+    "savegame_completed": "Percentage completed: ",
+    "savegame_delete_prompt": "Are you sure you want to delete this savegame?",
+    "savegame_delete_yes": "Yes, delete this savegame",
+    "savegame_delete_no": "No",
+    "savegame_delete_button": "Delete Save"
 }

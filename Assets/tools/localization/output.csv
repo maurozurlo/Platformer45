@@ -99,9 +99,20 @@ Shop_001_dialogue_quest_0_ongoing_4_text, Uff\, tiempos de inflación\, lo entie
 Shop_001_dialogue_quest_0_ongoing_4_options_0, ¿Acaso parezco estar hecho de dinero?
 Shop_001_dialogue_quest_0_ongoing_5_text, Bueno señor\, parece no conocer el concepto de dinero. Le puedo sugerir que en ese caso busque unas ramas y robe una sábana para hacer su propio lienzo\, no puedo ayudarlo si no entiende que los bienes y servicios se intercambian por bonos respaldados por el estado.
 Shop_001_dialogue_quest_0_ongoing_5_options_0, Me parece una buena opción
-ui_quest_ongoing, Active quest:
-ui_quest_none, No quests active
-ui_quest_completed, Quest Completed!
-ui_items_combination, Some items can be combined
-ui_tooltip_1, Some items can be combined pressing the key J
-ui_tooltip_2, You can detach your head pressing the key E
+ui_quest_ongoing, Tarea:
+ui_quest_none, No hay tareas por el momento
+ui_quest_completed, Tarea completada!
+ui_items_combination, Algunos objetos se pueden combinar
+ui_tooltip_1, Algunos objetos se combinan presionando J
+ui_tooltip_2, Podes separar tu cabeza utilizando E y controlarla con el pad numerico
+ui_start_game, Start
+ui_load_game, Load
+ui_options, Options
+ui_exit, Exit
+ui_back_to_menu, Back to menu
+ui_savegame, Save
+ui_savegame_completed, Percentage completed: 
+ui_savegame_delete_prompt, Are you sure you want to delete this savegame?
+ui_savegame_delete_yes, Yes, delete this savegame
+ui_savegame_delete_no, No
+ui_savegame_delete_button, Delete Save

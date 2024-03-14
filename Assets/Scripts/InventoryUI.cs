@@ -6,14 +6,16 @@ using UnityEngine.UI;
 public class InventoryUI : MonoBehaviour
 {
     public GameObject player;
-    Text myText;
+    Text textComponent;
 
-    private void Awake() {
-        myText = this.GetComponent<Text>();
+	private void Start()
+	{
+        textComponent = GetComponent<Text>();
+        DrawUI(false);
     }
 
-    // Update is called once per frame
-    public void DrawUI(bool itemsCanBeMerged)
+	// Update is called once per frame
+	public void DrawUI(bool itemsCanBeMerged)
     {
         List<BasicItem> inventory = gameControl.control.inventory;
         string itemsDetail = string.Empty;
@@ -31,7 +33,7 @@ public class InventoryUI : MonoBehaviour
 
         string items = t.GetValue("ui_items", "Objetos: ");
         string canMergeItems = (itemsCanBeMerged ? t.GetValue("ui_items_combination", "Algunos objetos se pueden combinar") : "");
-        myText.text = items + totalItems.ToString() + itemsDetail + canMergeItems;
+        textComponent.text = items + totalItems.ToString() + itemsDetail + canMergeItems;
     }
 
     string CheckIfPlural(string label, int amount){
