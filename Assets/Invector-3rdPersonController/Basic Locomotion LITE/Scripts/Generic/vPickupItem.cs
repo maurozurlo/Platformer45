@@ -24,7 +24,7 @@ public class vPickupItem : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerInventory>().AddItem(thisItem);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>().AddItem(thisItem);
             Renderer[] renderers = GetComponentsInChildren<Renderer>();
             foreach (Renderer r in renderers)            
                 r.enabled = false;            

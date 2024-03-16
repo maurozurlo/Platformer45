@@ -57,7 +57,7 @@ Judge_001_dialogue_common_intro_5_text, Por último nos pueden decir si el agua 
 Judge_001_dialogue_common_intro_5_options_0, Creo que ya tuve suficiente\, ahora hablame del trato
 Judge_001_dialogue_common_intro_6_text, Busca un esqueleto por la calle y hablale\, seguramente te va a decir qué necesita y cómo lo podes ayudar
 Judge_001_dialogue_common_intro_6_options_0, Perfecto\, gg
-Judge_001_dialogue_common_intro_7_text, El trato consiste en que ayudes a otros esqueletos a demostrar su profesión. Si lo hacés te puedo pasar a un infierno más copado\, con cangrejos.
+Judge_001_dialogue_common_intro_7_text, Busca un esqueleto por la calle y hablale\, seguramente te va a decir qué necesita y cómo lo podes ayudar
 Judge_001_dialogue_common_intro_7_options_0, Basado en la información sobre cangrejos que obtuve\, parece un buen trato
 Judge_001_dialogue_common_intro_7_options_1, Basado en la información sobre cangrejos que obtuve\, no parece un buen trato.
 quest_0_quest_name, Find a canvas
@@ -82,8 +82,8 @@ Shop_001_dialogue_common_intro_5_text, Usted sabe que no hay cangrejos en este c
 Shop_001_dialogue_common_intro_5_options_0, No tengo mucho dinero.
 Shop_001_dialogue_common_intro_6_text, En ese caso\, le pido por favor que se retire de mi tienda\, tengo cosas que hacer.
 Shop_001_dialogue_common_intro_6_options_0, Entiendo
-Shop_001_dialogue_quest_0_completed_some_0_text, Veo que lo pudo ayudar al otro esqueleto\, es usted un buen esqueleto\, para estar en el último círculo del infierno. Donde no hay cangrejos.
-Shop_001_dialogue_quest_0_completed_some_0_options_0, Claro
+Shop_001_dialogue_quest_1_ongoing_0_text, Veo que lo pudo ayudar al otro esqueleto\, es usted un buen esqueleto\, para estar en el último círculo del infierno. Donde no hay cangrejos.
+Shop_001_dialogue_quest_1_ongoing_0_options_0, Claro
 Shop_001_dialogue_common_quest_ongoing_0_text, Parece que está ocupado en este momento
 Shop_001_dialogue_common_quest_ongoing_0_options_0, Tiene razón.
 Shop_001_dialogue_quest_0_ongoing_0_text, Bienvenido a mi tienda\, ¿cómo puedo ayudarlo?
@@ -116,3 +116,5 @@ ui_savegame_delete_prompt, Are you sure you want to delete this savegame?
 ui_savegame_delete_yes, Yes, delete this savegame
 ui_savegame_delete_no, No
 ui_savegame_delete_button, Delete Save
+ui_player_dead, You have died, press R to Respawn
+ui_platform_switch, Press T to Turn on the platform switch

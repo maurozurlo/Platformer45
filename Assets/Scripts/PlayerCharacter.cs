@@ -117,33 +117,33 @@ public class PlayerCharacter : MonoBehaviour
 
 	public void respawnPlayer()
 	{
-		this.GetComponent<PlayerInventory>().RemoveAllItems();
 		state = STATES.LOCKED;
 		Unlock();
 		Rigidbody rb = this.GetComponent<Rigidbody>();
 		rb.useGravity = true;
 		rb.WakeUp();
-		this.GetComponent<AnimHandler>().resetCamera();
-		this.GetComponent<GeneralMessageUI>().hideMessageImmediatly();
+		GetComponent<AnimHandler>().resetCamera();
+		GetComponent<GeneralMessageUI>().HideMessageImmediatly();
 		levelManager.control.spawnPlayerOnSavePoint(gameControl.control.savePoint);
 	}
 
-	public void beKilledInstantly()
+	public void BeKilledInstantly()
 	{
-		Rigidbody rb = this.GetComponent<Rigidbody>();
+		Rigidbody rb = GetComponent<Rigidbody>();
 		rb.velocity = Vector3.zero;
 		rb.angularVelocity = Vector3.zero;
 		rb.useGravity = false;
 		rb.Sleep();
 		Lock();
 		health = 0;
-		this.state = STATES.DEAD;
+		state = STATES.DEAD;
+		string deadMessage = I18nManager.control.GetValue("ui_player_dead", "TE RE MORISTE PA \n APRETA \"R\" PARA VOLVER A JUGAR");
 		if (gameControl.control.amountOfLives > 0)
-			this.GetComponent<GeneralMessageUI>().DisplayMessage("TE RE MORISTE PA \n APRETA \"R\" PARA VOLVER A JUGAR", 0f, "bottom");
+			GetComponent<GeneralMessageUI>().DisplayMessage(deadMessage, 0f);
 		else if (gameControl.control.amountOfLives == 0)
 		{
-			this.GetComponent<GeneralMessageUI>().DisplayMessage("GAME OVER VIEJA, \n APRETA \"R\" PARA VOLVER AL MENU", 0f, "bottom");
+			GetComponent<GeneralMessageUI>().DisplayMessage(deadMessage, 0f);
 		}
-		levelManager.control.restartLevel();
+		//levelManager.control.restartLevel(); TODO: Maybe reimplement in the future, dunno
 	}
 }

@@ -112,9 +112,18 @@ public class MenuUI : MonoBehaviour
     {
         I18nManager t = I18nManager.control;
         I18nManager.Language language = GetLang(toggle.GetComponentInChildren<Text>().text);
+        if (language == I18nManager.control.currentLanguage) return;
         DisableToggles();
         toggle.GetComponent<Toggle>().isOn = true;
         t.currentLanguage = language;
+
+        GameObject[] buttons = GameObject.FindGameObjectsWithTag("Button");
+        foreach (GameObject button in buttons)
+        {
+            MenuButton menuButton = button.GetComponent<MenuButton>();
+            if (menuButton == null) return;
+            button.GetComponent<MenuButton>().UpdateText();
+        }
     }
 
     void DisableToggles()

@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 110103975}
   - component: {fileID: 110103977}
   - component: {fileID: 110103976}
+  - component: {fileID: 110103978}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -483,7 +484,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back to Menu
+  m_Text: 
 --- !u!222 &110103977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -492,6 +493,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110103974}
   m_CullTransparentMesh: 0
+--- !u!114 &110103978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110103974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016f08ba61e458148897866ec7a4d1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: ui_back_to_menu
+  fallback: Volver al menu
 --- !u!1 &156761025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,7 +1479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 517, y: -66.5}
+  m_AnchoredPosition: {x: 573, y: -98}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &492471486
@@ -2026,9 +2041,10 @@ GameObject:
   - component: {fileID: 680147138}
   - component: {fileID: 680147140}
   - component: {fileID: 680147139}
+  - component: {fileID: 680147141}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2084,7 +2100,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Exit
+  m_Text: 
 --- !u!222 &680147140
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2093,6 +2109,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680147137}
   m_CullTransparentMesh: 0
+--- !u!114 &680147141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680147137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016f08ba61e458148897866ec7a4d1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: ui_exit
+  fallback: Salir
 --- !u!1 &700091004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,9 +2345,10 @@ GameObject:
   - component: {fileID: 780068355}
   - component: {fileID: 780068357}
   - component: {fileID: 780068356}
+  - component: {fileID: 780068358}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2373,7 +2404,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back to Menu
+  m_Text: 
 --- !u!222 &780068357
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2382,6 +2413,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780068354}
   m_CullTransparentMesh: 0
+--- !u!114 &780068358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780068354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016f08ba61e458148897866ec7a4d1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: ui_back_to_menu
+  fallback: Volver al menu
 --- !u!1 &818315747
 GameObject:
   m_ObjectHideFlags: 0
@@ -2957,7 +3002,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2977,7 +3022,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1550283042}
   toggleTransition: 1
   graphic: {fileID: 1680924843}
@@ -3046,9 +3091,10 @@ GameObject:
   - component: {fileID: 1046172656}
   - component: {fileID: 1046172658}
   - component: {fileID: 1046172657}
+  - component: {fileID: 1046172659}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3104,7 +3150,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Load Game
+  m_Text: 
 --- !u!222 &1046172658
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3113,6 +3159,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046172655}
   m_CullTransparentMesh: 0
+--- !u!114 &1046172659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046172655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016f08ba61e458148897866ec7a4d1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: ui_load_game
+  fallback: Cargar
 --- !u!1 &1135909627
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,9 +3184,10 @@ GameObject:
   - component: {fileID: 1135909628}
   - component: {fileID: 1135909630}
   - component: {fileID: 1135909629}
+  - component: {fileID: 1135909631}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3182,7 +3243,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start Game
+  m_Text: 
 --- !u!222 &1135909630
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3191,6 +3252,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135909627}
   m_CullTransparentMesh: 0
+--- !u!114 &1135909631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135909627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016f08ba61e458148897866ec7a4d1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: ui_start_game
+  fallback: Jugar
 --- !u!1 &1198848426
 GameObject:
   m_ObjectHideFlags: 0
@@ -4307,7 +4382,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 307, y: -66.5}
+  m_AnchoredPosition: {x: 363, y: -98}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1555239396
@@ -4563,7 +4638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 97, y: -66.5}
+  m_AnchoredPosition: {x: 153, y: -98}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1592985342
@@ -4585,9 +4660,10 @@ GameObject:
   - component: {fileID: 1625026035}
   - component: {fileID: 1625026037}
   - component: {fileID: 1625026036}
+  - component: {fileID: 1625026038}
   m_Layer: 5
   m_Name: Title
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4643,7 +4719,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOAD GAME
+  m_Text: 
 --- !u!222 &1625026037
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4652,6 +4728,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625026034}
   m_CullTransparentMesh: 0
+--- !u!114 &1625026038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625026034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016f08ba61e458148897866ec7a4d1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: ui_load_game
+  fallback: Cargar juego
 --- !u!1 &1680924842
 GameObject:
   m_ObjectHideFlags: 0
@@ -4737,9 +4827,10 @@ GameObject:
   - component: {fileID: 1729998971}
   - component: {fileID: 1729998973}
   - component: {fileID: 1729998972}
+  - component: {fileID: 1729998974}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4795,9 +4886,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Options
-
-'
+  m_Text: 
 --- !u!222 &1729998973
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4806,6 +4895,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729998970}
   m_CullTransparentMesh: 0
+--- !u!114 &1729998974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729998970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016f08ba61e458148897866ec7a4d1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: ui_options
+  fallback: Opciones
 --- !u!1 &1733092889
 GameObject:
   m_ObjectHideFlags: 0
@@ -5292,7 +5395,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5312,7 +5415,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1000832367}
   toggleTransition: 1
   graphic: {fileID: 172241}
@@ -5776,7 +5879,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 727, y: -66.5}
+  m_AnchoredPosition: {x: 783, y: -98}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1884785584
@@ -6239,9 +6342,10 @@ GameObject:
   - component: {fileID: 2034156119}
   - component: {fileID: 2034156121}
   - component: {fileID: 2034156120}
+  - component: {fileID: 2034156122}
   m_Layer: 5
   m_Name: Title
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6297,7 +6401,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: 
 --- !u!222 &2034156121
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6306,6 +6410,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034156118}
   m_CullTransparentMesh: 0
+--- !u!114 &2034156122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034156118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016f08ba61e458148897866ec7a4d1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: ui_options
+  fallback: Opciones
 --- !u!1 &2059476738
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class KillZone : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerCharacter>().beKilledInstantly();
+            other.GetComponent<PlayerCharacter>().BeKilledInstantly();
             other.GetComponent<AnimHandler>().TriggerAnim("drown");
         }
     }

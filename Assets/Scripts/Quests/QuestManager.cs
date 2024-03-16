@@ -89,7 +89,7 @@ public class QuestManager : MonoBehaviour
 
         // Completed quest message
         string questCompleted = t.GetValue("ui_quest_completed", "Mision completada");
-        player.GetComponent<GeneralMessageUI>().DisplayMessage(questCompleted,6,"top");
+        player.GetComponent<GeneralMessageUI>().DisplayMessage(questCompleted,6);
         player.GetComponent<PlayerCharacter>().sfx.GetComponent<GeneralSFX>().playSound(missionCompleted);
     }
 

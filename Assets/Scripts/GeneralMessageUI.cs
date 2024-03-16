@@ -5,39 +5,24 @@ using UnityEngine.UI;
 public class GeneralMessageUI : MonoBehaviour
 {
     public Text generalMessage;
-    public Image generalMessageBG;
-
-    // Start is called before the first frame update
     void Start()
     {
-        if(generalMessage == null || generalMessageBG == null)
+        if(generalMessage == null)
         Debug.LogError("a General Messaging component is missing");
     }
 
-    public void DisplayMessage(string message, float fadeAfterSeconds, string position){
-        if (position == "top")
-        {
-            generalMessageBG.rectTransform.SetAnchor(AnchorPresets.TopCenter);
-            generalMessageBG.rectTransform.anchoredPosition = new Vector3(0,-75,0);
-
-        }else if (position == "bottom"){
-            generalMessageBG.rectTransform.SetAnchor(AnchorPresets.BottomCenter);
-            generalMessageBG.rectTransform.anchoredPosition = new Vector3(0,75,0);
-        }
-
+    public void DisplayMessage(string message, float fadeAfterSeconds){
         generalMessage.text = message;
-        generalMessageBG.gameObject.SetActive(true);        
         if(fadeAfterSeconds > 0)
-        StartCoroutine(hideMessageWithDelay(fadeAfterSeconds));
+        StartCoroutine(HideMessageWithDelay(fadeAfterSeconds));
     }
 
-    IEnumerator hideMessageWithDelay(float fadeAfterSeconds){
+    IEnumerator HideMessageWithDelay(float fadeAfterSeconds){
         yield return new WaitForSeconds(fadeAfterSeconds);
-        hideMessageImmediatly();
+        HideMessageImmediatly();
     }
 
-    public void hideMessageImmediatly(){
-        generalMessageBG.gameObject.SetActive(false);
+    public void HideMessageImmediatly(){
         generalMessage.text = string.Empty;
     }
 }

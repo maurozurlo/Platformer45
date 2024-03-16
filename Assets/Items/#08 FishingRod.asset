@@ -15,5 +15,7 @@ MonoBehaviour:
   label: "Ca\xF1a de pescar"
   id: 8
   amount: 1
-  itemPos: {x: 0, y: 0, z: 0}
+  itemPos: {x: 84.02776, y: 6.532, z: -6.6227593}
   hasBeenPickUp: 0
+  canBeCombinedWithItems: 07000000
+  canBeMadeFromItems: []

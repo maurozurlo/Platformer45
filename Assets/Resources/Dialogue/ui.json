@@ -15,5 +15,7 @@
     "savegame_delete_prompt": "Are you sure you want to delete this savegame?",
     "savegame_delete_yes": "Yes, delete this savegame",
     "savegame_delete_no": "No",
-    "savegame_delete_button": "Delete Save"
+    "savegame_delete_button": "Delete Save",
+    "player_dead": "You have died, press R to Respawn",
+    "platform_switch": "Press T to Turn on the platform switch"
 }

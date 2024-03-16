@@ -48,7 +48,7 @@ Judge_001_dialogue_common_intro_5_text, Finally, they can tell us if the water i
 Judge_001_dialogue_common_intro_5_options_0, I think I've had enough, now tell me about the deal
 Judge_001_dialogue_common_intro_6_text, Look for a skeleton on the street and talk to them, they'll surely tell you what they need and how you can help them
 Judge_001_dialogue_common_intro_6_options_0, Perfect, gg
-Judge_001_dialogue_common_intro_7_text, The deal is that you help other skeletons prove their profession. If you do that, I can move you to a cooler hell, with crabs.
+Judge_001_dialogue_common_intro_7_text, Look for a skeleton on the street and talk to them, they'll surely tell you what they need and how you can help them
 Judge_001_dialogue_common_intro_7_options_0, Based on the information about crabs I got, it seems like a good deal
 Judge_001_dialogue_common_intro_7_options_1, Based on the information about crabs I got, it doesn't seem like a good deal.
 Shop_001_npcName, Art Bookstore Vendor
@@ -117,3 +117,5 @@ ui_savegame_delete_prompt, Are you sure you want to delete this savegame?
 ui_savegame_delete_yes, Yes, delete this savegame
 ui_savegame_delete_no, No
 ui_savegame_delete_button, Delete Save
+ui_player_dead, You have died, press R to Respawn
+ui_platform_switch, Press T to Turn on the platform switch
