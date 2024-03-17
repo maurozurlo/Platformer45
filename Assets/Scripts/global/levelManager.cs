@@ -8,6 +8,7 @@ public class levelManager : MonoBehaviour
     public List<BasicItem> itemPersistance;
     public List<savePoint> savePoints;
     public GameObject[] itemPrefabs;
+    public GameObject player;
     
     void Awake()
     {
@@ -79,9 +80,7 @@ public class levelManager : MonoBehaviour
             if(savePoints[i].savePointID == savePointID)
             spawnPoint = savePoints[i].transform.position;
         }
-
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if(savePointID != -1 && spawnPoint != Vector3.zero)
+        if (savePointID != -1 && spawnPoint != Vector3.zero)
         player.transform.position = spawnPoint;
     }
 

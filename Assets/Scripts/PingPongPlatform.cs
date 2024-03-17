@@ -19,22 +19,10 @@ public class PingPongPlatform : MonoBehaviour
         isMoving = false;
 
         // Find the player GameObject and store its Transform
-        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
-
-        if (player != null)
-        {
-            foreach (GameObject part in player)
-            {
-                if (part.name == "PlayerSkull")
-                {
-                    playerTransform = part.transform;
-                }
-            }
-
-        }
-        else
-        {
-            Debug.LogWarning("No GameObject with 'Player' tag found in the scene.");
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        
+        if (playerTransform == null){
+            Debug.LogError("No GameObject with 'Player' tag found in the scene.");
         }
     }
 

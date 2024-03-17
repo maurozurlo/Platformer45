@@ -92,7 +92,6 @@ namespace Invector.CharacterController
 
         protected virtual void InputHandle()
         {
-            ExitGameInput();
             CameraInput();
 
             if (!cc.lockMovement)
@@ -130,18 +129,6 @@ namespace Invector.CharacterController
         {
             if (Input.GetKeyDown(jumpInput))
                 cc.Jump();
-        }
-
-        protected virtual void ExitGameInput()
-        {
-            // just a example to quit the application 
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (!Cursor.visible)
-                    Cursor.visible = true;
-                else
-                    Application.Quit();
-            }
         }
 
         #endregion

@@ -22,7 +22,7 @@ public class vPickupItem : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") || other.CompareTag("PlayerSkull"))
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>().AddItem(thisItem);
             Renderer[] renderers = GetComponentsInChildren<Renderer>();

@@ -53,10 +53,10 @@ public class gameControl : MonoBehaviour
 
     public void Load(PlayerData data){
         //Asignar cosas
-        this.amountOfLives = data.amountOfLives;
-        this.completedQuests = data.questsCompleted;
-        this.inventory = data.inventory;
-        this.savePoint = data.savePoint;
+        amountOfLives = data.amountOfLives;
+        completedQuests = data.questsCompleted;
+        inventory = data.inventory;
+        savePoint = data.savePoint;
     }
 
     public string returnPercentageCompleted(int completedQuests){

@@ -1,0 +1,262 @@
+fileFormatVersion: 2
+guid: 3383a79386474db47a07f513aad5e894
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TreeSph_LeafBase2
+    second: {fileID: 2100000, guid: c0ede55f705c3804987f5e5c33eed711, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_Mush
+    second: {fileID: 2100000, guid: 0d671ee62675924429c184798158391c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_awning
+    second: {fileID: 2100000, guid: d2406d8e3158bb64785e8963f62633da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_beach_parasol
+    second: {fileID: 2100000, guid: 1c539dbcae8b4c0468730e4e79b2501f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_brick1
+    second: {fileID: 2100000, guid: 3ea65735da4fd7d4fb10befb9add4a8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_bridge2
+    second: {fileID: 2100000, guid: 4d4c747fef1a3264c8a7bbe6c80870c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_cmn_wood01
+    second: {fileID: 2100000, guid: 5abf81e7dbd790b4286e2c7cdd184af6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_concrete1
+    second: {fileID: 2100000, guid: 08eaa06fd39fba9489459b4eee96a3c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_concrete2
+    second: {fileID: 2100000, guid: 327248e4685ecb54c835290f3b2693f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_dooretc
+    second: {fileID: 2100000, guid: 21562fdda40a197468d15c0e959472b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_flowers
+    second: {fileID: 2100000, guid: d5391f346d0111b49a985417d9e35d99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_hroof1
+    second: {fileID: 2100000, guid: 02e1e114a20270b4aaa027d0e73466e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_hroof2
+    second: {fileID: 2100000, guid: f7ed9f06a4eecda4aacebf8453e3fa15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_hroof3
+    second: {fileID: 2100000, guid: ded54f8fac488fe499f9e63d0d58392e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_hroof4
+    second: {fileID: 2100000, guid: 79ae3471fbaa36f4ba6436fa44e833e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_hroof5
+    second: {fileID: 2100000, guid: a0076843a631e9649a842d23fcb427a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_hroof6
+    second: {fileID: 2100000, guid: 83c4ad45f3c7ece4ebdc9db485a67b7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_hwood1
+    second: {fileID: 2100000, guid: 7a27b956713d83a458b36dd75061794a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_hwood2
+    second: {fileID: 2100000, guid: b491d3c832bf5f348ad84a8e60fae434, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_hwood2c
+    second: {fileID: 2100000, guid: 5ad5e06e28f21da408540b6b7e45072b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_hwood3
+    second: {fileID: 2100000, guid: 95f8ed1b5dbe5ea46a3df599475f38fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_leafobj
+    second: {fileID: 2100000, guid: 189ef052047e40744b282d2f5971bd19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_marblewall1
+    second: {fileID: 2100000, guid: 2a9559550ac184848a0a7c6eab0a82f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_marblewall2
+    second: {fileID: 2100000, guid: 828397ff47f09674cbc7ea2a6a8c459d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_metal
+    second: {fileID: 2100000, guid: 7b8f430848958dd40a1de4b21e09f3ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_nooklingjunction
+    second: {fileID: 2100000, guid: 9e548338bec1c544cac479cef2d0c47f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_object1
+    second: {fileID: 2100000, guid: f145f48e85c82b14eaa4cf2eba3caac5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_recycleshop
+    second: {fileID: 2100000, guid: 4884c30307203b047a34bb675a5abf10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_seal
+    second: {fileID: 2100000, guid: c3e1476015b59ef49ac4f066bbf93e20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_shopwindow
+    second: {fileID: 2100000, guid: 6c4fc4026f31ee842962397adbed3f88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_shopwood
+    second: {fileID: 2100000, guid: 2e84e633c4305064bb0d0aa25efb7a4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_sign
+    second: {fileID: 2100000, guid: 8ce9cb69e78977341889fa7ea9756338, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ac_wood
+    second: {fileID: 2100000, guid: 447d0916233372f46b4f31ba6eb1cd58, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1500
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1500
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

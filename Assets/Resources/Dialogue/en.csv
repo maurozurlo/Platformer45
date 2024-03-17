@@ -119,3 +119,5 @@ ui_savegame_delete_no, No
 ui_savegame_delete_button, Delete Save
 ui_player_dead, You have died, press R to Respawn
 ui_platform_switch, Press T to Turn on the platform switch
+ui_resume, Resume
+ui_pause, Pause
