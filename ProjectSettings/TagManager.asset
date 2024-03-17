@@ -8,6 +8,8 @@ TagManager:
   - SavePoint
   - Button
   - PlayerSkull
+  - quest_0_completed
+  - quest_1_completed
   layers:
   - Default
   - TransparentFX

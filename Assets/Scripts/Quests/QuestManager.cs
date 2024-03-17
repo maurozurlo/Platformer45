@@ -82,6 +82,17 @@ public class QuestManager : MonoBehaviour
             player.GetComponent<PlayerInventory>().AddItem(item);
         }
         gameControl.control.AddCompletedQuest(currentQuestID);
+
+        // Show/Hide objects
+        GameObject[] mapObjects = GameObject.FindGameObjectsWithTag($"quest_{currentQuestID}_completed");
+        foreach (GameObject go in mapObjects)
+        {
+            QuestRewardItem questRewardItem = go.GetComponent<QuestRewardItem>();
+            if (questRewardItem != null)
+            {
+                questRewardItem.DisplayOrHideObject();
+            }
+        }
         currentQuest = null;
         currentQuestID = -1;
         QuestUI.text = t.GetValue("ui_quest_none", "No hay misiones activas");
