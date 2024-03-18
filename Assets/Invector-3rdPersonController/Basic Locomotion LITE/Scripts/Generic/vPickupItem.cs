@@ -7,23 +7,26 @@ public class vPickupItem : MonoBehaviour
     public AudioClip _audioClip;
     public BasicItem thisItem;
     public float speed = 40;
+    bool pickedUp;
     //public GameObject _particle;
 
 
     void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
-        thisItem.itemPos = this.transform.position;
+        thisItem.itemPos = transform.position;
     }
 
     void Update(){
-        this.transform.Rotate(0, speed * Time.deltaTime, 0);
+        transform.Rotate(0, speed * Time.deltaTime, 0);
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player") || other.CompareTag("PlayerSkull"))
         {
+            if (pickedUp) return;
+            pickedUp = true;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>().AddItem(thisItem);
             Renderer[] renderers = GetComponentsInChildren<Renderer>();
             foreach (Renderer r in renderers)            

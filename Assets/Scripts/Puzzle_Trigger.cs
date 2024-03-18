@@ -5,11 +5,17 @@ using UnityEngine;
 public class Puzzle_Trigger : MonoBehaviour
 {
 	Puzzle_Main puzzle;
+	Animator anim;
+	AudioSource AS;
+	public AudioClip right;
+	public AudioClip wrong;
 	
 
 	private void Awake()
 	{
 		puzzle = GetComponentInParent<Puzzle_Main>();
+		anim = GetComponent<Animator>();
+		AS = GetComponent<AudioSource>();
 	}
 	private void OnTriggerEnter(Collider other)
 	{
@@ -24,11 +30,16 @@ public class Puzzle_Trigger : MonoBehaviour
 		if (stay)
 		{
 			StopAllCoroutines();
-			ChangeColor(Color.green);
+			//ChangeColor(Color.green);
+			anim.SetTrigger("right");
+			AS.PlayOneShot(right);
+
 		}
 		else
 		{
-			StartCoroutine("Highlight", Color.green);
+			anim.SetTrigger("right");
+			AS.PlayOneShot(right);
+			//StartCoroutine("Highlight", Color.green);
 		}
 	}
 
@@ -37,11 +48,15 @@ public class Puzzle_Trigger : MonoBehaviour
 		if (stay)
 		{
 			StopAllCoroutines();
-			ChangeColor(Color.red);
+			anim.SetTrigger("wrong");
+			AS.PlayOneShot(wrong);
+			//ChangeColor(Color.red);
 		}
 		else
 		{
-			StartCoroutine("Highlight", Color.red);
+			anim.SetTrigger("wrong");
+			AS.PlayOneShot(wrong);
+			//StartCoroutine("Highlight", Color.red);
 		}
 	}
 

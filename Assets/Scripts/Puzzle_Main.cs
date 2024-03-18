@@ -28,7 +28,7 @@ public class Puzzle_Main : MonoBehaviour
         solved = true;
         triggers.ForEach(delegate (Puzzle_Trigger trigger)
         {
-            trigger.CorrectInput(true);
+            //trigger.CorrectInput(true);
         });
     }
 
