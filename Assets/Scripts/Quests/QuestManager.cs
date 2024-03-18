@@ -90,7 +90,7 @@ public class QuestManager : MonoBehaviour
             QuestRewardItem questRewardItem = go.GetComponent<QuestRewardItem>();
             if (questRewardItem != null)
             {
-                questRewardItem.DisplayOrHideObject();
+                questRewardItem.PerformAction();
             }
         }
         currentQuest = null;

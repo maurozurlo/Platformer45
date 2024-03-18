@@ -4,30 +4,37 @@ using UnityEngine;
 
 public class QuestRewardItem : MonoBehaviour
 {
-	public bool shouldAppearAfterQuestIsCompleted;
 	public float duration = 2f; // Duration of the scaling animation
 	public AnimationCurve scaleCurve; // Animation curve for scaling
 
 	private Vector3 initialScale; // Initial scale of the GameObject
     private bool isInitialScaleZero; // Flag to track if the initial scale is zero
 
- //   private void Update()
-	//{
- //       if (Input.GetKeyDown(KeyCode.Tab))
- //       {
- //           DisplayOrHideObject();
- //       }
-	//}
+    public enum Action
+    {
+        DISPLAY,
+        HIDE
+    }
 
-	public void DisplayOrHideObject()
+    public Action ItemAction = Action.DISPLAY;
+
+
+	public void PerformAction()
 	{
-        if (!shouldAppearAfterQuestIsCompleted)
+        switch (ItemAction)
         {
-            DestroyImmediate(gameObject);
+            case Action.HIDE:
+                Destroy(gameObject);
+                break;
+            case Action.DISPLAY:
+                initialScale = transform.localScale; // Store the initial scale
+                isInitialScaleZero = initialScale == Vector3.zero; // Check if initial scale is zero
+                StartCoroutine(ScaleOverTime());
+                break;
+            default:
+                Debug.LogWarning($"No action set for {gameObject.name}");
+                break;
         }
-        initialScale = transform.localScale; // Store the initial scale
-        isInitialScaleZero = initialScale == Vector3.zero; // Check if initial scale is zero
-        StartCoroutine(ScaleOverTime());
     }
 
     private IEnumerator ScaleOverTime()
