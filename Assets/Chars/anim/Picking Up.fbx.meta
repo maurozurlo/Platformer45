@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: d308183ce3befa94391b1c6f38af17be
 ModelImporter:
-  serializedVersion: 25
+  serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: -203655887218126122
     second: PickUp
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -70,10 +70,12 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -108,10 +110,12 @@ ModelImporter:
   - 52cea7d11ad31414c8d2a3446378f791
   - b110d211315123143a85c2e33d19b303
   - 57b30a3d94d60de43a61426d5acc3992
+  - 08e931411e6747e479d803701a80d775
+  - 4cf6b1c637f68f94d9bf57189a8dd509
+  - 3529833ad25ddf945b2fbd1743baccea
   - 0165b557e11123a49b28c3eb23d5892e
   - ef67d8896affec84d91cfa25e0fe47fe
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
     serializedVersion: 3
     human:
@@ -883,8 +887,10 @@ ModelImporter:
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
