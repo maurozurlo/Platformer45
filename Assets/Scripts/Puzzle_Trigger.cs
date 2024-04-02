@@ -6,16 +6,12 @@ public class Puzzle_Trigger : MonoBehaviour
 {
 	Puzzle_Main puzzle;
 	Animator anim;
-	AudioSource AS;
-	public AudioClip right;
-	public AudioClip wrong;
 	
 
 	private void Awake()
 	{
 		puzzle = GetComponentInParent<Puzzle_Main>();
 		anim = GetComponent<Animator>();
-		AS = GetComponent<AudioSource>();
 	}
 	private void OnTriggerEnter(Collider other)
 	{
@@ -32,13 +28,13 @@ public class Puzzle_Trigger : MonoBehaviour
 			StopAllCoroutines();
 			//ChangeColor(Color.green);
 			anim.SetTrigger("right");
-			AS.PlayOneShot(right);
+			puzzle.PlaySound(PuzzleInputOutcome.right);
 
 		}
 		else
 		{
 			anim.SetTrigger("right");
-			AS.PlayOneShot(right);
+			puzzle.PlaySound(PuzzleInputOutcome.right);
 			//StartCoroutine("Highlight", Color.green);
 		}
 	}
@@ -49,13 +45,13 @@ public class Puzzle_Trigger : MonoBehaviour
 		{
 			StopAllCoroutines();
 			anim.SetTrigger("wrong");
-			AS.PlayOneShot(wrong);
+			puzzle.PlaySound(PuzzleInputOutcome.wrong);
 			//ChangeColor(Color.red);
 		}
 		else
 		{
 			anim.SetTrigger("wrong");
-			AS.PlayOneShot(wrong);
+			puzzle.PlaySound(PuzzleInputOutcome.wrong);
 			//StartCoroutine("Highlight", Color.red);
 		}
 	}
