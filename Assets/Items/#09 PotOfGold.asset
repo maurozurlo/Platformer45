@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8cf60f2b356764ea496a0b91620190, type: 3}
+  m_Name: '#09 PotOfGold'
+  m_EditorClassIdentifier: 
+  label: Olla con monedas de oro
+  id: 9
+  amount: 1
+  itemPos: {x: -100.01, y: 0.017085016, z: -228.55139}
+  hasBeenPickUp: 0
+  canBeCombinedWithItems: 
+  canBeMadeFromItems: []

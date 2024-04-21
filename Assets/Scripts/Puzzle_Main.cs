@@ -15,6 +15,8 @@ public class Puzzle_Main : MonoBehaviour
     public AudioClip right;
     public AudioClip wrong;
 
+    public GameObject rewardContainer;
+
 
     private void Awake()
     {
@@ -46,6 +48,8 @@ public class Puzzle_Main : MonoBehaviour
         {
             trigger.CorrectInput(true);
         });
+
+        rewardContainer.GetComponent<PuzzleContainer>().OpenContainer();
     }
 
     public void ClearInput()
