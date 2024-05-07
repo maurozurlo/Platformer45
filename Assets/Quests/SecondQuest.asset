@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QuestID: 1
   QuestName: Encontrar un pincel
-  isCompleted: 1
+  isCompleted: 0
   itemHuntDB:
   - itemId: 6
     amount: 1
