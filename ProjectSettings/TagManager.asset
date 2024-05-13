@@ -11,6 +11,7 @@ TagManager:
   - quest_0_completed
   - quest_1_completed
   - Ground
+  - PushableObject
   layers:
   - Default
   - TransparentFX

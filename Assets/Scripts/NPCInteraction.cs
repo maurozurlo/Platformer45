@@ -30,7 +30,12 @@ public class NPCInteraction : MonoBehaviour
         {
             Debug.LogError("CameraPivot not found");
         }
+
+        messageReader = GetComponent<MessageReader>();
+        if (!messageReader)
+            Debug.LogError("Message reader was not found");
     }
+
 
 
 	void OnTriggerEnter(Collider other)

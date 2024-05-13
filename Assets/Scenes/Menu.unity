@@ -361,7 +361,6 @@ GameObject:
   m_Component:
   - component: {fileID: 89256248}
   - component: {fileID: 89256247}
-  - component: {fileID: 89256249}
   m_Layer: 0
   m_Name: globalControl
   m_TagString: Untagged
@@ -396,24 +395,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &89256249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89256246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 063cf11cdedd2eb4fbd5021de8584cba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amountOfLives: 2
-  savePoint: 0
-  questQuantity: 10
-  sceneIndex: 1
-  inventory: []
-  completedQuests: 
 --- !u!1 &110103974
 GameObject:
   m_ObjectHideFlags: 0

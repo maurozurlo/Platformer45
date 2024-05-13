@@ -11,12 +11,16 @@ public class ObjectPusher : MonoBehaviour
     public GameObject targetObject; // The object to be pushed, if any
     private Collider targetCollider; // Collider of the target object
 
-    private float lastPushTime; // Time when the last push occurred
-
     public float distance = 0;
 
     bool canPush = true;
-	private float perc;
+
+    public enum PushStatus {
+    idle, aboutToPushactive
+    }
+
+    public PushStatus pushStatus;
+
 
 	void Update()
     {
@@ -52,28 +56,42 @@ public class ObjectPusher : MonoBehaviour
             // Check if enough time has passed since last push
             if (canPush)
             {
-                canPush = false;
-                Vector3 direction = transform.forward.normalized;
-                Vector3 pushDirection = new Vector3(
-                    Mathf.Round(direction.x),
-                    Mathf.Round(direction.y),
-                    Mathf.Round(direction.z)
-                );
-
-                float objectSize = targetCollider.bounds.size.z; // Assuming movement along z-axis
-                
-                Vector3 dist = pushDirection * objectSize;
-                Vector3 target = targetObject.transform.position + dist;
-                StartCoroutine(SmoothTransition(1500, targetObject.transform.position, target));
+                PushObject();
             }
         }
     }
 
+    void PushObject()
+    {
+        canPush = false;
+        Vector3 direction = transform.forward.normalized;
+        Vector3 pushDirection = new Vector3(
+            Mathf.Round(direction.x),
+            Mathf.Round(direction.y),
+            Mathf.Round(direction.z)
+        );
+
+        float objectSize = targetCollider.bounds.size.z; // Assuming movement along z-axis
+
+        Vector3 dist = pushDirection * objectSize;
+        Vector3 target = targetObject.transform.position + dist;
+
+        // Perform a raycast to check if the path is clear
+        RaycastHit hit;
+        if (Physics.Raycast(targetObject.transform.position, pushDirection, out hit, objectSize))
+        {
+            // If the raycast hits something, the path is blocked
+            Debug.Log("Cannot push. Path is blocked by " + hit.collider.gameObject.name);
+            return;
+        }
+
+        StartCoroutine(SmoothTransition(1500, targetObject.transform.position, target));
+    }
+
     IEnumerator SmoothTransition(float duration, Vector3 startPos, Vector3 target)
     {
-        float startTime = Time.time;
+        
         float elapsedTime = 0f;
-
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;
@@ -84,6 +102,6 @@ public class ObjectPusher : MonoBehaviour
 
         // Ensure the target position is reached exactly
         targetObject.transform.position = target;
-        canPush = true; // Assuming canPush is a variable controlling push availability
+        canPush = true;
     }
 }
