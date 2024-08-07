@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectPusher : MonoBehaviour
@@ -13,95 +12,147 @@ public class ObjectPusher : MonoBehaviour
 
     public float distance = 0;
 
-    bool canPush = true;
-
-    public enum PushStatus {
-    idle, aboutToPushactive
+    public enum PushStatus
+    {
+        Idle,
+        Pushing
     }
 
-    public PushStatus pushStatus;
+    public PushStatus pushStatus = PushStatus.Idle;
 
+    private Animator anim;
 
-	void Update()
+    private void Start()
     {
-        // Draw a line forwards in debug
-        Vector3 origin = transform.position + new Vector3(0, .5f, 0);
+        anim = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (pushStatus == PushStatus.Pushing) return;
+
+        // Draw a debug line to visualize the raycast
+        Vector3 origin = transform.position + new Vector3(0, 0.5f, 0);
         Debug.DrawRay(origin, transform.forward * raycastDistance, Color.red);
 
-        // Check for pushable object within range
+        CheckForPushableObject(origin);
+    }
+
+    private void CheckForPushableObject(Vector3 origin)
+    {
         RaycastHit hit;
         if (Physics.Raycast(origin, transform.forward, out hit, raycastDistance))
         {
             if (hit.collider.CompareTag("PushableObject"))
             {
-                // Set the target object and its collider
                 targetObject = hit.collider.gameObject;
                 targetCollider = hit.collider;
                 distance = Vector3.Distance(transform.position, targetObject.transform.position);
+                StartCoroutine(TransitionWeight(1f, 0, 1));
+
+                if (Vector3.Distance(transform.position, targetCollider.ClosestPoint(transform.position)) < pushRaycastDistance)
+                {
+                    TryToPushObject();
+                }
             }
         }
         else
         {
-            if (canPush == false) return;
-            // If out of range, set targetObject to null
             targetObject = null;
             targetCollider = null;
-        }
-
-
-
-        // Check if we can push the object
-        if (targetObject != null && targetCollider != null && Vector3.Distance(transform.position, targetCollider.ClosestPoint(transform.position)) < pushRaycastDistance)
-        {
-            // Check if enough time has passed since last push
-            if (canPush)
-            {
-                PushObject();
-            }
+            StartCoroutine(TransitionWeight(0.5f, 1, 0));
         }
     }
 
-    void PushObject()
+    private void TryToPushObject()
     {
-        canPush = false;
-        Vector3 direction = transform.forward.normalized;
-        Vector3 pushDirection = new Vector3(
-            Mathf.Round(direction.x),
-            Mathf.Round(direction.y),
-            Mathf.Round(direction.z)
-        );
+        pushStatus = PushStatus.Pushing;
+        anim.SetBool("pushing", true);
 
-        float objectSize = targetCollider.bounds.size.z; // Assuming movement along z-axis
+        Vector3 direction = DeterminePushDirection();
+        float objectSize = GetObjectSizeInDirection(direction);
+        Vector3 targetPosition = targetObject.transform.position + direction * objectSize;
 
-        Vector3 dist = pushDirection * objectSize;
-        Vector3 target = targetObject.transform.position + dist;
-
-        // Perform a raycast to check if the path is clear
-        RaycastHit hit;
-        if (Physics.Raycast(targetObject.transform.position, pushDirection, out hit, objectSize))
+        if (IsPathBlocked(direction, objectSize))
         {
-            // If the raycast hits something, the path is blocked
-            Debug.Log("Cannot push. Path is blocked by " + hit.collider.gameObject.name);
+            StopPushing();
             return;
         }
 
-        StartCoroutine(SmoothTransition(1500, targetObject.transform.position, target));
+        StartCoroutine(SmoothTransition(0.7f, targetObject.transform.position, targetPosition));
     }
 
-    IEnumerator SmoothTransition(float duration, Vector3 startPos, Vector3 target)
+    private Vector3 DeterminePushDirection()
     {
-        
+        Vector3 direction = transform.forward.normalized;
+        Vector3 absDirection = new Vector3(Mathf.Abs(direction.x), Mathf.Abs(direction.y), Mathf.Abs(direction.z));
+
+        if (absDirection.x > absDirection.z && absDirection.x > absDirection.y)
+        {
+            direction = new Vector3(Mathf.Sign(direction.x), 0, 0);
+        }
+        else if (absDirection.z > absDirection.x && absDirection.z > absDirection.y)
+        {
+            direction = new Vector3(0, 0, Mathf.Sign(direction.z));
+        }
+        else
+        {
+            direction = new Vector3(0, Mathf.Sign(direction.y), 0);
+        }
+
+        return direction;
+    }
+
+    private float GetObjectSizeInDirection(Vector3 direction)
+    {
+        if (direction.x != 0) return targetCollider.bounds.size.x;
+        if (direction.y != 0) return targetCollider.bounds.size.y;
+        return targetCollider.bounds.size.z;
+    }
+
+    private bool IsPathBlocked(Vector3 direction, float objectSize)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(targetObject.transform.position, direction, out hit, objectSize))
+        {
+            Debug.Log("Cannot push. Path is blocked by " + hit.collider.gameObject.name);
+            return true;
+        }
+        return false;
+    }
+
+    private void StopPushing()
+    {
+        anim.SetBool("pushing", false);
+        pushStatus = PushStatus.Idle;
+    }
+
+    private IEnumerator SmoothTransition(float duration, Vector3 startPos, Vector3 targetPos)
+    {
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;
-            targetObject.transform.position = Vector3.Lerp(startPos, target, t);
-            elapsedTime += Time.time;
+            targetObject.transform.position = Vector3.Lerp(startPos, targetPos, t);
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        // Ensure the target position is reached exactly
-        targetObject.transform.position = target;
-        canPush = true;
+        targetObject.transform.position = targetPos;
+        StopPushing();
+    }
+
+    private IEnumerator TransitionWeight(float duration, float start, float end)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            anim.SetLayerWeight(1, Mathf.Lerp(start, end, t));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        anim.SetLayerWeight(1, end);
     }
 }
