@@ -30,6 +30,9 @@ public class FishingMinigame : MonoBehaviour
     public Color goalColor = Color.red;
     public Color startColor = Color.black;
 
+    private bool movingForward = true;
+    private float lerpTime = 0f;
+
     public enum GameMode
     {
         playing,
@@ -88,8 +91,21 @@ public class FishingMinigame : MonoBehaviour
 
     void PingPongIndicator()
     {
-        float pingPong = Mathf.PingPong(Time.time * speed, indicatorMinMax.y - indicatorMinMax.x);
-        float newXPosition = indicatorMinMax.x + pingPong;
+        float duration = (indicatorMinMax.y - indicatorMinMax.x) / speed;
+        lerpTime += (movingForward ? 1 : -1) * Time.deltaTime / duration;
+
+        if (lerpTime >= 1f)
+        {
+            lerpTime = 1f;
+            movingForward = false;
+        }
+        else if (lerpTime <= 0f)
+        {
+            lerpTime = 0f;
+            movingForward = true;
+        }
+
+        float newXPosition = Mathf.Lerp(indicatorMinMax.x, indicatorMinMax.y, lerpTime);
         indicatorRect.anchoredPosition = new Vector2(newXPosition, indicatorRect.anchoredPosition.y);
     }
 
@@ -98,16 +114,12 @@ public class FishingMinigame : MonoBehaviour
         if (state == PressingState.done) return; // If we're done we don't need to execute any more code
 
         float targetBounds = targetRect.sizeDelta.x;
-        Debug.Log(targetBounds * 1.5f);
-        Debug.Log(Mathf.Abs(indicatorRect.anchoredPosition.x - targetRect.anchoredPosition.x));
-        Debug.Log("RRR");
-        if (Mathf.Abs(indicatorRect.anchoredPosition.x - targetRect.anchoredPosition.x) <= targetBounds * 1.5f)
+        if (Mathf.Abs(indicatorRect.anchoredPosition.x - targetRect.anchoredPosition.x) <= targetBounds * .75)
         {
             
 
             timer += Time.deltaTime;
             target.color = Color.Lerp(startColor, goalColor, timer / holdTime);
-            speed = speed / 2;
             if (state == PressingState.pressing && timer >= holdTime)
             {
                 GoToNextLevel();
