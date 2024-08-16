@@ -55,23 +55,25 @@ public class FishingMinigame : MonoBehaviour
     {
         barWidth = GetComponent<RectTransform>().sizeDelta.x;
         indicatorRect = indicator.GetComponent<RectTransform>();
+        targetRect = target.GetComponent<RectTransform>();
         float indicatorWidth = indicatorRect.sizeDelta.x / 2;
         float validX = barWidth / 2 - indicatorWidth;
         indicatorMinMax = new Vector2(-validX, validX);
-        targetRect = target.GetComponent<RectTransform>();
+
         target.color = startColor;
         SetTarget();
+
         startSpeed = speed;
     }
 
-    void SetTarget() {
+    void SetTarget()
+    {
         float targetWidth = targetRect.sizeDelta.x / 2;
         float validX = (barWidth / 2 - targetWidth);
         targetPosition = Random.Range(-validX, validX);
         targetRect.anchoredPosition = new Vector2(targetPosition, 0);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (gameMode != GameMode.playing) return;
@@ -84,15 +86,14 @@ public class FishingMinigame : MonoBehaviour
         }
         else
         {
-            state = PressingState.idle;
-            timer = 0;
+            ResetPressingState();
         }
     }
 
     void PingPongIndicator()
     {
         float duration = (indicatorMinMax.y - indicatorMinMax.x) / speed;
-        lerpTime += (movingForward ? 1 : -1) * Time.deltaTime / duration;
+        lerpTime += Time.deltaTime / duration * (movingForward ? 1f : -1f);
 
         if (lerpTime >= 1f)
         {
@@ -111,27 +112,29 @@ public class FishingMinigame : MonoBehaviour
 
     void CheckIndicatorPosition()
     {
-        if (state == PressingState.done) return; // If we're done we don't need to execute any more code
+        if (state == PressingState.done) return;
 
-        float targetBounds = targetRect.sizeDelta.x;
-        if (Mathf.Abs(indicatorRect.anchoredPosition.x - targetRect.anchoredPosition.x) <= targetBounds * .75)
+        float targetBounds = targetRect.sizeDelta.x * 0.75f;
+        bool isIndicatorInTarget = Mathf.Abs(indicatorRect.anchoredPosition.x - targetRect.anchoredPosition.x) <= targetBounds;
+
+        if (isIndicatorInTarget)
         {
-            
+            if (state == PressingState.idle)
+            {
+                state = PressingState.pressing;
+            }
 
             timer += Time.deltaTime;
             target.color = Color.Lerp(startColor, goalColor, timer / holdTime);
-            if (state == PressingState.pressing && timer >= holdTime)
+
+            if (timer >= holdTime)
             {
                 GoToNextLevel();
-
             }
-            if (state == PressingState.pressing || state == PressingState.done) return;
-            state = PressingState.pressing;
         }
         else
         {
             LostGame();
-
         }
     }
 
@@ -140,20 +143,18 @@ public class FishingMinigame : MonoBehaviour
         state = PressingState.done;
         SetTarget();
         level++;
-        float newSize = Mathf.Abs(barWidth / maxLevels * level);
-        float newSpeed = maxSpeed / maxLevels + startSpeed;
-        speed = newSpeed;
 
-        
-        if (level == maxLevels)
+        if (level >= maxLevels)
         {
             WinGame();
             return;
         }
+
+        float newSize = barWidth * level / maxLevels;
         progress.sizeDelta = new Vector2(newSize, progress.sizeDelta.y);
+
+        speed = Mathf.Lerp(startSpeed, maxSpeed, (float)level / maxLevels);
     }
-
-
 
     void LostGame()
     {
@@ -164,8 +165,8 @@ public class FishingMinigame : MonoBehaviour
         text.text = "You Lost";
     }
 
-
-    void WinGame() {
+    void WinGame()
+    {
         HideElements();
         float newSize = barWidth;
         progress.sizeDelta = new Vector2(newSize, progress.sizeDelta.y);
@@ -179,5 +180,10 @@ public class FishingMinigame : MonoBehaviour
         indicatorRect.sizeDelta = Vector2.zero;
     }
 
-    
+    void ResetPressingState()
+    {
+        state = PressingState.idle;
+        timer = 0f;
+        target.color = startColor;
+    }
 }

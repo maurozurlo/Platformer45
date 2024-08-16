@@ -11,14 +11,21 @@ public class PlayerPartsHandler : MonoBehaviour
     Quaternion headStartRotation;
 
     public static bool isPlayerNotComplete;
+    bool isTransition = false;
+
+    PlayerCharacter player;
 
     private void Start() {
         headStartPos = skull.transform.localPosition;    
         headStartRotation = skull.transform.localRotation;
+        player = GetComponent<PlayerCharacter>();
     }
     // Update is called once per frame
     void Update()
     {
+        if (player.state == PlayerCharacter.STATES.LOCKED) return;
+//        if (isTransition) return;
+
         if(Input.GetKeyDown(KeyCode.E)){
             if(!isPlayerNotComplete){
                 DetachHead();
@@ -29,8 +36,9 @@ public class PlayerPartsHandler : MonoBehaviour
     }
 
     void DetachHead(){
+        isTransition = true;
         //Lockear player
-        this.GetComponent<PlayerCharacter>().Lock();
+        GetComponent<PlayerCharacter>().Lock();
         //Sacar el parent de skull
         skull.transform.parent = null;
         //Activar SphereCollider
@@ -46,7 +54,7 @@ public class PlayerPartsHandler : MonoBehaviour
     }
     void AttachHead(){
         //Lockear player
-        this.GetComponent<PlayerCharacter>().Lock();
+        GetComponent<PlayerCharacter>().Lock();
         //desactivar roll head
         skull.GetComponent<RollHead>().enabled = false;
         //Desactivar camara
@@ -63,7 +71,7 @@ public class PlayerPartsHandler : MonoBehaviour
         skull.transform.parent = headBone.transform;
         skull.transform.localPosition = headStartPos;
         skull.transform.localRotation = headStartRotation;
-        this.GetComponent<PlayerCharacter>().Unlock();
+        GetComponent<PlayerCharacter>().Unlock();
         isPlayerNotComplete = false;
     }
 
@@ -78,5 +86,6 @@ public class PlayerPartsHandler : MonoBehaviour
                 //Sacar el parent de skull
         skull.transform.parent = null;
         isPlayerNotComplete = true;
+        isTransition = false;
     }
 }

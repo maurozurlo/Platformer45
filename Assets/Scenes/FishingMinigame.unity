@@ -951,7 +951,7 @@ MonoBehaviour:
   speed: 100
   maxSpeed: 150
   level: 0
-  holdTime: 0.1
+  holdTime: 0.15
   progress: {fileID: 1510452517}
   maxLevels: 3
   text: {fileID: 1829045356}
