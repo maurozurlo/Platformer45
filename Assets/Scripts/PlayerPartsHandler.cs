@@ -15,6 +15,9 @@ public class PlayerPartsHandler : MonoBehaviour
 
     PlayerCharacter player;
 
+    public GameObject playerHandR;
+    public GameObject playerHandL;
+
     private void Start() {
         headStartPos = skull.transform.localPosition;    
         headStartRotation = skull.transform.localRotation;

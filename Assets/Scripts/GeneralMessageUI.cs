@@ -7,8 +7,8 @@ public class GeneralMessageUI : MonoBehaviour
     public Text generalMessage;
     void Start()
     {
-        if(generalMessage == null)
-        Debug.LogError("a General Messaging component is missing");
+        //if(generalMessage == null)
+        //Debug.LogError("a General Messaging component is missing");
     }
 
     public void DisplayMessage(string message, float fadeAfterSeconds){

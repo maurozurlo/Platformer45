@@ -24,12 +24,23 @@ public class PlayerCharacter : MonoBehaviour
 
 	public GameObject sfx;
 
+	public static PlayerCharacter control;
+
+	public delegate void eventTrigger();
+	public static event eventTrigger onTriggerEvent;
+	public string eventName;
+
 	// Start is called before the first frame update
 	void Awake()
 	{
 		if (GetComponent<Animator>() != null)
 		{
 			anim = GetComponent<Animator>();
+		}
+
+		if (!control)
+		{
+			control = this;
 		}
 	}
 
@@ -145,5 +156,16 @@ public class PlayerCharacter : MonoBehaviour
 			GetComponent<GeneralMessageUI>().DisplayMessage(deadMessage, 0f);
 		}
 		//levelManager.control.restartLevel(); TODO: Maybe reimplement in the future, dunno
+	}
+
+	public void TriggerEvent(string eventName)
+	{
+		if (onTriggerEvent != null)
+		{
+			this.eventName = eventName;
+			onTriggerEvent();
+			Debug.Log(eventName);
+			
+		}
 	}
 }
