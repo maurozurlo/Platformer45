@@ -160,6 +160,7 @@ public class PlayerCharacter : MonoBehaviour
 
 	public void TriggerEvent(string eventName)
 	{
+		Debug.Log(eventName);
 		if (onTriggerEvent != null)
 		{
 			this.eventName = eventName;

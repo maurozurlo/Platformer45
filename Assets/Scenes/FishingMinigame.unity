@@ -382,7 +382,7 @@ RectTransform:
   - {fileID: 2035835615}
   - {fileID: 236872124}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -793,6 +793,7 @@ GameObject:
   - component: {fileID: 1635860881}
   - component: {fileID: 1635860880}
   - component: {fileID: 1635860879}
+  - component: {fileID: 1635860882}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -865,6 +866,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1635860882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635860878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9485e916a377148991451ef91380f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1829045354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +1108,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &2035835614
 GameObject:
@@ -1162,8 +1175,8 @@ MonoBehaviour:
   goalColor: {r: 0.021493427, g: 0.6509434, b: 0.044981286, a: 1}
   startColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   rod: {fileID: 1852255898736556332, guid: bc3969896e3725948bdd551e08efd7c4, type: 3}
-  rodDisplacement: {x: -0.144, y: 0.0412, z: 0.159}
-  rodRotation: {x: -12.84, y: 47.881, z: 3.939}
+  rodDisplacement: {x: -0.043, y: 0.098, z: -0.132}
+  rodRotation: {x: 180, y: -80.3, z: 15.5}
   gameMode: 0
   state: 0
 --- !u!114 &2035835617

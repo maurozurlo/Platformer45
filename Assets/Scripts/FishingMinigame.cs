@@ -84,7 +84,7 @@ public class FishingMinigame : MonoBehaviour
         anim = playerCharacter.anim;
 
         // Hand
-        GameObject hand = playerCharacter.GetComponent<PlayerPartsHandler>().playerHandR;
+        GameObject hand = playerCharacter.GetComponent<PlayerPartsHandler>().playerHandL;
         GameObject rodI = Instantiate(rod, hand.transform);
         rodI.transform.localPosition = rodDisplacement;
         rodI.transform.localEulerAngles = rodRotation;
@@ -129,6 +129,7 @@ public class FishingMinigame : MonoBehaviour
         {
             CheckIndicatorPosition();
             anim.SetTrigger("Tap");
+            CameraShake.Shake(.5f, speed / 4000);
         }
         else
         {
