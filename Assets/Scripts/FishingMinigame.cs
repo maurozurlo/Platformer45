@@ -104,11 +104,29 @@ public class FishingMinigame : MonoBehaviour
 
     void CheckEvent()
     {
-        Debug.Log(playerCharacter.eventName);
-        if (playerCharacter.eventName == "startFishing")
+        switch (playerCharacter.eventName)
         {
-            gameMode = GameMode.playing;
+            case "startFishing":
+                gameMode = GameMode.playing;
+                break;
+            case "startEnd":
+                // TODO: Spawn fish or do something idk
+                break;
+            case "endEnd":
+                QuitGame();
+                break;
+            default:
+                Debug.Log($"Unrecognized event: ${playerCharacter.eventName}");
+                break;
         }
+    }
+
+    void QuitGame()
+    {
+        controllerHandler.SetAnimatorController(AnimatorControllerHandler.ControllerType.main, 0);
+        PlayerCharacter.control.Unlock();
+        playerCharacter.transform.position += Vector3.back;
+        GetComponent<FishingMinigame_Trigger>().QuitGame();
     }
 
     void SetTarget()
@@ -210,6 +228,7 @@ public class FishingMinigame : MonoBehaviour
         target.color = Color.red;
         gameMode = GameMode.lost;
         text.text = "You Lost";
+        anim.SetBool("Success", false);
         anim.SetTrigger("FinishGame");
     }
 
@@ -220,6 +239,7 @@ public class FishingMinigame : MonoBehaviour
         progress.sizeDelta = new Vector2(newSize, progress.sizeDelta.y);
         gameMode = GameMode.won;
         text.text = "You Won";
+        anim.SetBool("Success", true);
         anim.SetTrigger("FinishGame");
     }
 
