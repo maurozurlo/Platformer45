@@ -12,6 +12,7 @@ TagManager:
   - quest_1_completed
   - Ground
   - PushableObject
+  - MinigameTrigger
   layers:
   - Default
   - TransparentFX

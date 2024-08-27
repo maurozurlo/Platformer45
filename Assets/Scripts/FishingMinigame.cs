@@ -40,8 +40,23 @@ public class FishingMinigame : MonoBehaviour
     #endregion
 
     public GameObject rod;
+    private GameObject rodI;
     public Vector3 rodDisplacement;
     public Vector3 rodRotation;
+
+    #region UI
+    GameObject bgGo;
+    GameObject levelGo;
+    #endregion
+
+    public static FishingMinigame control;
+
+	#region Win
+	public List<GameObject> prizes = new List<GameObject>();
+    bool hasWon;
+    #endregion
+
+    Vector3 outPosition;
 
 	public enum GameMode
     {
@@ -62,8 +77,33 @@ public class FishingMinigame : MonoBehaviour
 
     public PressingState state = PressingState.idle;
 
-    void Start()
+    public GameObject minigameCam;
+
+    void Awake()
     {
+        if (!control)
+        {
+            control = this;
+        }
+
+        foreach (Transform child in transform)
+        {
+            if (child.name == "Bg")
+            {
+                bgGo = child.gameObject;
+            }
+            if (child.name == "Level")
+            {
+                levelGo = child.gameObject;
+            }
+        }
+    }
+
+    public void StartGame(Vector3 outPos, GameObject playerSpawn, GameObject dummyCamera)
+    {
+        HideShowUI(true);
+        minigameCam.GetComponent<Camera>().depth = 99;
+        outPosition = outPos;
         barWidth = GetComponent<RectTransform>().sizeDelta.x;
         indicatorRect = indicator.GetComponent<RectTransform>();
         targetRect = target.GetComponent<RectTransform>();
@@ -83,12 +123,20 @@ public class FishingMinigame : MonoBehaviour
         controllerHandler.SetAnimatorController(AnimatorControllerHandler.ControllerType.minigame, 0);
         anim = playerCharacter.anim;
 
+        playerCharacter.transform.position = playerSpawn.transform.position;
+        playerCharacter.transform.eulerAngles = playerSpawn.transform.eulerAngles;
+
+
         // Hand
         GameObject hand = playerCharacter.GetComponent<PlayerPartsHandler>().playerHandL;
-        GameObject rodI = Instantiate(rod, hand.transform);
+        rodI = Instantiate(rod, hand.transform);
         rodI.transform.localPosition = rodDisplacement;
         rodI.transform.localEulerAngles = rodRotation;
 
+
+        // Camera
+        minigameCam.transform.position = dummyCamera.transform.position;
+        minigameCam.transform.eulerAngles = dummyCamera.transform.eulerAngles;
     }
 
     void OnEnable()
@@ -110,7 +158,7 @@ public class FishingMinigame : MonoBehaviour
                 gameMode = GameMode.playing;
                 break;
             case "startEnd":
-                // TODO: Spawn fish or do something idk
+                StartEnd();               
                 break;
             case "endEnd":
                 QuitGame();
@@ -121,12 +169,36 @@ public class FishingMinigame : MonoBehaviour
         }
     }
 
+    void StartEnd()
+    {
+        // TODO: Spawn fish or do something idk
+        if (rodI)
+        {
+            Destroy(rodI);
+        }
+
+        // If we won, instantiate fish
+        if (hasWon)
+        {
+            // TODO: Get random prize from list, spawn it in player hand
+        }
+    }
+
     void QuitGame()
     {
+        HideShowUI(false);
         controllerHandler.SetAnimatorController(AnimatorControllerHandler.ControllerType.main, 0);
         PlayerCharacter.control.Unlock();
-        playerCharacter.transform.position += Vector3.back;
-        GetComponent<FishingMinigame_Trigger>().QuitGame();
+        playerCharacter.transform.position = outPosition;
+        GameObject[] gos = GameObject.FindGameObjectsWithTag("MinigameTrigger");
+        foreach (GameObject go in gos)
+        {
+            if (go.GetComponent<FishingMinigame_Trigger>()) // TODO: make this apply to all minigame triggers
+            {
+                go.GetComponent<FishingMinigame_Trigger>().StopPlaying();
+            }
+        }
+        minigameCam.GetComponent<Camera>().depth = -5;
     }
 
     void SetTarget()
@@ -230,6 +302,7 @@ public class FishingMinigame : MonoBehaviour
         text.text = "You Lost";
         anim.SetBool("Success", false);
         anim.SetTrigger("FinishGame");
+        hasWon = false;
     }
 
     void WinGame()
@@ -241,6 +314,7 @@ public class FishingMinigame : MonoBehaviour
         text.text = "You Won";
         anim.SetBool("Success", true);
         anim.SetTrigger("FinishGame");
+        hasWon = true;
     }
 
     void HideElements()
@@ -254,5 +328,11 @@ public class FishingMinigame : MonoBehaviour
         state = PressingState.idle;
         timer = 0f;
         target.color = startColor;
+    }
+
+    void HideShowUI(bool value)
+    {
+        bgGo.SetActive(value);
+        levelGo.SetActive(value);
     }
 }

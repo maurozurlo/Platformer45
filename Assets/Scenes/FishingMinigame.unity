@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &236872124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 80}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 500, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &236872125
@@ -210,8 +210,8 @@ GameObject:
   - component: {fileID: 507704501}
   - component: {fileID: 507704500}
   m_Layer: 0
-  m_Name: Cube (1)
-  m_TagString: Untagged
+  m_Name: Trigger
+  m_TagString: MinigameTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,6 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f56f9c91c58a244b94877e6929c98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 2019975232}
+  prizes: []
 --- !u!65 &507704501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -236,7 +238,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507704499}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -300,7 +302,7 @@ Transform:
   m_LocalScale: {x: 2.4762, y: 2.4762, z: 2.4762}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &535126808
 GameObject:
@@ -393,8 +395,82 @@ Transform:
   m_LocalScale: {x: 17.390009, y: 0.65210795, z: 17.390009}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1058406970
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3252638743368075277, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: m_Name
+      value: vThirdPersonCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252638743368350345, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252638743368350345, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252638743368350345, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252638743368350345, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252638743368350345, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252638743368350345, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252638743368350345, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252638743368350345, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252638743368350345, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252638743368350345, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -275.689
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252638743368350345, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252638743375228421, guid: d2606a92007193e41a00b3ce8786d538,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 2051836093}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d2606a92007193e41a00b3ce8786d538, type: 3}
 --- !u!1 &1094614863
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,8 +483,9 @@ GameObject:
   - component: {fileID: 1094614866}
   - component: {fileID: 1094614865}
   - component: {fileID: 1094614864}
+  - component: {fileID: 1094614868}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: FishingMinigameCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +564,7 @@ RectTransform:
   m_Children:
   - {fileID: 2035835615}
   - {fileID: 236872124}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1847183188}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -495,6 +572,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1094614868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094614863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a2737bb07cc4441a2c76beee4e0422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1373007095}
+  indicator: {fileID: 1426218989}
+  speed: 100
+  maxSpeed: 150
+  level: 0
+  holdTime: 0.15
+  progress: {fileID: 1510452517}
+  maxLevels: 3
+  text: {fileID: 1829045356}
+  goalColor: {r: 0.021493427, g: 0.6509434, b: 0.044981286, a: 1}
+  startColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  rod: {fileID: 1852255898736556332, guid: bc3969896e3725948bdd551e08efd7c4, type: 3}
+  rodDisplacement: {x: -0.043, y: 0.098, z: -0.132}
+  rodRotation: {x: 180, y: -80.3, z: 15.5}
+  prizes: []
+  gameMode: 0
+  state: 0
+  minigameCam: {fileID: 1635860878}
 --- !u!1 &1214635253 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9222749262239420235, guid: d443fb5cac868f84e868331d8acffa87,
@@ -516,7 +623,7 @@ PrefabInstance:
     - target: {fileID: 2799787520562654324, guid: d443fb5cac868f84e868331d8acffa87,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2799787520562654324, guid: d443fb5cac868f84e868331d8acffa87,
         type: 3}
@@ -886,7 +993,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1635860878
 GameObject:
@@ -898,23 +1005,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1635860881}
   - component: {fileID: 1635860880}
-  - component: {fileID: 1635860879}
   - component: {fileID: 1635860882}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: FishingMinigameCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1635860879
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635860878}
-  m_Enabled: 1
 --- !u!20 &1635860880
 Camera:
   m_ObjectHideFlags: 0
@@ -966,10 +1064,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635860878}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.9, z: 2.839261}
+  m_LocalPosition: {x: -1.2947631, y: -0.25000012, z: -4.600739}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1847183188}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1635860882
@@ -1118,6 +1216,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829045354}
   m_CullTransparentMesh: 0
+--- !u!1 &1847183187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1847183188}
+  m_Layer: 0
+  m_Name: FishingMinigame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1847183188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847183187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.2947631, y: 1.1500001, z: 7.44}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1635860881}
+  - {fileID: 1094614867}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1857781634 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8400453843944641603, guid: d443fb5cac868f84e868331d8acffa87,
@@ -1214,8 +1344,38 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &2019975232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2019975233}
+  m_Layer: 0
+  m_Name: spawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2019975233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019975232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.23, y: 1.03, z: 4.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2035835614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,15 +1387,13 @@ GameObject:
   - component: {fileID: 2035835615}
   - component: {fileID: 2035835618}
   - component: {fileID: 2035835617}
-  - component: {fileID: 2035835616}
-  - component: {fileID: 2035835619}
   m_Layer: 5
   m_Name: Bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2035835615
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1258,34 +1416,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2035835616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035835614}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13a2737bb07cc4441a2c76beee4e0422, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1373007095}
-  indicator: {fileID: 1426218989}
-  speed: 100
-  maxSpeed: 150
-  level: 0
-  holdTime: 0.15
-  progress: {fileID: 1510452517}
-  maxLevels: 3
-  text: {fileID: 1829045356}
-  goalColor: {r: 0.021493427, g: 0.6509434, b: 0.044981286, a: 1}
-  startColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
-  rod: {fileID: 1852255898736556332, guid: bc3969896e3725948bdd551e08efd7c4, type: 3}
-  rodDisplacement: {x: -0.043, y: 0.098, z: -0.132}
-  rodRotation: {x: 180, y: -80.3, z: 15.5}
-  gameMode: 0
-  state: 0
 --- !u!114 &2035835617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,15 +1453,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035835614}
   m_CullTransparentMesh: 0
---- !u!114 &2035835619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &2051836093 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2799787520636805302, guid: d443fb5cac868f84e868331d8acffa87,
+    type: 3}
+  m_PrefabInstance: {fileID: 1286648039}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035835614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9f56f9c91c58a244b94877e6929c98e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

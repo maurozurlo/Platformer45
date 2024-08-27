@@ -5,27 +5,25 @@ using UnityEngine;
 public class FishingMinigame_Trigger : MonoBehaviour
 {
 	bool isPlaying;
-	FishingMinigame fishingMinigame;
-
-	private void Start()
-	{
-		fishingMinigame = GetComponent<FishingMinigame>();
-	}
+	public GameObject spawnPoint; // TODO will be the point the player spawns to after minigame
+	public GameObject playerSpawnPoint;
+	public GameObject cameraPosition;
+	public List<GameObject> prizes = new List<GameObject>(); // TODO: list of possible prizes, will need to implement some sort of weighted table
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Player"))
+		if (other.CompareTag("Player") && !isPlaying)
 		{
-			fishingMinigame.enabled = true;
+			isPlaying = true;
+			FishingMinigame.control.StartGame(spawnPoint.transform.position, playerSpawnPoint, cameraPosition);
+			// TODO: Add prizes
+			// TODO: Add spawnPoint
 		}
 	}
 
-	public void QuitGame()
+	public void StopPlaying()
 	{
-		fishingMinigame.enabled = false;
+		isPlaying = false;
 	}
-
-
-
 
 }
