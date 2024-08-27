@@ -18,11 +18,9 @@ public class CameraShake : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        _originalPos = transform.localPosition;
     }
 
-    public static void Shake(float duration, float amount)
+	public static void Shake(float duration, float amount)
     {
         if (Instance != null)
         {
@@ -47,5 +45,10 @@ public class CameraShake : MonoBehaviour
         }
 
         transform.localPosition = _originalPos;
+    }
+
+    public void SetOriginalPosition(Vector3 pos)
+    {
+        _originalPos = pos;
     }
 }

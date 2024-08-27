@@ -12,6 +12,7 @@ public class FishingMinigame : MonoBehaviour
 
     RectTransform indicatorRect;
     RectTransform targetRect;
+    [SerializeField]
     private float startSpeed;
     public float speed;
     public float maxSpeed;
@@ -102,9 +103,20 @@ public class FishingMinigame : MonoBehaviour
     public void StartGame(Vector3 outPos, GameObject playerSpawn, GameObject dummyCamera)
     {
         HideShowUI(true);
+
+        gameMode = GameMode.waiting;
+        ResetPressingState();
+        progress.sizeDelta = new Vector2(0, progress.sizeDelta.y);
+        text.text = "";
+        speed = startSpeed;
+        hasWon = false;
+        level = 0;
+        
+
+
         minigameCam.GetComponent<Camera>().depth = 99;
         outPosition = outPos;
-        barWidth = GetComponent<RectTransform>().sizeDelta.x;
+        barWidth = bgGo.GetComponent<RectTransform>().sizeDelta.x;
         indicatorRect = indicator.GetComponent<RectTransform>();
         targetRect = target.GetComponent<RectTransform>();
         float indicatorWidth = indicatorRect.sizeDelta.x / 2;
@@ -133,10 +145,10 @@ public class FishingMinigame : MonoBehaviour
         rodI.transform.localPosition = rodDisplacement;
         rodI.transform.localEulerAngles = rodRotation;
 
-
         // Camera
         minigameCam.transform.position = dummyCamera.transform.position;
         minigameCam.transform.eulerAngles = dummyCamera.transform.eulerAngles;
+        minigameCam.GetComponent<CameraShake>().SetOriginalPosition(dummyCamera.transform.position);
     }
 
     void OnEnable()
@@ -186,8 +198,7 @@ public class FishingMinigame : MonoBehaviour
 
     void QuitGame()
     {
-        HideShowUI(false);
-        controllerHandler.SetAnimatorController(AnimatorControllerHandler.ControllerType.main, 0);
+        HideShowUI(false);        
         PlayerCharacter.control.Unlock();
         playerCharacter.transform.position = outPosition;
         GameObject[] gos = GameObject.FindGameObjectsWithTag("MinigameTrigger");
@@ -199,6 +210,7 @@ public class FishingMinigame : MonoBehaviour
             }
         }
         minigameCam.GetComponent<Camera>().depth = -5;
+        controllerHandler.SetAnimatorController(AnimatorControllerHandler.ControllerType.main, 0);
     }
 
     void SetTarget()
