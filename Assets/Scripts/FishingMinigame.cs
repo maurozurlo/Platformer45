@@ -12,6 +12,9 @@ public class FishingMinigame : MonoBehaviour
 
     RectTransform indicatorRect;
     RectTransform targetRect;
+    float startIndicatorWidth;
+    float startTargetWidth;
+
     [SerializeField]
     private float startSpeed;
     public float speed;
@@ -80,7 +83,13 @@ public class FishingMinigame : MonoBehaviour
 
     public GameObject minigameCam;
 
-    void Awake()
+    # region Prize
+    BasicItem reward;
+    #endregion
+
+    
+
+	void Awake()
     {
         if (!control)
         {
@@ -98,9 +107,17 @@ public class FishingMinigame : MonoBehaviour
                 levelGo = child.gameObject;
             }
         }
+
+
+
+        barWidth = bgGo.GetComponent<RectTransform>().sizeDelta.x;
+        indicatorRect = indicator.GetComponent<RectTransform>();
+        targetRect = target.GetComponent<RectTransform>();
+        startIndicatorWidth = indicatorRect.sizeDelta.x;
+        startTargetWidth = targetRect.sizeDelta.x;
     }
 
-    public void StartGame(Vector3 outPos, GameObject playerSpawn, GameObject dummyCamera)
+    public void StartGame(Vector3 outPos, GameObject playerSpawn, GameObject dummyCamera, BasicItem item)
     {
         HideShowUI(true);
 
@@ -111,18 +128,20 @@ public class FishingMinigame : MonoBehaviour
         speed = startSpeed;
         hasWon = false;
         level = 0;
-        
+        reward = item;
 
+        indicatorRect.sizeDelta = new Vector2(startIndicatorWidth, indicatorRect.sizeDelta.y);
+        targetRect.sizeDelta = new Vector2(startTargetWidth, targetRect.sizeDelta.y);
+        indicatorRect.anchoredPosition = new Vector2(0, indicatorRect.anchoredPosition.y);
 
         minigameCam.GetComponent<Camera>().depth = 99;
+        
         outPosition = outPos;
-        barWidth = bgGo.GetComponent<RectTransform>().sizeDelta.x;
-        indicatorRect = indicator.GetComponent<RectTransform>();
-        targetRect = target.GetComponent<RectTransform>();
-        float indicatorWidth = indicatorRect.sizeDelta.x / 2;
+        
+        float indicatorWidth = indicatorRect.sizeDelta.x;
         float validX = barWidth / 2 - indicatorWidth;
         indicatorMinMax = new Vector2(-validX, validX);
-
+        
         target.color = startColor;
         SetTarget();
 
@@ -211,6 +230,7 @@ public class FishingMinigame : MonoBehaviour
         }
         minigameCam.GetComponent<Camera>().depth = -5;
         controllerHandler.SetAnimatorController(AnimatorControllerHandler.ControllerType.main, 0);
+        
     }
 
     void SetTarget()
@@ -308,6 +328,7 @@ public class FishingMinigame : MonoBehaviour
     void LostGame()
     {
         HideElements();
+        reward = null;
         progress.sizeDelta = new Vector2(0, progress.sizeDelta.y);
         target.color = Color.red;
         gameMode = GameMode.lost;
@@ -327,12 +348,13 @@ public class FishingMinigame : MonoBehaviour
         anim.SetBool("Success", true);
         anim.SetTrigger("FinishGame");
         hasWon = true;
+        playerCharacter.GetComponent<PlayerInventory>().AddItem(reward);
     }
 
     void HideElements()
     {
-        targetRect.sizeDelta = Vector2.zero;
-        indicatorRect.sizeDelta = Vector2.zero;
+        targetRect.sizeDelta = new Vector2(0, targetRect.sizeDelta.y);
+        indicatorRect.sizeDelta = new Vector2(0, indicatorRect.sizeDelta.y);
     }
 
     void ResetPressingState()

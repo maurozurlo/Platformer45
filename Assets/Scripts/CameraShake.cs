@@ -39,12 +39,12 @@ public class CameraShake : MonoBehaviour
             float fakeDelta = Time.realtimeSinceStartup - timeAtLastFrame;
             timeAtLastFrame = Time.realtimeSinceStartup;
 
-            transform.localPosition = _originalPos + Random.insideUnitSphere * amount;
+            transform.position = _originalPos + Random.insideUnitSphere * amount;
 
             yield return null;
         }
 
-        transform.localPosition = _originalPos;
+        transform.position = _originalPos;
     }
 
     public void SetOriginalPosition(Vector3 pos)
