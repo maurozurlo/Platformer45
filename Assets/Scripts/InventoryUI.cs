@@ -5,13 +5,27 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public GameObject player;
-    Text textComponent;
+    bool isOpen;
 
-	private void Start()
+    [Header("Visuals")]
+    public Camera InventoryCamera;
+    public GameObject InventoryCanvas;
+    public GameObject InventoryCardUI;
+
+    private void Start()
 	{
-        textComponent = GetComponent<Text>();
         DrawUI(false);
+        // DEBUG
+        //ShowHideInventory();
+    }
+
+	private void Update()
+	{
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            // TODO: seguramente mas logica aca para ver si puedo abrirlo, pero por ahora da igual
+            ShowHideInventory();
+        }
     }
 
 	// Update is called once per frame
@@ -33,7 +47,7 @@ public class InventoryUI : MonoBehaviour
 
         string items = t.GetValue("ui_items", "Objetos: ");
         string canMergeItems = (itemsCanBeMerged ? t.GetValue("ui_items_combination", "Algunos objetos se pueden combinar") : "");
-        textComponent.text = items + totalItems.ToString() + itemsDetail + canMergeItems;
+        //textComponent.text = items + totalItems.ToString() + itemsDetail + canMergeItems;
     }
 
     string CheckIfPlural(string label, int amount){
@@ -42,5 +56,23 @@ public class InventoryUI : MonoBehaviour
         else
             return label;
     }
-    
+
+    void ShowHideInventory()
+    {
+        isOpen = !isOpen;
+
+        if (isOpen)
+        {
+            InventoryCamera.depth = 99;
+            InventoryCanvas.SetActive(true);
+            PlayerCharacter.control.Lock();
+        }
+        else
+        {
+            InventoryCamera.depth = -1;
+            InventoryCanvas.SetActive(false);
+            PlayerCharacter.control.Unlock();
+        }
+    }
+
 }

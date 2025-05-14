@@ -53,7 +53,7 @@ public class PlayerPartsHandler : MonoBehaviour
         //Dar pequeña force desde abajo a la head
         rb.AddForce(Vector3.up * 50);
         //Wait for seconds 1s
-        StartCoroutine("DetachHeadRoutine");
+        StartCoroutine(nameof(DetachHeadRoutine));
     }
     void AttachHead(){
         //Lockear player
@@ -61,9 +61,9 @@ public class PlayerPartsHandler : MonoBehaviour
         //desactivar roll head
         skull.GetComponent<RollHead>().enabled = false;
         //Desactivar camara
-        camSwitcher _camSwitcher = this.GetComponent<camSwitcher>();
-        _camSwitcher.isActive = false;
-        _camSwitcher.ChangeCamera(_camSwitcher.skullCamera,_camSwitcher.mainCamera);
+        CamSwitcher _camSwitcher = GetComponent<CamSwitcher>();
+        _camSwitcher.SwitchTo(CamSwitcher.CameraType.Main);
+        _camSwitcher.LockSwitching(true);
         //DesActivar SphereCollider
         skull.GetComponent<SphereCollider>().enabled = false;
         //DesActivar RB de la Head
@@ -80,7 +80,9 @@ public class PlayerPartsHandler : MonoBehaviour
 
     IEnumerator DetachHeadRoutine(){
         yield return new WaitForSeconds(1);
-        this.GetComponent<camSwitcher>().isActive = true;
+        CamSwitcher _camSwitcher = GetComponent<CamSwitcher>();
+        _camSwitcher.SwitchTo(CamSwitcher.CameraType.Skull);
+        _camSwitcher.LockSwitching(false);
         //Activar camSwitcher
         skull.GetComponent<RollHead>().enabled = true;
         //Activar rollHead;

@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public UnityEngine.UI.Text inventoryUI;
+    public InventoryUI inventoryUI;
     public List<BasicItem> crafteableItems = new List<BasicItem>();
     bool itemsCanBeMerged;
 
-    public void AddItem(BasicItem newItem)
+	public void AddItem(BasicItem newItem)
     {
         bool alreadyHaveItem = false;
         foreach (BasicItem item in gameControl.control.inventory)
@@ -28,7 +29,7 @@ public class PlayerInventory : MonoBehaviour
         // Check for mergeable items
         itemsCanBeMerged = CheckForMergeableItems();
         //Redibujar interfaz
-        inventoryUI.GetComponent<InventoryUI>().DrawUI(itemsCanBeMerged);
+        inventoryUI.DrawUI(itemsCanBeMerged);
     }
 
     bool CheckForMergeableItems()
@@ -73,6 +74,7 @@ public class PlayerInventory : MonoBehaviour
 	{
         if (Input.GetKeyDown(KeyCode.J))
         {
+            // TODO: esto se va a llamar desde InventoryUI
             MergeItems();
         }
 	}
@@ -141,14 +143,14 @@ public class PlayerInventory : MonoBehaviour
 
         itemsCanBeMerged = CheckForMergeableItems();
         //Redibujar interfaz
-        inventoryUI.GetComponent<InventoryUI>().DrawUI(itemsCanBeMerged);
+        inventoryUI.DrawUI(itemsCanBeMerged);
         
     }
 
     public void RemoveAllItems(){
         gameControl.control.inventory.Clear();
         //Redibujar interfaz
-        inventoryUI.GetComponent<InventoryUI>().DrawUI(false);
+        inventoryUI.DrawUI(false);
         
     }
 
@@ -162,4 +164,5 @@ public class PlayerInventory : MonoBehaviour
         //Si no se encontro, devuelve -1
         return -1;
     }
+
 }

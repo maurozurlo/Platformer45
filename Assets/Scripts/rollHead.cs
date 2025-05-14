@@ -15,6 +15,23 @@ public class RollHead : MonoBehaviour
     private Rigidbody rb;
     private int jumpsRemaining; // Number of jumps left
 
+    private Quaternion cameraRotation = Quaternion.identity; // 🌐 Starts aligned with world axes
+
+    void OnEnable()
+    {
+        CamControl.OnCameraRotated += HandleCameraRotated;
+    }
+
+    void OnDisable()
+    {
+        CamControl.OnCameraRotated -= HandleCameraRotated;
+    }
+
+    private void HandleCameraRotated(Quaternion rotation)
+    {
+        cameraRotation *= rotation; // Accumulate rotation
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,7 +41,7 @@ public class RollHead : MonoBehaviour
     void Update()
     {
         // Check for jump input
-        if (Input.GetButtonDown("Jump") && jumpsRemaining > 0)
+        if (Input.GetKeyDown(KeyCode.Keypad0) && jumpsRemaining > 0)
         {
             Jump();
         }
@@ -37,13 +54,24 @@ public class RollHead : MonoBehaviour
         float moveHorizontal = -Input.GetAxis("Horizontal2");
         float moveVertical = Input.GetAxis("Vertical2");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        Vector3 rawInput = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        Vector3 movement = cameraRotation * rawInput; // 🎯 Rotate input to match camera
 
-        rb.AddForce(movement * speed);
-
-        if (rb.velocity.magnitude > maxSpeed)
+        if (movement.magnitude > 0.01f)
         {
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+            rb.AddForce(movement * speed);
+
+            if (rb.velocity.magnitude > maxSpeed)
+            {
+                rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+            }
+        }
+        else
+        {
+            Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            Vector3 easedVelocity = Vector3.Lerp(horizontalVelocity, Vector3.zero, 0.1f);
+            rb.velocity = new Vector3(easedVelocity.x, rb.velocity.y, easedVelocity.z);
+            rb.angularVelocity = Vector3.Lerp(rb.angularVelocity, Vector3.zero, 0.1f);
         }
     }
 
