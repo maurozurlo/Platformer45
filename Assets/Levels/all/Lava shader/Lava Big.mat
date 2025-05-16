@@ -45,7 +45,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _FlowMap:
         m_Texture: {fileID: 2800000, guid: 6f69c6af0205556439ba73d144413aa2, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     - _Gradient:
         m_Texture: {fileID: 2800000, guid: 271f5ee3273dd7f4fae6e204d4f8c4bf, type: 3}
@@ -77,7 +77,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _UndoEffectTexture:
         m_Texture: {fileID: 2800000, guid: ee6dc1be456732d48b3c7bfa74fa6eb0, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
@@ -86,7 +86,7 @@ Material:
     - _Dissolveamount: 0.42899
     - _DstBlend: 0
     - _EffectPower: 1.664951
-    - _EmmisionStrench: 4.95
+    - _EmmisionStrench: 3.89
     - _Frensnel: 0
     - _FrensnelStranch: 1
     - _FrensnelStrench: 1
@@ -105,21 +105,21 @@ Material:
     - _Outlinestrench: 2
     - _Parallax: 0.02
     - _PowerOfLines: 1.512232
-    - _Relief: 0.1
+    - _Relief: 0.2
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: -0.6751511
     - _Spin: -1.499941
     - _SrcBlend: 1
-    - _Strench: 0.2
+    - _Strench: -0.05
     - _Strensh: 2
     - _Teseeellation: 1
-    - _TextureChangespeed: 0.05
+    - _TextureChangespeed: 0.0005
     - _TextureDistanse: 1
-    - _TextureStrench: 1
+    - _TextureStrench: 0.26
     - _UVSec: 0
-    - _U_Speed: 0.05
-    - _V_Speed: 0.025
+    - _U_Speed: 0.0002
+    - _V_Speed: 0.0002
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
