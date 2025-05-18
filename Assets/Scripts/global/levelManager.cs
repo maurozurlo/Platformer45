@@ -6,7 +6,7 @@ public class levelManager : MonoBehaviour
 {
     public static levelManager control;
     public List<BasicItem> itemPersistance;
-    public List<savePoint> savePoints;
+    public List<SavePoint> savePoints;
     public GameObject[] itemPrefabs;
     public GameObject player;
     
@@ -68,7 +68,7 @@ public class levelManager : MonoBehaviour
     {   
         foreach (var item in GameObject.FindGameObjectsWithTag("SavePoint"))
         {
-            savePoints.Add(item.GetComponent<savePoint>());
+            savePoints.Add(item.GetComponent<SavePoint>());
         }
     }
 

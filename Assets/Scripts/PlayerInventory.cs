@@ -29,7 +29,10 @@ public class PlayerInventory : MonoBehaviour
         // Check for mergeable items
         itemsCanBeMerged = CheckForMergeableItems();
         //Redibujar interfaz
-        inventoryUI.DrawUI(itemsCanBeMerged);
+        if (itemsCanBeMerged)
+        {
+            inventoryUI.DrawUI(itemsCanBeMerged);
+        }
     }
 
     bool CheckForMergeableItems()

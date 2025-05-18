@@ -23,4 +23,9 @@ public class Bob : MonoBehaviour
         float newY = startPosition.y + Mathf.Sin(timeElapsed) * amplitude;
         transform.position = new Vector3(startPosition.x, newY, startPosition.z);
     }
+
+    public void UpdateStartPosition(Vector3 newStartPos)
+    {
+        startPosition = newStartPos;
+    }
 }

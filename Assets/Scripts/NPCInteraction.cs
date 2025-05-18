@@ -6,7 +6,7 @@ using Invector;
 public class NPCInteraction : MonoBehaviour
 {
     public float waitTime = 1f;
-    public Vector3 cameraPos;
+    private Vector3 cameraPos;
     //GameObjects
     public GameObject dialogueUI;
     GameObject cameraPivot;
@@ -104,5 +104,10 @@ public class NPCInteraction : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         //Desbloqueamos al player
         
+    }
+
+    public Vector3 GetCameraPos()
+    {
+        return cameraPos;
     }
 }

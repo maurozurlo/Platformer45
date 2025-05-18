@@ -52,10 +52,13 @@ public class DialogueUI : MonoBehaviour
 		NPC = npc;
 		//Primero seteamos la camera
 		npcCamera.depth = 2;
-		npcCamera.transform.position = NPC.GetComponent<NPCInteraction>().cameraPos;
+		Vector3 newCameraPos = NPC.GetComponent<NPCInteraction>().GetCameraPos();
+		npcCamera.transform.position = newCameraPos;
+		npcCamera.GetComponent<Bob>().UpdateStartPosition(newCameraPos);
 		Vector3 v3 = new Vector3(0, NPC.transform.rotation.eulerAngles.y - 180, 0);
 		Quaternion qt = Quaternion.Euler(v3);
 		npcCamera.transform.rotation = qt;
+		
 
 		// Conseguimos el id del dialogue a mostrar
 		string dialogToStart = QuestManager.control.GetDialogueId(npcDialogue.quests);
@@ -80,7 +83,7 @@ public class DialogueUI : MonoBehaviour
 
 	public void DrawUI(int mainNode)
 	{
-		if (!checkIfNodeExists(mainNode))
+		if (!CheckIfNodeExists(mainNode))
 		{
 			EndChat();
 			return;
@@ -108,7 +111,7 @@ public class DialogueUI : MonoBehaviour
 		}
 	}
 
-	bool checkIfNodeExists(int mainNode)
+	bool CheckIfNodeExists(int mainNode)
 	{
 		if (mainNode < 0)
 			return false;
@@ -130,7 +133,6 @@ public class DialogueUI : MonoBehaviour
 
 	public void SetupOption(Button option, Option values, string text)
 	{
-
 		option.gameObject.SetActive(true);
 		option.GetComponentInChildren<Text>().text = text;
 		option.GetComponent<OptionUI>().action = values.action;

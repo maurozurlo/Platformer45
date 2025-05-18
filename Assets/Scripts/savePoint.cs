@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class savePoint : MonoBehaviour
+public class SavePoint : MonoBehaviour
 {
     public int savePointID;
 
@@ -8,6 +8,6 @@ public class savePoint : MonoBehaviour
     {
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position, 5);
+        Gizmos.DrawSphere(transform.position, 1.5f);
     }
 }
