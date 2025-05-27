@@ -9,15 +9,15 @@
       "nodes": [
         {
           "id": 0,
-          "text": "Hola Maki, bienvenido al último círculo del infierno. Desafortunadamente terminaste acá, pero podemos hacer un trato si te parece.",
+          "text": "Hola, Maki. Bienvenido al último círculo del infierno. Sí, el último. El fondo. Lo peor. Pero... podemos hacer un trato, si te interesa.",
           "options": [
             {
-              "text": "¿Por qué el último círculo del infierno?",
+              "text": "¿En serio? ¿EL ÚLTIMO? ¿Qué hice?",
               "_action": "goToNode",
               "value": 1
             },
             {
-              "text": "Sí, de una a lo del trato",
+              "text": "Sí, de una a lo del trato.",
               "_action": "goToNode",
               "value": 2
             }
@@ -25,15 +25,15 @@
         },
         {
           "id": 1,
-          "text": "Porque fuiste muy malo, qué se yo. Yo no tomo estas decisiones. En los otros círculos hay cangrejos. En este no.",
+          "text": "Ni idea, no me pagan por leer, yo solamente doy sentencias. Lo que sí te puedo decir es que en todos los otros círculos hay cangrejos. En este no.",
           "options": [
             {
-              "text": "¿Pero son importantes los cangrejos? no sé qué hacer con esa información",
+              "text": "¿Pero son importantes los cangrejos? no sé qué hacer con esa información.",
               "_action": "goToNode",
               "value": 3
             },
             {
-              "text": "Suficiente, contame del trato",
+              "text": "Suficiente, contame del trato.",
               "_action": "goToNode",
               "value": 2
             }
@@ -41,7 +41,7 @@
         },
         {
           "id": 2,
-          "text": "El trato consiste en que ayudes a otros esqueletos a demostrar su profesión. Si lo hacés te puedo pasar a un infierno más copado, con cangrejos.",
+          "text": "Te ofrezco un ascenso. Ayudá a otros esqueletos con sus miserias. Si cumplís, te paso a un círculo ligeramente mejor. Con cangrejos.",
           "options": [
             {
               "text": "¿Cómo hago?",
@@ -60,7 +60,7 @@
           "text": "O sea, los cangrejos son parte de la comida de muchos animales: Muchos otros animales comen cangrejos. Si no hubiera cangrejos, estos animales tendrían menos comida.",
           "options": [
             {
-              "text": "Más información sobre cangrejos por favor",
+              "text": "¿Podés ser más específico? más información sobre cangrejos por favor.",
               "_action": "goToNode",
               "value": 4
             }
@@ -71,7 +71,7 @@
           "text": "Los cangrejos también ayudan a limpiar el agua, construyen casas en la tierra y hacen agujeros en la arena. Esto crea hogares para otros animales pequeños. ",
           "options": [
             {
-              "text": "MÁS INFORMACIÓN SOBRE CANGREJOS Y SU IMPORTANCIA",
+              "text": "MÁS INFORMACIÓN SOBRE CANGREJOS Y SU IMPORTANCIA.",
               "_action": "goToNode",
               "value": 5
             }
@@ -79,10 +79,10 @@
         },
         {
           "id": 5,
-          "text": "Por último nos pueden decir si el agua está limpia o sucia: Algunos cangrejos solo pueden vivir en agua limpia. Si encontramos muchos cangrejos en un lugar, significa que el agua está sana.",
+          "text": "Por último nos pueden decir si el agua está limpia o sucia: Algunos cangrejos solo pueden vivir en agua limpia. En resumen: si ves cangrejos, estás en un lugar decente. Acá no hay. Así que ya sabés.",
           "options": [
             {
-              "text": "Creo que ya tuve suficiente, ahora hablame del trato",
+              "text": "Creo que ya tuve suficiente, ahora hablame del trato.",
               "_action": "goToNode",
               "value": 7
             }
@@ -90,7 +90,7 @@
         },
         {
           "id": 6,
-          "text": "Busca un esqueleto por la calle y hablale, seguramente te va a decir qué necesita y cómo lo podes ayudar",
+          "text": "Busca un esqueleto por la calle y hablale, seguramente te va a decir qué necesita y cómo lo podes ayudar. Escuchalos. Ayudalos. No la compliques.",
           "options": [
             {
               "text": "Perfecto, gg",
@@ -103,14 +103,14 @@
           "text": "Busca un esqueleto por la calle y hablale, seguramente te va a decir qué necesita y cómo lo podes ayudar",
           "options": [
             {
-              "text": "Basado en la información sobre cangrejos que obtuve, parece un buen trato",
-              "_action": "goToNode",
-              "value": 6
+              "text": "Suena razonable, dada la información sobre cangrejos que ahora manejo.",
+              "_action": "endChat",
+              "value": null
             },
             {
               "text": "Basado en la información sobre cangrejos que obtuve, no parece un buen trato.",
-              "_action": "goToNode",
-              "value": 6
+              "_action": "endChat",
+              "value": null
             }
           ]
         }
