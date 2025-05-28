@@ -12,11 +12,14 @@ public class InventoryUI : MonoBehaviour
     public GameObject InventoryCanvas;
     public GameObject InventoryCardUI;
 
+    CursorLockMode clm;
+    bool cursorVisible;
+
     private void Start()
 	{
         DrawUI(false);
         // DEBUG
-        //ShowHideInventory();
+        ShowHideInventory();
     }
 
 	private void Update()
@@ -47,7 +50,7 @@ public class InventoryUI : MonoBehaviour
 
         string items = t.GetValue("ui_items", "Objetos: ");
         string canMergeItems = (itemsCanBeMerged ? t.GetValue("ui_items_combination", "Algunos objetos se pueden combinar") : "");
-        //textComponent.text = items + totalItems.ToString() + itemsDetail + canMergeItems;
+        GetComponent<Text>().text = items + totalItems.ToString() + itemsDetail + canMergeItems;
     }
 
     string CheckIfPlural(string label, int amount){
@@ -64,13 +67,22 @@ public class InventoryUI : MonoBehaviour
         if (isOpen)
         {
             InventoryCamera.depth = 99;
-            InventoryCanvas.SetActive(true);
+            //Guardar cursor actual
+            clm = Cursor.lockState;
+            cursorVisible = Cursor.visible;
+
+            //Activar cursor
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            //InventoryCanvas.SetActive(true);
             PlayerCharacter.control.Lock();
         }
         else
         {
             InventoryCamera.depth = -1;
-            InventoryCanvas.SetActive(false);
+            //InventoryCanvas.SetActive(false);
+            Cursor.lockState = clm;
+            Cursor.visible = cursorVisible;
             PlayerCharacter.control.Unlock();
         }
     }
