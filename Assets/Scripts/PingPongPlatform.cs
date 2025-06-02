@@ -12,17 +12,28 @@ public class PingPongPlatform : MonoBehaviour
     private bool movingToEnd;
     private Transform playerTransform; // Reference to the player's Transform
 
+
+    public bool alwaysMove;
+    public bool alwaysParentPlayer = true;
+
+    [SerializeField] public bool DEBUG;
+
     private void Start()
     {
         currentTarget = endPosition;
         movingToEnd = true;
-        isMoving = false;
+        isMoving = alwaysMove;
 
         // Find the player GameObject and store its Transform
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         
         if (playerTransform == null){
             Debug.LogError("No GameObject with 'Player' tag found in the scene.");
+        }
+
+        if (DEBUG)
+        {
+            Debug.Log($"Start: {startPosition}, End: {endPosition}, Current: {transform.localPosition}");
         }
     }
 
@@ -41,12 +52,15 @@ public class PingPongPlatform : MonoBehaviour
         // Move the platform towards the current target position if it is currently moving
         if (isMoving)
         {
+            if (DEBUG)
+            {
+                Debug.Log("Platform moving toward " + currentTarget);
+            }
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, currentTarget, speed * Time.deltaTime);
-
+            
             // Check if we've reached the target position
             if (transform.localPosition == currentTarget)
             {
-                // Swap the target position
                 if (movingToEnd)
                 {
                     currentTarget = startPosition;
@@ -56,36 +70,41 @@ public class PingPongPlatform : MonoBehaviour
                     currentTarget = endPosition;
                 }
                 movingToEnd = !movingToEnd;
-                isMoving = false; // Platform has reached target position, so stop moving
+                isMoving = alwaysMove;
             }
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (!alwaysParentPlayer) return;
         Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-        // If the colliding object has a Rigidbody and isn't already a child of this platform
         if (rb != null && collision.gameObject.transform.parent != transform)
         {
-            // Make the colliding object a child of this platform
             collision.gameObject.transform.parent = transform;
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        // If the object leaving the platform was a child
+        if (!alwaysParentPlayer) return;
         if (collision.gameObject.transform.parent == transform)
         {
-            // Detach the object from this platform
             collision.gameObject.transform.parent = null;
         }
     }
 
-    // New method to move the platform from one position to the other
     public void MovePlatform()
     {
-        if (isMoving) return;
+        if (DEBUG)
+            Debug.Log("MovePlatform called");
+
+        if (isMoving)
+        {
+            if (DEBUG)
+                Debug.Log("Already moving, skipping");
+            return;
+        }
         isMoving = true;
     }
 }

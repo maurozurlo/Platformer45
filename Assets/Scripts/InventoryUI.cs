@@ -26,6 +26,8 @@ public class InventoryUI : MonoBehaviour
     CursorLockMode clm;
     bool cursorVisible;
 
+    [SerializeField] public bool debug;
+
 	private void Awake()
 	{
         if (control)
@@ -42,7 +44,10 @@ public class InventoryUI : MonoBehaviour
 	{
         DrawUI(false);
         // DEBUG
-        ShowHideInventory();
+        if (debug)
+        {
+            ShowHideInventory();
+        }
 
         // disable btns
     }
