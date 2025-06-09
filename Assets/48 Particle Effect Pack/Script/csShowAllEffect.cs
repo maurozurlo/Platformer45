@@ -6,12 +6,11 @@ public class csShowAllEffect : MonoBehaviour
     public string[] EffectNames;
     public string[] Effect2Names;
     public Transform[] Effect;
-    int i = 0;
-    int a = 0;
+    //int a = 0;
 
 
     void Start()
     {
-        Instantiate(Effect[i], new Vector3(0, 5, 0), Quaternion.identity);
+        Instantiate(Effect[0], new Vector3(0, 5, 0), Quaternion.identity);
     }
 }

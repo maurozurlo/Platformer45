@@ -11,7 +11,7 @@ public class PlayerPartsHandler : MonoBehaviour
     Quaternion headStartRotation;
 
     public static bool isPlayerNotComplete;
-    bool isTransition = false;
+    //bool isTransition = false;
 
     PlayerCharacter player;
 
@@ -39,7 +39,7 @@ public class PlayerPartsHandler : MonoBehaviour
     }
 
     void DetachHead(){
-        isTransition = true;
+        //isTransition = true;
         //Lockear player
         GetComponent<PlayerCharacter>().Lock();
         //Sacar el parent de skull
@@ -91,6 +91,6 @@ public class PlayerPartsHandler : MonoBehaviour
                 //Sacar el parent de skull
         skull.transform.parent = null;
         isPlayerNotComplete = true;
-        isTransition = false;
+        //isTransition = false;
     }
 }

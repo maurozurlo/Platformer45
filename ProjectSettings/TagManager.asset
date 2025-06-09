@@ -15,6 +15,7 @@ TagManager:
   - MinigameTrigger
   - Discoverable
   - MergeSlot
+  - Waypoint
   layers:
   - Default
   - TransparentFX
