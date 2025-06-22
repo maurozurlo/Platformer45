@@ -70,7 +70,7 @@ public class PlayerCharacter : MonoBehaviour
 		state = STATES.LOCKED;
 
 		//disable user inputs
-		Invector.CharacterController.vThirdPersonInput ccI = this.GetComponent<Invector.CharacterController.vThirdPersonInput>();
+		Invector.CharacterController.vThirdPersonInput ccI = GetComponent<Invector.CharacterController.vThirdPersonInput>();
 		ccI.enabled = false;
 
 		anim.SetFloat("InputVertical", 0);
@@ -79,7 +79,7 @@ public class PlayerCharacter : MonoBehaviour
 
 
 		//disable ThirsPerson Controller
-		Invector.CharacterController.vThirdPersonController cc = this.GetComponent<Invector.CharacterController.vThirdPersonController>();
+		Invector.CharacterController.vThirdPersonController cc = GetComponent<Invector.CharacterController.vThirdPersonController>();
 		cc.enabled = false;
 
 		//remove players velocity
@@ -103,11 +103,6 @@ public class PlayerCharacter : MonoBehaviour
 
 	}
 
-	public void TakeDamage()
-	{
-
-	}
-
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.R))
@@ -115,7 +110,7 @@ public class PlayerCharacter : MonoBehaviour
 			if (state == STATES.DEAD && gameControl.control.amountOfLives > 0)
 			{
 				gameControl.control.amountOfLives--;
-				respawnPlayer();
+				RespawnPlayer();
 			}
 			else if (state == STATES.DEAD && gameControl.control.amountOfLives == 0)
 			{
@@ -126,26 +121,21 @@ public class PlayerCharacter : MonoBehaviour
 
 
 
-	public void respawnPlayer()
+	public void RespawnPlayer()
 	{
 		state = STATES.LOCKED;
 		Unlock();
-		Rigidbody rb = this.GetComponent<Rigidbody>();
+		Rigidbody rb = GetComponent<Rigidbody>();
 		rb.useGravity = true;
 		rb.WakeUp();
-		GetComponent<AnimHandler>().resetCamera();
+		//GetComponent<PlayerWorldItemInteraction>().ResetCamera();
 		GetComponent<GeneralMessageUI>().HideMessageImmediatly();
 		levelManager.control.spawnPlayerOnSavePoint(gameControl.control.savePoint);
 	}
 
 	public void BeKilledInstantly()
 	{
-		Rigidbody rb = GetComponent<Rigidbody>();
-		rb.velocity = Vector3.zero;
-		rb.angularVelocity = Vector3.zero;
-		rb.useGravity = false;
-		rb.Sleep();
-		Lock();
+		LockPlayerInPlace();
 		health = 0;
 		state = STATES.DEAD;
 		string deadMessage = I18nManager.control.GetValue("ui_player_dead", "TE RE MORISTE PA \n APRETA \"R\" PARA VOLVER A JUGAR");
@@ -158,7 +148,17 @@ public class PlayerCharacter : MonoBehaviour
 		//levelManager.control.restartLevel(); TODO: Maybe reimplement in the future, dunno
 	}
 
-	public void TriggerEvent(string eventName)
+	public void LockPlayerInPlace()
+	{
+		Rigidbody rb = GetComponent<Rigidbody>();
+		rb.velocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
+		rb.useGravity = false;
+		rb.Sleep();
+		Lock();
+	}
+
+/*	public void TriggerEvent(string eventName)
 	{
 		Debug.Log(eventName);
 		if (onTriggerEvent != null)
@@ -168,5 +168,5 @@ public class PlayerCharacter : MonoBehaviour
 			Debug.Log(eventName);
 			
 		}
-	}
+	}/*/
 }

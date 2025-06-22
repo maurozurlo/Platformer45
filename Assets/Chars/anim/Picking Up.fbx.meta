@@ -52,9 +52,9 @@ ModelImporter:
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
+      keepOriginalPositionY: 0
       keepOriginalPositionXZ: 0
-      heightFromFeet: 0
+      heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
@@ -102,18 +102,29 @@ ModelImporter:
     normalSmoothingSource: 0
   referencedClips:
   - af5749c161aaf2c4f9b052075e130add
+  - 87a5a0ba80d855740a645ed482ff3700
   - afafcae1fb8ae764f84a80651ddc05e9
+  - d05deb2b299f6b9469d26a13a738dbc0
   - ed2a05ebf4a73ff49a0f82bf0d14c761
+  - 3a6fd2bfacc5569408d4d38405aefd51
   - 405410d4c06372144853944f2fb326b6
+  - 4cf13d8441f5854439200fe87097fe5a
+  - 101eb2d2129b7894f837c45f431aa6a9
+  - bf30d5bc30bc57e47a351f4f0d471b5f
+  - d885e9e3d20fdc844b9af83a153c4f19
   - 35c687478b66cc2438cfea6d00e0f369
   - ced6e25d63d1dd54aaf9a15668b9e0dd
   - 52cea7d11ad31414c8d2a3446378f791
   - b110d211315123143a85c2e33d19b303
+  - 675c63f7d06144a43a0ff79d6ecc792c
   - 57b30a3d94d60de43a61426d5acc3992
+  - bc9cd909ca3509d479ab8cd991686ae3
+  - 789b1cf4ada1a6d4b88acecc6e55672f
   - 08e931411e6747e479d803701a80d775
   - 4cf6b1c637f68f94d9bf57189a8dd509
   - 3529833ad25ddf945b2fbd1743baccea
   - 0165b557e11123a49b28c3eb23d5892e
+  - 3150718a79b23894e81a10bc637021c1
   - ef67d8896affec84d91cfa25e0fe47fe
   importAnimation: 1
   humanDescription:

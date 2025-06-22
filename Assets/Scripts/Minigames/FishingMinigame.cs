@@ -151,7 +151,7 @@ public class FishingMinigame : MonoBehaviour
         playerCharacter = PlayerCharacter.control;
         playerCharacter.Lock();
         controllerHandler = playerCharacter.GetComponent<AnimatorControllerHandler>();
-        controllerHandler.SetAnimatorController(AnimatorControllerHandler.ControllerType.minigame, 0);
+        controllerHandler.SetAnimatorController(2);
         anim = playerCharacter.anim;
 
         playerCharacter.transform.position = playerSpawn.transform.position;
@@ -229,7 +229,7 @@ public class FishingMinigame : MonoBehaviour
             }
         }
         minigameCam.GetComponent<Camera>().depth = -5;
-        controllerHandler.SetAnimatorController(AnimatorControllerHandler.ControllerType.main, 0);
+        controllerHandler.SetAnimatorController(0);
         
     }
 

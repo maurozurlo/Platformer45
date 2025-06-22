@@ -1315,6 +1315,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!1 &632546442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3252638743368075277, guid: d2606a92007193e41a00b3ce8786d538,
+    type: 3}
+  m_PrefabInstance: {fileID: 1058406970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &632546446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632546442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1bfe72fbc87d04e885296b53e91c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1526698289}
+  smoothCameraRotation: 12
+  cullingLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  lockCamera: 0
+  rightOffset: 0
+  defaultDistance: 2.5
+  height: 1.4
+  smoothFollow: 10
+  xMouseSensitivity: 3
+  yMouseSensitivity: 3
+  yMinLimit: -40
+  yMaxLimit: 80
+  indexList: 0
+  indexLookPoint: 0
+  offSetPlayerPivot: 0
+  currentStateName: 
+  currentTarget: {fileID: 0}
+  movementSpeed: {x: 0, y: 0}
 --- !u!64 &642527766
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2034,7 +2072,7 @@ PrefabInstance:
     - target: {fileID: 2799787520562654324, guid: d443fb5cac868f84e868331d8acffa87,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.45
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 2799787520562654324, guid: d443fb5cac868f84e868331d8acffa87,
         type: 3}
@@ -2044,7 +2082,7 @@ PrefabInstance:
     - target: {fileID: 2799787520562654324, guid: d443fb5cac868f84e868331d8acffa87,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.24
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: 2799787520562654324, guid: d443fb5cac868f84e868331d8acffa87,
         type: 3}
@@ -2414,8 +2452,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079ea630be3afcf4ba76a4efb930f623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameControllers:
-  - {fileID: 9100000, guid: f47e5490e115e244badddf71e358cde2, type: 2}
+  animationControllers: []
+--- !u!4 &1526698289 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2799787520562654324, guid: d443fb5cac868f84e868331d8acffa87,
+    type: 3}
+  m_PrefabInstance: {fileID: 1286648039}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &1526698302
 BoxCollider:
   m_ObjectHideFlags: 0
