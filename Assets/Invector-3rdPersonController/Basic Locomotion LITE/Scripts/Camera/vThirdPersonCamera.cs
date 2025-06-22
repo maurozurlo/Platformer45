@@ -72,7 +72,16 @@ public class vThirdPersonCamera : MonoBehaviour
     private float xMinLimit = -360f;
     private float xMaxLimit = 360f;
     private float cullingHeight = 0.2f;
-    private float cullingMinDist = 0.1f;
+    private float cullingMinDist = 0.4f;
+
+    [Tooltip("Use easing and delay before snapping the camera due to obstacles")]
+    public bool useSmoothSnapping = true;
+
+    [Tooltip("Delay before camera snaps to a closer distance when hitting an obstacle")]
+    public float snapDelay = 0.2f;
+
+    private float snapTimer = 0f;
+    private bool isSnapping = false;
 
     #endregion
 
@@ -168,10 +177,11 @@ public class vThirdPersonCamera : MonoBehaviour
     /// </summary>    
     void CameraMovement()
     {
+        float desiredDistance = defaultDistance;
         if (currentTarget == null)
             return;
 
-        distance = Mathf.Lerp(distance, defaultDistance, smoothFollow * Time.deltaTime);
+        distance = Mathf.Lerp(distance, desiredDistance, smoothFollow * Time.deltaTime);
         //_camera.fieldOfView = fov;
         cullingDistance = Mathf.Lerp(cullingDistance, distance, Time.deltaTime);
         var camDir = (forward * targetLookAt.forward) + (rightOffset * targetLookAt.right);
@@ -197,20 +207,45 @@ public class vThirdPersonCamera : MonoBehaviour
         }
 
         //Check if desired target position is not blocked       
-        if (CullingRayCast(desired_cPos, oldPoints, out hitInfo, distance + 0.2f, cullingLayer, Color.blue))
+        bool hitSomething = CullingRayCast(desired_cPos, oldPoints, out hitInfo, distance + 0.2f, cullingLayer, Color.blue);
+        
+
+        if (hitSomething)
         {
-            distance = hitInfo.distance - 0.2f;
-            if (distance < defaultDistance)
+            desiredDistance = hitInfo.distance - 0.2f;
+
+            if (desiredDistance < defaultDistance)
             {
-                var t = hitInfo.distance;
-                t -= cullingMinDist;
-                t /= cullingMinDist;
-                currentHeight = Mathf.Lerp(cullingHeight, height, Mathf.Clamp(t, 0.0f, 1.0f));
-                current_cPos = currentTargetPos + new Vector3(0, currentHeight, 0);
+                if (useSmoothSnapping)
+                {
+                    if (!isSnapping)
+                    {
+                        snapTimer += Time.deltaTime;
+                        if (snapTimer >= snapDelay)
+                        {
+                            isSnapping = true;
+                        }
+                    }
+                }
+                else
+                {
+                    isSnapping = true;
+                }
+
+                if (isSnapping)
+                {
+                    var t = hitInfo.distance;
+                    t -= cullingMinDist;
+                    t /= cullingMinDist;
+                    currentHeight = Mathf.Lerp(cullingHeight, height, Mathf.Clamp(t, 0.0f, 1.0f));
+                    current_cPos = currentTargetPos + new Vector3(0, currentHeight, 0);
+                }
             }
         }
         else
         {
+            snapTimer = 0f;
+            isSnapping = false;
             currentHeight = height;
         }
         //Check if target position with culling height applied is not blocked
