@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: '#02 Magic Apple'
   m_EditorClassIdentifier: 
   label: Magic Apple
+  description: Magical. Perfect for inventory systems in cozy or whimsical games.
   id: 2
   amount: 1
   itemPos: {x: 0, y: 0, z: 0}
-  hasBeenPickUp: 0
+  hasBeenPickedUp: 0
+  canBeCombinedWithItems: 
+  canBeMadeFromItems: []
+  sprite: {fileID: 21300000, guid: eeb923c61522aff46b7eb6a08d3d750f, type: 3}
+  isDroppable: 0
+  canBeEquippedInBody: 0
+  canBeEquippedInHead: 0

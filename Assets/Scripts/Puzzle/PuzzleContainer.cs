@@ -53,7 +53,7 @@ public class PuzzleContainer : MonoBehaviour
 
     void EnablePickup()
     {
-        item = GetComponentInChildren<vPickupItem>().gameObject;
+        item = GetComponentInChildren<PickupItem>().gameObject;
         item.GetComponent<SphereCollider>().isTrigger = true;
     }
 }

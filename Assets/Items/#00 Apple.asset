@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: '#00 Apple'
   m_EditorClassIdentifier: 
   label: Apple
+  description: Perfect for inventory systems in cozy or whimsical games.
   id: 0
-  amount: 1
-  itemPos: {x: 33.37, y: 18, z: -231.09}
-  hasBeenPickUp: 0
+  amount: 2
+  itemPos: {x: -2.002514, y: 0.87, z: -2.2792099}
+  hasBeenPickedUp: 0
+  canBeCombinedWithItems: 
+  canBeMadeFromItems: []
+  sprite: {fileID: 21300000, guid: eb960bd62a7228c49acbf117aafa24f3, type: 3}
+  isDroppable: 0
+  canBeEquippedInBody: 0
+  canBeEquippedInHead: 0

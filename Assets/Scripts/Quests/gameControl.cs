@@ -36,7 +36,7 @@ public class gameControl : MonoBehaviour
         completedQuests.Add(questID);
     }
 
-    public bool checkIfQuestIsCompleted(int questID){
+    public bool CheckIfQuestIsCompleted(int questID){
         if(completedQuests.Count > 0){
          foreach (int item in completedQuests)
             {
@@ -62,7 +62,7 @@ public class gameControl : MonoBehaviour
         savePoint = data.savePoint;
     }
 
-    public string returnPercentageCompleted(int completedQuests){
+    public string ReturnPercentageCompleted(int completedQuests){
         float a = completedQuests * 100 / questQuantity;
         return a + "%";
     }

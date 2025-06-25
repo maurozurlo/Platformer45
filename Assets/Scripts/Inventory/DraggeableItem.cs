@@ -23,9 +23,6 @@ public class DraggeableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 	Color defaultColor = Color.white;
 	Color selectedColor = new Color(.8f, .8f, .8f);
 
-	
-
-
 	private void Awake()
 	{
 		rect = GetComponent<RectTransform>();
@@ -56,6 +53,7 @@ public class DraggeableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 			rect.anchorMax = new Vector2(1, 1); // top-right
 			rect.offsetMin = Vector2.zero; // left + bottom
 			rect.offsetMax = Vector2.zero; // right + top
+			UnselectItem();
 		}
 		else
 		{
@@ -67,6 +65,7 @@ public class DraggeableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 
 	public void OnPointerDown(PointerEventData eventData)
     {
+		if (!item) return;
 		inventoryUI.HandleSelectItem(gameObject);
 		slotUI.color = selectedColor;
 		canBeDragged = true;
@@ -75,6 +74,7 @@ public class DraggeableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 	public void OnBeginDrag(PointerEventData eventData)
 	{
 		if (!canBeDragged) return;
+		if (!item) return;
 		canvasGroup.alpha = .8f;
 		canvasGroup.blocksRaycasts = false;
 		transform.SetParent(canvas.transform);
@@ -95,6 +95,12 @@ public class DraggeableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 	public BasicItem GetItem()
 	{
 		return item;
+	}
+
+	public void UnselectItem()
+	{
+		slotUI.color = defaultColor;
+		canBeDragged = false;
 	}
 
 }

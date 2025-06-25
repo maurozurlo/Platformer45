@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class vPickupItem : MonoBehaviour
+public class PickupItem : MonoBehaviour
 {
     AudioSource _audioSource;
     public AudioClip _audioClip;

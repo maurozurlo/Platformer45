@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class InventoryUI : MonoBehaviour
     public GameObject InventoryCardUI;
     public GameObject selectedItemUI;
     public BasicItem selectedItemInUI;
+    public List<DraggeableItem> draggeableItems = new List<DraggeableItem>();
 
 
     [Header("Buttons")]
@@ -28,7 +31,10 @@ public class InventoryUI : MonoBehaviour
 
     [SerializeField] public bool debug;
 
-	private void Awake()
+    private I18nManager t;
+
+
+    private void Awake()
 	{
         if (control)
         {
@@ -50,6 +56,7 @@ public class InventoryUI : MonoBehaviour
         }
 
         // disable btns
+        t = I18nManager.control;
     }
 
 	private void Update()
@@ -64,15 +71,35 @@ public class InventoryUI : MonoBehaviour
 	// Update is called once per frame
 	public void DrawUI(bool itemsCanBeMerged)
     {
-        List<BasicItem> inventory = gameControl.control.inventory;
+        List<BasicItem> inventory = gameControl.control.inventory.OrderBy(item => item.id) // consistent, non-localized sorting
+        .ToList();
         string itemsDetail = string.Empty;
         int totalItems = 0;
-
+        int idx = 0;
+        
         I18nManager t = I18nManager.control;
-        foreach (BasicItem item in inventory){
+        foreach (BasicItem item in inventory) {
             string itemName = t.GetValue($"item_{item.id}_item_name", item.label);
             itemsDetail += " " + CheckIfPlural(itemName, item.amount) + ": " + item.amount.ToString();
             totalItems += item.amount;
+            GameObject itemUI = draggeableItems[idx].gameObject;
+            draggeableItems[idx].SetItem(item);
+            itemUI.GetComponent<Image>().enabled = true;
+            // Amount UI
+            TextMeshProUGUI amountUI = itemUI.GetComponentInChildren<TextMeshProUGUI>();
+            if (item.sprite)
+            {
+                itemUI.GetComponent<Image>().sprite = item.sprite;
+            }
+            if (item.amount >= 2)
+            {
+                amountUI.text = item.amount.ToString();
+            }
+            else
+            {
+                amountUI.text = "";
+            }
+            idx++;
         }
         if(itemsDetail != ""){
             itemsDetail = ", " + itemsDetail;
@@ -118,6 +145,10 @@ public class InventoryUI : MonoBehaviour
 
     public void HandleSelectItem(GameObject itemUI)
     {
+        foreach (DraggeableItem item in draggeableItems)
+        {
+            item.UnselectItem();
+        }
         selectedItemUI = itemUI;
         selectedItemInUI = itemUI.GetComponent<DraggeableItem>().GetItem();
         DrawItemPanelUI();
@@ -125,11 +156,14 @@ public class InventoryUI : MonoBehaviour
 
     public void DrawItemPanelUI()
     {
-        if (!selectedItemUI) return;
+        if (selectedItemUI == null || selectedItemInUI == null) return;
 
-        itemTitle.text = selectedItemInUI.label;
-        // TODO: use localization
-        itemDescription.text = selectedItemInUI.description + "\n Cantidad: " + selectedItemInUI.amount.ToString();
+        string label = t.GetValue($"item_{selectedItemInUI.id}_item_name", selectedItemInUI.label);
+        string desc = t.GetValue($"item_{selectedItemInUI.id}_item_desc", selectedItemInUI.description);
+        string amountLabel = t.GetValue("global_amount", "Amount");
+
+        itemTitle.text = label;
+        itemDescription.text = $"{desc}\n{amountLabel}: {selectedItemInUI.amount}";
     }
 
 

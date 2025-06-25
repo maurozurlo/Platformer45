@@ -68,7 +68,7 @@ public class MenuUI : MonoBehaviour
             if(SaveLoadManager.checkIfSaveExists(i)){
             PlayerData data = SaveLoadManager.LoadPlayer(i);
             SGtitleUI[i-1].text =  "Lives: " + data.amountOfLives.ToString();
-            SGdescUI[i-1].text = "Percentage completed: " + gameControl.control.returnPercentageCompleted(data.questsCompleted.Count);
+            SGdescUI[i-1].text = "Percentage completed: " + gameControl.control.ReturnPercentageCompleted(data.questsCompleted.Count);
             }
             SGimgUI[i-1].GetComponent<Button>().interactable = SaveLoadManager.checkIfSaveExists(i);
             SGdelSaveUI[i-1].GetComponent<Button>().interactable = SaveLoadManager.checkIfSaveExists(i);
