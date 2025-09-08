@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gameControl : MonoBehaviour
+public class GameControl : MonoBehaviour
 {
-    public static gameControl control;
+    public static GameControl control;
     public int amountOfLives = 2;
     public int savePoint;
     public int questQuantity = 10;

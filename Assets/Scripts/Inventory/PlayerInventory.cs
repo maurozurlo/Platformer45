@@ -12,7 +12,7 @@ public class PlayerInventory : MonoBehaviour
 	public void AddItem(BasicItem newItem)
     {
         bool alreadyHaveItem = false;
-        foreach (BasicItem item in gameControl.control.inventory)
+        foreach (BasicItem item in GameControl.control.inventory)
         {
             if (item.id == newItem.id)
             {
@@ -23,7 +23,7 @@ public class PlayerInventory : MonoBehaviour
         if (!alreadyHaveItem)
         {
             BasicItem clone = Instantiate(newItem);
-            gameControl.control.inventory.Add(clone);
+            GameControl.control.inventory.Add(clone);
         }
 
         // Check for mergeable items
@@ -40,7 +40,7 @@ public class PlayerInventory : MonoBehaviour
         List<BasicItem> mergeableItems = new List<BasicItem>();
 
         // First, find items that can potentially be merged
-        foreach (BasicItem item in gameControl.control.inventory)
+        foreach (BasicItem item in GameControl.control.inventory)
         {
             if (item.canBeCombinedWithItems.Length >= 1)
             {
@@ -56,7 +56,7 @@ public class PlayerInventory : MonoBehaviour
             foreach (int mergeItemId in item.canBeCombinedWithItems)
             {
                 // Find the item in inventory that can be merged with 'item'
-                BasicItem mergeItem = gameControl.control.inventory.Find(invItem => invItem.id == mergeItemId && invItem.amount >= 1);
+                BasicItem mergeItem = GameControl.control.inventory.Find(invItem => invItem.id == mergeItemId && invItem.amount >= 1);
 
                 if (mergeItem != null)
                 {
@@ -86,7 +86,7 @@ public class PlayerInventory : MonoBehaviour
     {
         // Preprocess the inventory for efficient lookups
         Dictionary<int, BasicItem> inventoryLookup = new Dictionary<int, BasicItem>();
-        foreach (BasicItem invItem in gameControl.control.inventory)
+        foreach (BasicItem invItem in GameControl.control.inventory)
         {
             inventoryLookup[invItem.id] = invItem;
         }
@@ -131,15 +131,15 @@ public class PlayerInventory : MonoBehaviour
         //Si encontramos el item a eliminar...
         if (idToRemove != -1)
         {
-            if (gameControl.control.inventory[idToRemove].amount >= amount)
+            if (GameControl.control.inventory[idToRemove].amount >= amount)
             {
                 //Si tenemos más de lo que vamos a eliminar, mantenemos el item, pero bajamos la cantidad
-                gameControl.control.inventory[idToRemove].amount -= amount;
+                GameControl.control.inventory[idToRemove].amount -= amount;
 
-                if (gameControl.control.inventory[idToRemove].amount == 0)
+                if (GameControl.control.inventory[idToRemove].amount == 0)
                 {
                     //Tambien remover item, si el amount quedo en 0
-                    gameControl.control.inventory.RemoveAt(idToRemove);
+                    GameControl.control.inventory.RemoveAt(idToRemove);
                 }
             }
         }
@@ -151,7 +151,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     public void RemoveAllItems(){
-        gameControl.control.inventory.Clear();
+        GameControl.control.inventory.Clear();
         //Redibujar interfaz
         inventoryUI.DrawUI(false);
         
@@ -159,9 +159,9 @@ public class PlayerInventory : MonoBehaviour
 
     public int GetInventoryListIndexByID(int id){
         //Buscamos el item
-        for (int i = 0; i < gameControl.control.inventory.Count; i++)
+        for (int i = 0; i < GameControl.control.inventory.Count; i++)
         {
-            if (gameControl.control.inventory[i].id == id)
+            if (GameControl.control.inventory[i].id == id)
                 return i;
         }
         //Si no se encontro, devuelve -1

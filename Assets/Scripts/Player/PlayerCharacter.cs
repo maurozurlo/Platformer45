@@ -107,12 +107,12 @@ public class PlayerCharacter : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.R))
 		{
-			if (state == STATES.DEAD && gameControl.control.amountOfLives > 0)
+			if (state == STATES.DEAD && GameControl.control.amountOfLives > 0)
 			{
-				gameControl.control.amountOfLives--;
+				GameControl.control.amountOfLives--;
 				RespawnPlayer();
 			}
-			else if (state == STATES.DEAD && gameControl.control.amountOfLives == 0)
+			else if (state == STATES.DEAD && GameControl.control.amountOfLives == 0)
 			{
 				UnityEngine.SceneManagement.SceneManager.LoadScene(0, UnityEngine.SceneManagement.LoadSceneMode.Single);
 			}
@@ -130,7 +130,7 @@ public class PlayerCharacter : MonoBehaviour
 		rb.WakeUp();
 		//GetComponent<PlayerWorldItemInteraction>().ResetCamera();
 		GetComponent<GeneralMessageUI>().HideMessageImmediatly();
-		levelManager.control.spawnPlayerOnSavePoint(gameControl.control.savePoint);
+		levelManager.control.spawnPlayerOnSavePoint(GameControl.control.savePoint);
 	}
 
 	public void BeKilledInstantly()
@@ -139,9 +139,9 @@ public class PlayerCharacter : MonoBehaviour
 		health = 0;
 		state = STATES.DEAD;
 		string deadMessage = I18nManager.control.GetValue("ui_player_dead", "TE RE MORISTE PA \n APRETA \"R\" PARA VOLVER A JUGAR");
-		if (gameControl.control.amountOfLives > 0)
+		if (GameControl.control.amountOfLives > 0)
 			GetComponent<GeneralMessageUI>().DisplayMessage(deadMessage, 0f);
-		else if (gameControl.control.amountOfLives == 0)
+		else if (GameControl.control.amountOfLives == 0)
 		{
 			GetComponent<GeneralMessageUI>().DisplayMessage(deadMessage, 0f);
 		}

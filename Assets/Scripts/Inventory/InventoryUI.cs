@@ -71,7 +71,7 @@ public class InventoryUI : MonoBehaviour
 	// Update is called once per frame
 	public void DrawUI(bool itemsCanBeMerged)
     {
-        List<BasicItem> inventory = gameControl.control.inventory.OrderBy(item => item.id) // consistent, non-localized sorting
+        List<BasicItem> inventory = GameControl.control.inventory.OrderBy(item => item.id) // consistent, non-localized sorting
         .ToList();
         string itemsDetail = string.Empty;
         int totalItems = 0;

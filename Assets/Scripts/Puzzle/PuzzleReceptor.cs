@@ -13,9 +13,9 @@ public class PuzzleReceptor : MonoBehaviour
 
     private void Start()
     {
-        if (gameControl.control != null)
+        if (GameControl.control != null)
         {
-            GameObject player = gameControl.control.GetPlayerReference();
+            GameObject player = GameControl.control.GetPlayerReference();
             if (player != null)
             {
                 player.TryGetComponent(out inventory);
@@ -43,7 +43,7 @@ public class PuzzleReceptor : MonoBehaviour
         return questItems.TrueForAll(item =>
         {
             int itemId = inventory.GetInventoryListIndexByID(item.itemId);
-            return itemId != -1 && gameControl.control.inventory[itemId].amount >= item.amount;
+            return itemId != -1 && GameControl.control.inventory[itemId].amount >= item.amount;
         });
     }
 

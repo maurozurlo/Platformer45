@@ -81,7 +81,7 @@ public class QuestManager : MonoBehaviour
         {
             player.GetComponent<PlayerInventory>().AddItem(item);
         }
-        gameControl.control.AddCompletedQuest(currentQuestID);
+        GameControl.control.AddCompletedQuest(currentQuestID);
 
         // Show/Hide objects
         GameObject[] mapObjects = GameObject.FindGameObjectsWithTag($"quest_{currentQuestID}_completed");
@@ -121,7 +121,7 @@ public class QuestManager : MonoBehaviour
 
     BasicItem ItemInPlayerInventory(int id)
     {
-        foreach (BasicItem item in gameControl.control.inventory)
+        foreach (BasicItem item in GameControl.control.inventory)
         {
             if (item.id == id) return item;
         }
@@ -148,7 +148,7 @@ public class QuestManager : MonoBehaviour
             hasCompletedQuestNow = true;
         }
         // 2. Check if player has completed any of this NPC's quests
-        List<int> completedQuests = gameControl.control.completedQuests;
+        List<int> completedQuests = GameControl.control.completedQuests;
         bool hasCompletedQuestsPreviously = completedQuests.Any(quest => npcQuests.Contains(quest));
         // 3. Player hasn't completed any of this NPCs quests, return intro
         if (!hasCompletedQuestsPreviously)

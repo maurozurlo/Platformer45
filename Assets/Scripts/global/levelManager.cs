@@ -20,7 +20,7 @@ public class levelManager : MonoBehaviour
     void Start()
     {
         //saveItemPositions();
-        spawnPlayerOnSavePoint(gameControl.control.savePoint);
+        spawnPlayerOnSavePoint(GameControl.control.savePoint);
     }
 
     public void restartLevel()

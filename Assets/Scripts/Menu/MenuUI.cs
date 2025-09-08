@@ -68,7 +68,7 @@ public class MenuUI : MonoBehaviour
             if(SaveLoadManager.checkIfSaveExists(i)){
             PlayerData data = SaveLoadManager.LoadPlayer(i);
             SGtitleUI[i-1].text =  "Lives: " + data.amountOfLives.ToString();
-            SGdescUI[i-1].text = "Percentage completed: " + gameControl.control.ReturnPercentageCompleted(data.questsCompleted.Count);
+            SGdescUI[i-1].text = "Percentage completed: " + GameControl.control.ReturnPercentageCompleted(data.questsCompleted.Count);
             }
             SGimgUI[i-1].GetComponent<Button>().interactable = SaveLoadManager.checkIfSaveExists(i);
             SGdelSaveUI[i-1].GetComponent<Button>().interactable = SaveLoadManager.checkIfSaveExists(i);
@@ -77,8 +77,8 @@ public class MenuUI : MonoBehaviour
 
     public void LoadSaveGame(int slot){
         PlayerData data = SaveLoadManager.LoadPlayer(slot);
-        gameControl.control.Load(data);
-        SceneManager.LoadScene(gameControl.control.sceneIndex);
+        GameControl.control.Load(data);
+        SceneManager.LoadScene(GameControl.control.sceneIndex);
     }
 
     public void openModal(int slot){

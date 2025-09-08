@@ -7,7 +7,7 @@ using System.IO;
 
 public static class SaveLoadManager
 {
-    public static void SavePlayer(gameControl playerData, int slot)
+    public static void SavePlayer(GameControl playerData, int slot)
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream stream = new FileStream(Application.persistentDataPath + "player" + slot.ToString() + ".sav", FileMode.Create);
@@ -64,7 +64,7 @@ public class PlayerData
     public int amountOfLives;
     //Otras cosas seguramente...
 
-    public PlayerData(gameControl gControl)
+    public PlayerData(GameControl gControl)
     {
         savePoint = gControl.savePoint;
         questsCompleted = gControl.completedQuests;
