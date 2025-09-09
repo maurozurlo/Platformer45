@@ -28,6 +28,8 @@ public class PlayerPlatformer : MonoBehaviour
 
     private float currentSpeed;
 
+    public Vector3 displace = new Vector3();
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -60,6 +62,8 @@ public class PlayerPlatformer : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 inputDirection = new Vector3(horizontal, 0f, vertical).normalized;
+
+
         currentSpeed = 0;
         if (inputDirection.magnitude >= 0.1f)
         {
