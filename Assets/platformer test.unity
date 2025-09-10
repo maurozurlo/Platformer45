@@ -1165,12 +1165,17 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 10
   jumpHeight: 2
+  minJumpHeight: 1
   gravity: -9.81
   maxJumps: 2
   coyoteTime: 0.2
+  maxJumpTime: 0.35
+  jumpHoldForce: 25
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
-  displace: {x: 0, y: 0, z: 0}
+  dashSpeed: 15
+  dashTime: 0.2
+  dashCooldown: 1
 --- !u!143 &1633319532
 CharacterController:
   m_ObjectHideFlags: 0
