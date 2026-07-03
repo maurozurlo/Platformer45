@@ -1,0 +1,12 @@
+﻿Objeto,Componente de,Explicación,Mecánica,Notas,Ubicación
+Ramas,https://app.notion.com/p/210d96a049b6800bb527e9ed55503328?pvs=21,El vendedor de la tienda artística sugiere mezclar ramas con una sábana para armar un lienzo.,Interacción con árbol,Necesita animación para recolectar ramas del árbol.,Parque
+Vara,https://app.notion.com/p/210d96a049b680f4969aedfcf5e525b4?pvs=21,Púbol o un pickup de INFO.,Cavar o empujar,Podría estar trabada entre piedras o en un árbol seco; usar cabeza para alcanzarla.,Montaña
+Sábana,https://app.notion.com/p/210d96a049b6800bb527e9ed55503328?pvs=21,"El vendedor de la tienda artística lo menciona. Puede agregarse un pickup de INFO donde Maki diga: 'Che, creo que si me saco la cabeza puedo entrar por ahí.'",Entrar usando la cabeza,Colocar un símbolo <?> flotante cerca de la casa para indicar el acceso.,Interior de la Casa Azul
+Juego de té infernal (recipientes),Pinturas,,Plataformas / Puzzle,Se usan para guardar y mezclar las pinturas.,Interior del cementerio (mausoleo)
+Pluma,https://app.notion.com/p/210d96a049b680f4969aedfcf5e525b4?pvs=21,,Puzzle,"Puzzle con paloma, estilo zorro-cabra-repollo pero más complejo.",Santuario sintoísta
+Agua griega,Pinturas,Púbol,Sigilo,Puede haber un ítem estilo caja de Metal Gear que nos da el artista al completar el pincel.,Interior del restaurant
+Tinta de calamar (azul),Pinturas,"El vendedor dice que no puede alcanzarla, por eso no la vende.",Plataformas,Sistema complicado de tubos; tinta está en estante alto.,Interior de la tienda de pesca
+Tomate deshidratado (rojo),Pinturas,Cartel gigante en el restaurant aparece al conseguir el agua griega.,Plataformas,Cinta transportadora tipo sushi bar; puede ser complicado de implementar.,Interior del restaurant
+Azufre (amarillo),Pinturas,Vendedor de la tienda artística,Plataformas,—,Montaña
+Cenizas (negro),Pinturas,Los bomberos pueden decir que ayudan con problemas de fuego; diálogo cómico.,Puzzle,"Si Maki se tira al volcán, su cabeza se prende fuego. Puede usarse para quemar árboles o pastos cercanos.",Volcán / cuartel de bomberos / playa
+Pintura blanca,Pinturas,,Diálogo insistente,Inspirado en el puzzle del barco de Stan en Monkey Island 1.,Tienda artística

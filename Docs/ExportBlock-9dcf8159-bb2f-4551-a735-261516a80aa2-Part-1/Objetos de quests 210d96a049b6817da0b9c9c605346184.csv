@@ -1,0 +1,12 @@
+﻿Objeto,Ubicación,Mecánica,Componente de,Explicación,Notas
+Ramas,Parque,Interacción con árbol,https://app.notion.com/p/210d96a049b6800bb527e9ed55503328?pvs=21,El vendedor de la tienda artística sugiere mezclar ramas con una sábana para armar un lienzo.,Necesita animación para recolectar ramas del árbol.
+Sábana,Interior de la Casa Azul,Entrar usando la cabeza,https://app.notion.com/p/210d96a049b6800bb527e9ed55503328?pvs=21,"El vendedor de la tienda artística lo menciona. Puede agregarse un pickup de INFO donde Maki diga: 'Che, creo que si me saco la cabeza puedo entrar por ahí.'",Colocar un símbolo <?> flotante cerca de la casa para indicar el acceso.
+Vara,Montaña,Cavar o empujar,https://app.notion.com/p/210d96a049b680f4969aedfcf5e525b4?pvs=21,Púbol o un pickup de INFO.,Podría estar trabada entre piedras o en un árbol seco; usar cabeza para alcanzarla.
+Pluma,Santuario sintoísta,Puzzle,https://app.notion.com/p/210d96a049b680f4969aedfcf5e525b4?pvs=21,,"Puzzle con paloma, estilo zorro-cabra-repollo pero más complejo."
+Juego de té infernal (recipientes),Interior del cementerio (mausoleo),Plataformas / Puzzle,Pinturas,,Se usan para guardar y mezclar las pinturas.
+Agua griega,Interior del restaurant,Sigilo,Pinturas,Púbol,Puede haber un ítem estilo caja de Metal Gear que nos da el artista al completar el pincel.
+Tomate deshidratado (rojo),Interior del restaurant,Plataformas,Pinturas,Cartel gigante en el restaurant aparece al conseguir el agua griega.,Cinta transportadora tipo sushi bar; puede ser complicado de implementar.
+Azufre (amarillo),Montaña,Plataformas,Pinturas,Vendedor de la tienda artística,—
+Tinta de calamar (azul),Interior de la tienda de pesca,Plataformas,Pinturas,"El vendedor dice que no puede alcanzarla, por eso no la vende.",Sistema complicado de tubos; tinta está en estante alto.
+Pintura blanca,Tienda artística,Diálogo insistente,Pinturas,,Inspirado en el puzzle del barco de Stan en Monkey Island 1.
+Cenizas (negro),Volcán / cuartel de bomberos / playa,Puzzle,Pinturas,Los bomberos pueden decir que ayudan con problemas de fuego; diálogo cómico.,"Si Maki se tira al volcán, su cabeza se prende fuego. Puede usarse para quemar árboles o pastos cercanos."
