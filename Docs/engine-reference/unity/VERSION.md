@@ -2,56 +2,36 @@
 
 | Field | Value |
 |-------|-------|
-| **Engine Version** | Unity 6.3 LTS |
-| **Release Date** | December 2025 |
-| **Project Pinned** | 2026-02-13 |
-| **Last Docs Verified** | 2026-02-13 |
+| **Engine Version** | Unity 2022.3.62f3 (LTS) |
+| **Project Pinned** | 2026-07-03 |
 | **LLM Knowledge Cutoff** | May 2025 |
+| **Risk Level** | LOW — version is within LLM training data |
 
-## Knowledge Gap Warning
+## Note
 
-The LLM's training data likely covers Unity up to ~2022 LTS (2022.3). The entire
-Unity 6 release series (formerly Unity 2023 Tech Stream) introduced significant
-changes that the model does NOT know about. Always cross-reference this directory
-before suggesting Unity API calls.
+Unity 2022.3 LTS is within the LLM's training data. Engine reference docs are
+optional but can be added later if agents suggest incorrect APIs.
 
-## Post-Cutoff Version Timeline
+Run `/setup-engine refresh` to populate full reference docs at any time, or
+`/setup-engine upgrade 2022.3.62f3 <new-version>` if the project migrates to a
+newer Unity release (e.g. Unity 6.x), which WOULD introduce a knowledge gap.
 
-| Version | Release | Risk Level | Key Theme |
-|---------|---------|------------|-----------|
-| 6.0 | Oct 2024 | HIGH | Unity 6 rebrand, new rendering features, Entities 1.3, DOTS improvements |
-| 6.1 | Nov 2024 | MEDIUM | Bug fixes, stability improvements |
-| 6.2 | Dec 2024 | MEDIUM | Performance optimizations, new input system improvements |
-| 6.3 LTS | Dec 2025 | HIGH | First LTS since 6.0, production-ready DOTS, enhanced graphics features |
+## Project Facts (verified against project files, 2026-07-03)
 
-## Major Changes from 2022 LTS to Unity 6.3 LTS
-
-### Breaking Changes
-- **Entities/DOTS**: Major API overhaul in Entities 1.0+, complete redesign of ECS patterns
-- **Input System**: Legacy Input Manager deprecated, new Input System is default
-- **Rendering**: URP/HDRP significant upgrades, SRP Batcher improvements
-- **Addressables**: Asset management workflow changes
-- **Scripting**: C# 9 support, new API patterns
-
-### New Features (Post-Cutoff)
-- **DOTS**: Production-ready Entity Component System (Entities 1.3+)
-- **Graphics**: Enhanced URP/HDRP pipelines, GPU Resident Drawer
-- **Multiplayer**: Netcode for GameObjects improvements
-- **UI Toolkit**: Production-ready for runtime UI (replaces UGUI for new projects)
-- **Async Asset Loading**: Improved Addressables performance
-- **Web**: WebGPU support
-
-### Deprecated Systems
-- **Legacy Input Manager**: Use new Input System package
-- **Legacy Particle System**: Use Visual Effect Graph
-- **UGUI**: Still supported, but UI Toolkit recommended for new projects
-- **Old ECS (GameObjectEntity)**: Replaced by modern DOTS/Entities
+- **Input**: Legacy Input Manager (`Input.GetAxisRaw`, `Input.GetButtonDown`,
+  `KeyCode`). The new Input System package is NOT installed.
+- **UI**: uGUI + TextMeshPro (`com.unity.ugui`, `com.unity.textmeshpro`). UI
+  Toolkit is not used for runtime UI.
+- **Camera**: Cinemachine **2.10.3** (`com.unity.cinemachine`) — 2.x API, NOT
+  the 3.0+ API line introduced with Unity 6.
+- **2D**: `com.unity.2d.sprite`, `com.unity.2d.tilemap`.
+- **Navigation**: `com.unity.ai.navigation` 1.1.6.
+- **Not installed**: Addressables, DOTS/Entities, URP/HDRP (built-in render
+  pipeline), new Input System.
+- **Tooling**: `com.unity.test-framework` 1.1.33 (NUnit-based), Unity MCP
+  bridge (`com.coplaydev.unity-mcp`).
 
 ## Verified Sources
 
-- Official docs: https://docs.unity3d.com/6000.0/Documentation/Manual/index.html
-- Unity 6 release: https://unity.com/releases/unity-6
-- Unity 6.3 LTS announcement: https://unity.com/blog/unity-6-3-lts-is-now-available
-- Migration guide: https://docs.unity3d.com/6000.0/Documentation/Manual/upgrade-guides.html
-- Unity 6 support: https://unity.com/releases/unity-6/support
-- C# API reference: https://docs.unity3d.com/6000.0/Documentation/ScriptReference/index.html
+- Official manual (2022.3 LTS): https://docs.unity3d.com/2022.3/Documentation/Manual/index.html
+- Script reference (2022.3 LTS): https://docs.unity3d.com/2022.3/Documentation/ScriptReference/index.html
