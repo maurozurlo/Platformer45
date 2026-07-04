@@ -28,8 +28,9 @@ public class PlayerInventory : MonoBehaviour
 
         // Check for mergeable items
         itemsCanBeMerged = CheckForMergeableItems();
-        //Redibujar interfaz
-        if (itemsCanBeMerged)
+        //Redibujar interfaz siempre (antes solo se redibujaba si había merge posible,
+        // por eso los items recogidos no aparecían en el inventario)
+        if (inventoryUI != null)
         {
             inventoryUI.DrawUI(itemsCanBeMerged);
         }

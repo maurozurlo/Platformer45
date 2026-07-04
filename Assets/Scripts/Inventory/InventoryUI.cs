@@ -29,6 +29,10 @@ public class InventoryUI : MonoBehaviour
     CursorLockMode clm;
     bool cursorVisible;
 
+    // Cached on this same GameObject — used to actually show/hide the overlay.
+    Canvas inventoryCanvas;
+    GraphicRaycaster inventoryRaycaster;
+
     [SerializeField] public bool debug;
 
     private I18nManager t;
@@ -48,7 +52,15 @@ public class InventoryUI : MonoBehaviour
 
 	private void Start()
 	{
+        inventoryCanvas = GetComponent<Canvas>();
+        inventoryRaycaster = GetComponent<GraphicRaycaster>();
+
         DrawUI(false);
+
+        // Inventory starts closed/hidden. Opened with the I key (see Update).
+        isOpen = false;
+        SetInventoryVisible(false, false);
+
         // DEBUG
         if (debug)
         {
@@ -119,10 +131,28 @@ public class InventoryUI : MonoBehaviour
     void ShowHideInventory()
     {
         isOpen = !isOpen;
+        SetInventoryVisible(isOpen, true);
+    }
 
-        if (isOpen)
+    // Actually shows/hides the overlay. When the game runs as an overlay (not its own
+    // scene) we must toggle the Canvas itself — the camera depth alone is not enough,
+    // since a Screen Space - Overlay canvas renders regardless of any camera.
+    void SetInventoryVisible(bool visible, bool affectCursorAndPlayer)
+    {
+        if (inventoryCanvas != null) inventoryCanvas.enabled = visible;
+        if (inventoryRaycaster != null) inventoryRaycaster.enabled = visible;
+        // Push the inventory camera behind the main camera when closed so its
+        // background does not cover the game world.
+        if (InventoryCamera != null) InventoryCamera.depth = visible ? 99 : -1;
+
+        // Refresh the slots from the current inventory data every time we open,
+        // so items picked up while the inventory was closed show up.
+        if (visible) DrawUI(false);
+
+        if (!affectCursorAndPlayer) return;
+
+        if (visible)
         {
-            InventoryCamera.depth = 99;
             //Guardar cursor actual
             clm = Cursor.lockState;
             cursorVisible = Cursor.visible;
@@ -130,16 +160,13 @@ public class InventoryUI : MonoBehaviour
             //Activar cursor
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            //InventoryCanvas.SetActive(true);
-            PlayerCharacter.control.Lock();
+            if (PlayerCharacter.control != null) PlayerCharacter.control.Lock();
         }
         else
         {
-            InventoryCamera.depth = -1;
-            //InventoryCanvas.SetActive(false);
             Cursor.lockState = clm;
             Cursor.visible = cursorVisible;
-            PlayerCharacter.control.Unlock();
+            if (PlayerCharacter.control != null) PlayerCharacter.control.Unlock();
         }
     }
 

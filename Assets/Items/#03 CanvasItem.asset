@@ -13,13 +13,18 @@ MonoBehaviour:
   m_Name: '#03 CanvasItem'
   m_EditorClassIdentifier: 
   label: Lienzo
+  description: 
   id: 3
   amount: 1
   itemPos: {x: 0, y: 0, z: 0}
-  hasBeenPickUp: 0
+  hasBeenPickedUp: 0
   canBeCombinedWithItems: 
   canBeMadeFromItems:
   - itemId: 4
     amount: 1
   - itemId: 5
     amount: 1
+  sprite: {fileID: 21300000, guid: eeb923c61522aff46b7eb6a08d3d750f, type: 3}
+  isDroppable: 0
+  canBeEquippedInBody: 0
+  canBeEquippedInHead: 0

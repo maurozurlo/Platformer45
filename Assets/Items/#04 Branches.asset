@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: '#04 Branches'
   m_EditorClassIdentifier: 
   label: Ramas
+  description: 
   id: 4
   amount: 1
-  itemPos: {x: 46.19, y: 17.712, z: -148.66}
-  hasBeenPickUp: 0
+  itemPos: {x: -5.14, y: -7.87, z: -4.85}
+  hasBeenPickedUp: 0
   canBeCombinedWithItems: 05000000
   canBeMadeFromItems: []
+  sprite: {fileID: 21300000, guid: eeb923c61522aff46b7eb6a08d3d750f, type: 3}
+  isDroppable: 0
+  canBeEquippedInBody: 0
+  canBeEquippedInHead: 0

@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: '#08 FishingRod'
   m_EditorClassIdentifier: 
   label: "Ca\xF1a de pescar"
+  description: 
   id: 8
   amount: 1
-  itemPos: {x: 84.02776, y: 6.532, z: -6.6227593}
-  hasBeenPickUp: 0
+  itemPos: {x: 20.780014, y: -11.86, z: -21.529999}
+  hasBeenPickedUp: 0
   canBeCombinedWithItems: 07000000
   canBeMadeFromItems: []
+  sprite: {fileID: 21300000, guid: eeb923c61522aff46b7eb6a08d3d750f, type: 3}
+  isDroppable: 0
+  canBeEquippedInBody: 0
+  canBeEquippedInHead: 0

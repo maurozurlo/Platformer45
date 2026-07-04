@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: '#09 PotOfGold'
   m_EditorClassIdentifier: 
   label: Olla con monedas de oro
+  description: 
   id: 9
   amount: 1
   itemPos: {x: -100.01, y: 0.017085016, z: -228.55139}
-  hasBeenPickUp: 0
+  hasBeenPickedUp: 0
   canBeCombinedWithItems: 
   canBeMadeFromItems: []
+  sprite: {fileID: 21300000, guid: eeb923c61522aff46b7eb6a08d3d750f, type: 3}
+  isDroppable: 0
+  canBeEquippedInBody: 0
+  canBeEquippedInHead: 0

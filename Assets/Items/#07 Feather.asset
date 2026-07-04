@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: '#07 Feather'
   m_EditorClassIdentifier: 
   label: "Pluma de paloma demon\xEDaca"
+  description: 
   id: 7
   amount: 1
-  itemPos: {x: 0, y: 0, z: 0}
-  hasBeenPickUp: 0
+  itemPos: {x: -26.799988, y: -3.677, z: -12.892}
+  hasBeenPickedUp: 0
   canBeCombinedWithItems: 08000000
   canBeMadeFromItems: []
+  sprite: {fileID: 21300000, guid: eeb923c61522aff46b7eb6a08d3d750f, type: 3}
+  isDroppable: 0
+  canBeEquippedInBody: 0
+  canBeEquippedInHead: 0
