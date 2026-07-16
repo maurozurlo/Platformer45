@@ -21,20 +21,20 @@ stories:
     name: "Inventory in gameplay scene (persistent overlay prefab)"
     file: "production/stories/1-1-inventory-in-gameplay-scene.md"
     priority: must-have
-    status: review
+    status: done
     owner: ""
     estimate_days: 2
-    blocker: "fixed overlay show/hide (was always-visible + orange camera); needs manual play-test: Play, game visible at start, I toggles inventory"
-    completed: ""
+    blocker: ""
+    completed: "2026-07-03"
   - id: "1-2"
     name: "Wire up crafting/merge UI"
     file: "production/stories/1-2-wire-crafting-merge.md"
     priority: must-have
-    status: ready-for-dev
+    status: done
     owner: ""
     estimate_days: 2.5
-    blocker: "depends on 1-1"
-    completed: ""
+    blocker: ""
+    completed: "2026-07-03"
   - id: "1-3"
     name: "Blue House head-gate"
     file: "production/stories/1-3-blue-house-head-gate.md"
@@ -48,19 +48,19 @@ stories:
     name: "Gather points (branches, sheet)"
     file: "production/stories/1-4-gather-points.md"
     priority: must-have
-    status: ready-for-dev
+    status: done
     owner: ""
     estimate_days: 1
-    blocker: "depends on 1-1, 1-3"
-    completed: ""
+    blocker: ""
+    completed: "2026-07-03"
   - id: "1-5"
     name: "Púbol canvas questline end-to-end"
     file: "production/stories/1-5-pubol-questline.md"
     priority: must-have
-    status: ready-for-dev
+    status: review
     owner: ""
     estimate_days: 2
-    blocker: "depends on 1-2, 1-4"
+    blocker: "verified end-to-end via runtime test (intro->startQuest->ongoing->craft->payoff, lienzo consumed, quest 0 completed). Needs user's manual playthrough as final acceptance."
     completed: ""
   - id: "1-6"
     name: "Forgiving traversal assists"

@@ -42,24 +42,40 @@ public class DraggeableItem : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 	{
 		if (!canBeDragged) return;
 		canvasGroup.blocksRaycasts = true;
-		GameObject target = eventData.pointerEnter;
 		canvasGroup.alpha = 1f;
-		
 
+		GameObject target = eventData.pointerEnter;
 		if (target != null && target.CompareTag("MergeSlot"))
 		{
+			// Place this item into the merge slot.
 			transform.SetParent(target.transform);
-			rect.anchorMin = new Vector2(0, 0); // bottom-left
-			rect.anchorMax = new Vector2(1, 1); // top-right
-			rect.offsetMin = Vector2.zero; // left + bottom
-			rect.offsetMax = Vector2.zero; // right + top
+			rect.anchorMin = Vector2.zero;
+			rect.anchorMax = Vector2.one;
+			rect.offsetMin = Vector2.zero;
+			rect.offsetMax = Vector2.zero;
 			UnselectItem();
+			// Selection highlight follows the item into the merge slot.
+			Image mergeSlotImg = target.GetComponent<Image>();
+			if (mergeSlotImg != null) slotUI = mergeSlotImg;
 		}
 		else
 		{
-			transform.SetParent(parent);
-			rect.anchoredPosition = originalPos;
-			transform.SetSiblingIndex(childIndex);
+			ResetToSlot();
+		}
+	}
+
+	// Returns this item's UI element to its original grid slot. Called on a failed
+	// drag and by InventoryUI.DrawUI, so every redraw starts from a clean grid and
+	// items left in merge slots don't corrupt the index-based layout.
+	public void ResetToSlot()
+	{
+		transform.SetParent(parent);
+		rect.anchoredPosition = originalPos;
+		transform.SetSiblingIndex(childIndex);
+		if (parent != null)
+		{
+			Image parentImg = parent.GetComponent<Image>();
+			if (parentImg != null) slotUI = parentImg;
 		}
 	}
 

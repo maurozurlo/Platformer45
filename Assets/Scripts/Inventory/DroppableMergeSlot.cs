@@ -6,10 +6,9 @@ using UnityEngine.EventSystems;
 public class DroppableMergeSlot : MonoBehaviour, IDropHandler
 {
 
+	// Placement into the slot is handled by DraggeableItem.OnEndDrag (reparenting).
+	// Combining only happens when the player clicks the COMBINAR button.
 	public void OnDrop(PointerEventData eventData)
 	{
-		/*var draggable = eventData.pointerDrag;
-			draggable.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-			draggable.transform.SetParent(transform);/*/
 	}
 }

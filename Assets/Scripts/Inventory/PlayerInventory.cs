@@ -83,8 +83,10 @@ public class PlayerInventory : MonoBehaviour
         }
 	}
 
-    void MergeItems()
+    public bool MergeItems()
     {
+        bool craftedSomething = false;
+
         // Preprocess the inventory for efficient lookups
         Dictionary<int, BasicItem> inventoryLookup = new Dictionary<int, BasicItem>();
         foreach (BasicItem invItem in GameControl.control.inventory)
@@ -120,8 +122,35 @@ public class PlayerInventory : MonoBehaviour
                     RemoveItem(requiredItem.itemId, requiredItem.amount);
                 }
                 AddItem(clone);
+                craftedSomething = true;
             }
         }
+
+        return craftedSomething;
+    }
+
+    // Combines exactly two items (the ones placed in the two merge slots) into
+    // their recipe result, consuming both. Returns true if a valid recipe existed.
+    public bool CombineTwo(BasicItem a, BasicItem b)
+    {
+        if (a == null || b == null) return false;
+
+        foreach (BasicItem craftable in crafteableItems)
+        {
+            QuestItem[] recipe = craftable.canBeMadeFromItems;
+            if (recipe == null || recipe.Length != 2) continue;
+
+            bool matches =
+                (recipe[0].itemId == a.id && recipe[1].itemId == b.id) ||
+                (recipe[0].itemId == b.id && recipe[1].itemId == a.id);
+            if (!matches) continue;
+
+            RemoveItem(recipe[0].itemId, recipe[0].amount);
+            RemoveItem(recipe[1].itemId, recipe[1].amount);
+            AddItem(Instantiate(craftable));
+            return true;
+        }
+        return false;
     }
 
     public void RemoveItem(int itemID, int amount)

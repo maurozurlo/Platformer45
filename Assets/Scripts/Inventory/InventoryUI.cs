@@ -69,6 +69,37 @@ public class InventoryUI : MonoBehaviour
 
         // disable btns
         t = I18nManager.control;
+
+        // Wire the COMBINAR button to craft from the current inventory.
+        Transform mergeBtnTransform = transform.Find("Panel/Slots/MergeBtn");
+        if (mergeBtnTransform != null)
+        {
+            Button mergeBtn = mergeBtnTransform.GetComponent<Button>();
+            if (mergeBtn != null) mergeBtn.onClick.AddListener(OnCombinePressed);
+        }
+    }
+
+    // Called by the COMBINAR button. Combines exactly the item in the top merge
+    // slot with the item in the bottom merge slot, if they form a recipe.
+    public void OnCombinePressed()
+    {
+        BasicItem itemA = GetItemInMergeSlot("Panel/Slots/Merge1");
+        BasicItem itemB = GetItemInMergeSlot("Panel/Slots/Merge2");
+        if (itemA == null || itemB == null) return; // need one item in each slot
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return;
+        PlayerInventory inv = player.GetComponent<PlayerInventory>();
+        if (inv != null) inv.CombineTwo(itemA, itemB);
+    }
+
+    // Returns the item currently dragged into the given merge slot, or null.
+    BasicItem GetItemInMergeSlot(string slotPath)
+    {
+        Transform slot = transform.Find(slotPath);
+        if (slot == null) return null;
+        DraggeableItem dragged = slot.GetComponentInChildren<DraggeableItem>();
+        return dragged != null ? dragged.GetItem() : null;
     }
 
 	private void Update()
@@ -89,6 +120,17 @@ public class InventoryUI : MonoBehaviour
         int totalItems = 0;
         int idx = 0;
         
+        // Reset every slot back to the grid and clear it before refilling, so items
+        // dragged into merge slots (or slots that are now empty) don't leave stale
+        // icons/amounts behind.
+        foreach (DraggeableItem slot in draggeableItems)
+        {
+            slot.ResetToSlot();
+            Image slotImg = slot.GetComponent<Image>();
+            if (slotImg != null) slotImg.enabled = false;
+            slot.SetItem(null);
+        }
+
         I18nManager t = I18nManager.control;
         foreach (BasicItem item in inventory) {
             string itemName = t.GetValue($"item_{item.id}_item_name", item.label);
